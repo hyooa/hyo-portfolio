@@ -1,0 +1,165 @@
+/* ㅡㅡㅡㅡㅡ header ㅡㅡㅡㅡㅡ */
+* {
+    padding: 0;
+    margin: 0 auto;
+    box-sizing: border-box;
+    color: #222;
+}
+body {
+    background-color: #e6e2dd;
+}
+li {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+#menu {
+    position: fixed;
+    top: 30px;
+    left: 30px;
+}
+#menu span{
+    display: flex;
+    background-color: #222;
+    width: 40px;
+    height: 4px;
+    margin-bottom: 5px;
+}
+#menu:hover span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 7px);
+    transition: 0.5s;
+}
+#menu:hover span:nth-child(2) {
+    opacity: 0;
+    transition: 0.5s;
+}
+#menu:hover span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -7px);
+    transition: 0.5s;
+}
+/* #menu:hover span:nth-child(1) {
+    transform: rotate(45deg) translate(2px, 3px);
+    transition: 0.5s;
+}
+#menu:hover span:nth-child(2) {
+    display: none;
+}
+#menu:hover span:nth-child(3) {
+    transform: rotate(-45deg) translate(2px, -5px);
+    transition: 0.5s;
+} */
+
+
+#menu p {
+    font-size: 14px;
+    text-align: center;
+}
+
+#menu_toggle {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #001350 ;
+    z-index: 10;
+}
+#toggle {
+    position: absolute;
+    top: 0;
+    right: -0%;
+    transform: translate(-50%, 50%);
+}
+#toggle li {
+    color: #fff;
+    font-size: 48px;
+    font-weight: 900;
+}
+
+/* ㅡㅡㅡㅡㅡ main ㅡㅡㅡㅡㅡ */
+#main {
+    margin-bottom: 100px;
+}
+#main_text {
+    padding: 80px 0;
+    font-size: 120px;
+    text-align: center;
+    max-width: 1600px;
+    /* border-bottom: 1px solid #555; */
+}
+#daepyo {
+    display: flex;
+    justify-content: space-around;
+    max-width: 1600px;
+}
+#daepyo > div {
+    width: 50%;
+    padding: 50px 0;
+    text-align: center;
+}
+#daepyo img {
+    padding-top: 30px;
+}
+#daepyo #Boehly img {
+    width: 320px;
+    height: 380px;
+    transition: 0.5s;
+}
+#daepyo #Tuchel img {
+    width: 350px;
+    height: 380px;
+    transition: 0.5s;
+}
+#daepyo div {
+    position: relative;
+}
+#daepyo #img {
+    width: 45%;
+}
+#daepyo #img p {
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    text-shadow: 1px 1px 2px #222;
+    font-size: 23px;
+    opacity: 0;
+    transition: 0.3s;
+}
+#daepyo #img p::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 2px;
+    background-color: #fff;
+    box-shadow: 1px 1px 2px #222;
+    /* transition: 0.5s; */
+}
+#daepyo > div:nth-child(1) {
+    /* border-right: 1px solid #555; */
+}
+#daepyo > div p {
+    font-size: 18px;
+    padding-top: 30px;
+}
+#daepyo img:hover {
+    transform: scale(1.4);
+    background: radial-gradient(#777, #222);
+    transition: 0.5s;
+    z-index: 5;
+}
+#daepyo #img:hover p {
+    opacity: 1;
+    transition: 0.5s;
+    width: 100%;
+}
+#daepyo #img:hover p::after {
+    width: 50%;
+    margin: 0 auto;
+    transition: 0.5s;
+}
+
+/* ㅡㅡㅡㅡㅡ footer ㅡㅡㅡㅡㅡ */
