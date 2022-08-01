@@ -1,9 +1,12 @@
 import React, { useEffect, useRef } from 'react';
+import styled from 'styled-components';
 import './main.css';
 
 const Main = () => {
 
+
     return (
+        <div id='main_scroll'>
             <div id='main'>
                 <div id='main_text'>
                     <div id='text_left'>
@@ -27,7 +30,10 @@ const Main = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> 
+            <div id='main2'></div>
+            <div id='main3'></div>
+        </div>
     );
 };
 

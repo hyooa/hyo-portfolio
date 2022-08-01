@@ -1,0 +1,104 @@
+@keyframes updown {
+    0%{
+        bottom : 30px;
+    }
+    50%{
+        bottom : 40px;
+    }
+    100%{
+        bottom : 30px;
+    }
+}
+
+#player{
+    align-items: center;
+    height: 100vh;
+    display: flex;
+    #player_poto {
+        position: fixed;
+        width: 60%;
+        text-align: center;
+        height: 100%;
+        #one {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 1%;
+            left: 15%;
+            width: 70%;
+            height: 140%;
+            border-radius: 500px;
+            min-width: 500px;
+            background-color: #001350;
+        }
+        #scrollBar {
+            position: absolute;
+            bottom: 0%;
+            right: 5%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            flex-direction: column;
+            span {
+                position: absolute;
+                bottom: 30px;
+                right: -10px;
+                color: #fff;
+                font-size: 24px;
+                animation: updown 1.3s linear infinite alternate;
+            }
+        }
+        > div {
+            border-radius: 500px 500px 0 0;
+            overflow:scroll;
+            width: 70%;
+            height: 100vh;
+            position: absolute;
+            top: 1%;
+            left: 15%;
+            &::-webkit-scrollbar {
+                display: none;
+            }
+            #player_text {
+                margin: 40px auto;
+                text-align: left;
+                th {
+                    width: 50%;
+                    font-size: 20px;
+                }
+                td {
+                    font-size: 18px;
+                }
+                table tr th, td {
+                    color: #fff;
+                    padding: 10px 0;
+                }
+            }
+        }
+        img {
+            height: 100%;
+        }
+    }
+    #player_right {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 40%;
+    }
+    ul {
+        margin: 50px 0;
+        background-color: #001350;
+        border-bottom: 1px solid #fff;
+        text-align: center;
+        li {
+            font-size: 48px;
+            font-weight: 900;
+            transition: 0.3s;
+            color: #fff;
+            &:hover {
+                font-size: 60px;
+                transition: 0.3s ease-in-out;
+                text-decoration: 30px rgba(255, 255, 0, 0.709) line-through;
+            }
+        }
+    }
+}

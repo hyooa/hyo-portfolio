@@ -1,0 +1,116 @@
+#joinStyled {
+    margin : 0 auto;
+    text-align : center;
+    align-items: center;
+    margin-top: 50px;
+    img {
+        opacity: 0.1;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 49%;
+    }
+}
+#joinText {
+    padding: 50px 0;
+    h1 {
+        font-size: 100px;
+        font-weight: 900;
+    }
+}
+#join {
+    max-width: 1200px;
+    table {
+        tr {
+            position: relative;
+            width: 100%;
+        }
+        th {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: #e6e2dd;
+            padding: 0 10px;
+        }
+        input {
+            outline: none;
+            border: 1px solid #333;
+            background: none;
+            margin: 30px 0;
+            font-size: 16px;
+            width: 700px;
+            height: 80px;
+            text-align: center;
+        }
+    }
+}
+#joinPhone td input {
+    width: 31.8%;
+}
+#joinAdd td {
+    button {
+        background-color: #0123B4;
+        color: #fff;
+        padding: 8px 10px;
+        outline: none;
+        border: none;
+        margin-left: 20px;
+        cursor: pointer;
+    }
+    input {
+        width: 310px;
+        margin-bottom: 50px;
+        &:nth-child(1) {
+            margin-right: 10px;
+        }
+    }
+}
+#joinBox {
+    th {
+        margin-top: -30px;
+    }
+    td {
+        border: 1px solid #000;
+        input {
+            width: 20px;
+            height: 20px;
+            vertical-align: middle;
+            &:nth-child(1) {
+                margin-right: 100px;
+            }
+        }
+    }
+}
+#joinBtn {
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 100px;
+    border: 2px solid yellow;
+    width: 130px;
+    height: 60px;
+    position: relative;
+    &:hover{
+        border-color: #e6e2dd;
+        transition: 0.5s;
+    }
+    button {
+        background-color: #0123B4;
+        color: #fff;
+        outline: none;
+        border: none;
+        width: 130px;
+        height: 60px;
+        font-size: 16px;
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        transition: 0.3s;
+        cursor: pointer;
+    }
+    &:hover button {
+        top: 0px;
+        left: 0px;
+        transition: 0.3s;
+        background-color: #001350;
+    }
+}
