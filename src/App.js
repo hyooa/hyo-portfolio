@@ -1,7 +1,7 @@
 import React, {useRef, useEffect} from 'react';
 import { Routes, Route } from 'react-router-dom';
 import './App.css';
-import Footer from './include/Footer';
+// import Footer from './include/Footer';
 import Header from './include/Header';
 import Join from './login/Join';
 import Login from './login/Login';
@@ -91,7 +91,7 @@ const mouseMoveEvent = (e) => { // MoveEvent
         <Route path="/join" element={<Join />} />
         <Route path="/player" element={<Player />} />
       </Routes>
-      <Footer></Footer>
+      {/* <Footer></Footer> */}
     </div>
   );
 }
