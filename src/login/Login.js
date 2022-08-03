@@ -56,7 +56,7 @@ const LoginBtn = styled.div `
             transition: 0.5s;
         }
         button {
-            background-color: #0123B4;
+            background-color: #001489;
             color: #fff;
             outline: none;
             border: none;

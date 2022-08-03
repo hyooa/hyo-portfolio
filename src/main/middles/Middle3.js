@@ -1,4 +1,6 @@
 import React from 'react';
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination } from "swiper";
 import { Carousel } from 'antd';
 
 const Middle3 = () => {
@@ -7,130 +9,49 @@ const Middle3 = () => {
                 <div>
                     <h2>Fixtures & Results</h2>
                     <div id='main3_icon'>
-                        {/* <MdDoubleArrow size='50'/> */}
                     </div>
                 </div>
                 <div id='main3_box'>
                     <img src='./image/logo.png' alt=''></img>
                     <div id='match'>
                         <div id='boxText'>Fixtures</div>
-                        <Carousel autoplay>
-                            <div id='slider'>
-                                <div id='matchDiv'>
-                                    <div id='matchTime'>
-                                        <div>
-                                            <h3>DAY</h3>
-                                            <p>60</p>
-                                        </div>
-                                        <div>
-                                            <h3>HOUR</h3>
-                                            <p>1</p>
-                                        </div>
-                                        <div>
-                                            <h3>MINUTE</h3>
-                                            <p>40</p>
-                                        </div>
-                                        <div>
-                                            <h3>SECOND</h3>
-                                            <p>59</p>
-                                        </div>
-                                    </div>
-                                    <div id='matchImg'>
-                                        <div>
-                                            <img src='./image/logo.png' alt=''></img>
-                                            <p className='teamName'>Udinese</p>
-                                        </div>
-                                        <div id='matchBox'>
-                                            <p>17:30</p>
-                                        </div>
-                                        <div>
-                                            <img src='./image/logo.png' alt=''></img>
-                                            <p className='teamName'>Chelsea</p>
-                                        </div>
-                                    </div>
-                                    <div id='matchDay'>
-                                        <p>FRI 29 JUL 2022</p>
-                                        <p>DACIA ARENA</p>
-                                    </div>
+                        <div id='matchDiv'>
+                            <div id='matchTime'>
+                                <div>
+                                    <h3>DAY</h3>
+                                    <p>60</p>
                                 </div>
                                 <div>
-                                <div id='matchTime'>
-                                        <div>
-                                            <h3>DAY</h3>
-                                            <p>60</p>
-                                        </div>
-                                        <div>
-                                            <h3>HOUR</h3>
-                                            <p>1</p>
-                                        </div>
-                                        <div>
-                                            <h3>MINUTE</h3>
-                                            <p>40</p>
-                                        </div>
-                                        <div>
-                                            <h3>SECOND</h3>
-                                            <p>59</p>
-                                        </div>
-                                    </div>
-                                    <div id='matchImg'>
-                                        <div>
-                                            <img src='./image/logo.png' alt=''></img>
-                                            <p className='teamName'>Udinese</p>
-                                        </div>
-                                        <div id='matchBox'>
-                                            <p>17:30</p>
-                                        </div>
-                                        <div>
-                                            <img src='./image/logo.png' alt=''></img>
-                                            <p className='teamName'>Chelsea</p>
-                                        </div>
-                                    </div>
-                                    <div id='matchDay'>
-                                        <p>FRI 29 JUL 2022</p>
-                                        <p>DACIA ARENA</p>
-                                    </div>
+                                    <h3>HOUR</h3>
+                                    <p>1</p>
                                 </div>
                                 <div>
-                                <div id='matchTime'>
-                                        <div>
-                                            <h3>DAY</h3>
-                                            <p>60</p>
-                                        </div>
-                                        <div>
-                                            <h3>HOUR</h3>
-                                            <p>1</p>
-                                        </div>
-                                        <div>
-                                            <h3>MINUTE</h3>
-                                            <p>40</p>
-                                        </div>
-                                        <div>
-                                            <h3>SECOND</h3>
-                                            <p>59</p>
-                                        </div>
-                                    </div>
-                                    <div id='matchImg'>
-                                        <div>
-                                            <img src='./image/logo.png' alt=''></img>
-                                            <p className='teamName'>Udinese</p>
-                                        </div>
-                                        <div id='matchBox'>
-                                            <p>17:30</p>
-                                        </div>
-                                        <div>
-                                            <img src='./image/logo.png' alt=''></img>
-                                            <p className='teamName'>Chelsea</p>
-                                        </div>
-                                    </div>
-                                    <div id='matchDay'>
-                                        <p>FRI 29 JUL 2022</p>
-                                        <p>DACIA ARENA</p>
-                                    </div>
+                                    <h3>MINUTE</h3>
+                                    <p>40</p>
                                 </div>
-                                {/* <div id='matchDiv'></div>
-                                <div id='matchDiv'></div> */}
+                                <div>
+                                    <h3>SECOND</h3>
+                                    <p>59</p>
+                                </div>
                             </div>
-                        </Carousel>
+                            <div id='matchImg'>
+                                <div>
+                                    <img src='./image/logo.png' alt=''></img>
+                                    <p className='teamName'>Udinese</p>
+                                </div>
+                                <div id='matchBox'>
+                                    <p>17:30</p>
+                                </div>
+                                <div>
+                                    <img src='./image/logo.png' alt=''></img>
+                                    <p className='teamName'>Chelsea</p>
+                                </div>
+                            </div>
+                            <div id='matchDay'>
+                                <p>FRI 29 JUL 2022</p>
+                                <p>DACIA ARENA</p>
+                            </div>
+                        </div>
                     </div>
 
                     <div id='result'>
