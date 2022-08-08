@@ -102,3 +102,35 @@
         }
     }
 }
+#playerBtn {
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 100px;
+    border: 2px solid yellow;
+    width: 130px;
+    height: 60px;
+    position: relative;
+    &:hover{
+        transition: 0.1s;
+    }
+    button {
+        background-color: #fff;
+        // color: #222;
+        outline: none;
+        border: none;
+        width: 130px;
+        height: 60px;
+        font-size: 16px;
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        transition: 0.3s;
+        cursor: pointer;
+    }
+    &:hover button {
+        top: -2px;
+        left: -2px;
+        transition: 0.3s;
+        background-color: #fff;
+    }
+}

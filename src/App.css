@@ -26,7 +26,7 @@
 }
 body {
     background-color: #e6e2dd;
-    /* overflow-x: hidden; */
+    overflow-x: hidden;
 }
 
 /* 스크롤바 */
@@ -107,21 +107,21 @@ a {
 #toggle {
     position: absolute;
     top: 6%;
-    right: 15%;
+    right: 13%;
     z-index: 50;
 }
 #toggle li {
     color: #fff;
-    font-size: 100px;
+    font-size: 90px;
     font-weight: bold;
     text-align: right;
     transition: 0.3s;
     position: relative;
-    line-height: 1.4;
+    line-height: 1.5;
 }
 #toggle li:hover {
-    font-size: 110px;
-    text-decoration :  25px rgba(255, 255, 0, 0.849) line-through;
+    font-size: 100px;
+    text-decoration :  30px rgba(255, 255, 0, 0.849) line-through;
     transition: 0.3s;
 }
 /* 메뉴 닫기 */

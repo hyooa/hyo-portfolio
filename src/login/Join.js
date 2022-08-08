@@ -30,7 +30,7 @@ const Join = () => {
                                 <input type="password" placeholder='8자 이상, 문자/숫자/기호 사용 가능'></input>
                             </td>
                         </tr>
-                        <tr>
+                        <tr id='joinData'>
                             <th>Date of Birth</th>
                             <td>
                                 <input type="date"></input>
@@ -46,7 +46,7 @@ const Join = () => {
                             <th>Address</th>
                             <td>
                                 <input></input><input></input>
-                                <button>확인</button>
+                                <button>우편번호검색</button>
                             </td>
                         </tr>
                         <tr id='joinBox'>

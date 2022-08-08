@@ -56,7 +56,7 @@ const ContactUs = () => {
                             </TableRow>
                             <TableRow>
                                 <TableCell>1</TableCell>
-                                <TableCell>ㅇㅇㅇㅇㅇㅇ</TableCell>
+                                <TableCell>비밀글</TableCell>
                                 <TableCell>안녕</TableCell>
                                 <TableCell>20221.01.01</TableCell>
                                 <TableCell></TableCell>
@@ -88,6 +88,12 @@ const ContactUs = () => {
                             </TableRow>
                             <TableRow>
                                 <TableCell><textarea placeholder='내용을 입력해주세요.' rows="10" cols="50"></textarea></TableCell>
+                            </TableRow>
+                            <TableRow id='checkBox'>
+                                <TableCell>
+                                    공개글<input type="checkbox" id='ckOne'></input><label id='labelOne'></label>
+                                    비밀글<input type="checkbox" id='ckTwo'></input><label></label>
+                                </TableCell>
                             </TableRow>
                         </TableBody>
                         <button>등록</button>

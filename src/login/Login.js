@@ -52,7 +52,6 @@ const LoginBtn = styled.div `
         height: 60px;
         position: relative;
         &:hover{
-            border-color: #e6e2dd;
             transition: 0.5s;
         }
         button {
@@ -68,10 +67,13 @@ const LoginBtn = styled.div `
             left: -10px;
             transition: 0.3s;
             cursor: pointer;
+            a {
+                padding: 20px 35px;
+            }
         }
         &:hover button {
-            top: 0px;
-            left: 0px;
+            top: -2px;
+            left: -2px;
             transition: 0.3s;
             background-color: #001350;
         }
@@ -102,7 +104,7 @@ const Login = () => {
                             <button><a href='/'>Login</a></button>
                         </div>
                         <div id='loginDiv'>
-                            <button><a href='/join'>Join Us</a></button>
+                            <button><a href='join'>Join Us</a></button>
                         </div>
                     </LoginBtn>
                 </form>

@@ -52,6 +52,20 @@
             font-size: 16px;
         }
     }
+    #checkBox {
+        .MuiTableCell-root {
+            #labelOne {
+                display: inline-block;
+                background-color: pink;
+            }
+            input {
+                width: 10%;
+                &:nth-child(1) {
+                    margin-right: 70px;
+                }
+            }
+        }
+    }
     input {
         width: 90%;
         outline: none;

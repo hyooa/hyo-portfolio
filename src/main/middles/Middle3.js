@@ -15,43 +15,125 @@ const Middle3 = () => {
                     <img src='./image/logo.png' alt=''></img>
                     <div id='match'>
                         <div id='boxText'>Fixtures</div>
-                        <div id='matchDiv'>
-                            <div id='matchTime'>
-                                <div>
-                                    <h3>DAY</h3>
-                                    <p>60</p>
+                        <Swiper pagination={true} modules={[Pagination]} className="mySwiper">
+                            <SwiperSlide>
+                            <div id='matchDiv'>
+                                <div id='matchTime'>
+                                    <div>
+                                        <h3>DAY</h3>
+                                        <p>60</p>
+                                    </div>
+                                    <div>
+                                        <h3>HOUR</h3>
+                                        <p>1</p>
+                                    </div>
+                                    <div>
+                                        <h3>MINUTE</h3>
+                                        <p>40</p>
+                                    </div>
+                                    <div>
+                                        <h3>SECOND</h3>
+                                        <p>59</p>
+                                    </div>
                                 </div>
-                                <div>
-                                    <h3>HOUR</h3>
-                                    <p>1</p>
+                                <div id='matchImg'>
+                                    <div>
+                                        <img src='./image/logo.png' alt=''></img>
+                                        <p className='teamName'>Udinese</p>
+                                    </div>
+                                    <div id='matchBox'>
+                                        <p>17:30</p>
+                                    </div>
+                                    <div>
+                                        <img src='./image/logo.png' alt=''></img>
+                                        <p className='teamName'>Chelsea</p>
+                                    </div>
                                 </div>
-                                <div>
-                                    <h3>MINUTE</h3>
-                                    <p>40</p>
-                                </div>
-                                <div>
-                                    <h3>SECOND</h3>
-                                    <p>59</p>
+                                <div id='matchDay'>
+                                    <p>FRI 29 JUL 2022</p>
+                                    <p>DACIA ARENA</p>
                                 </div>
                             </div>
-                            <div id='matchImg'>
-                                <div>
-                                    <img src='./image/logo.png' alt=''></img>
-                                    <p className='teamName'>Udinese</p>
+                            </SwiperSlide>
+                            <SwiperSlide>
+                            <div id='matchDiv'>
+                                <div id='matchTime'>
+                                    <div>
+                                        <h3>DAY</h3>
+                                        <p>60</p>
+                                    </div>
+                                    <div>
+                                        <h3>HOUR</h3>
+                                        <p>1</p>
+                                    </div>
+                                    <div>
+                                        <h3>MINUTE</h3>
+                                        <p>40</p>
+                                    </div>
+                                    <div>
+                                        <h3>SECOND</h3>
+                                        <p>59</p>
+                                    </div>
                                 </div>
-                                <div id='matchBox'>
-                                    <p>17:30</p>
+                                <div id='matchImg'>
+                                    <div>
+                                        <img src='./image/logo.png' alt=''></img>
+                                        <p className='teamName'>Udinese</p>
+                                    </div>
+                                    <div id='matchBox'>
+                                        <p>17:30</p>
+                                    </div>
+                                    <div>
+                                        <img src='./image/logo.png' alt=''></img>
+                                        <p className='teamName'>Chelsea</p>
+                                    </div>
                                 </div>
-                                <div>
-                                    <img src='./image/logo.png' alt=''></img>
-                                    <p className='teamName'>Chelsea</p>
+                                <div id='matchDay'>
+                                    <p>FRI 29 JUL 2022</p>
+                                    <p>DACIA ARENA</p>
                                 </div>
                             </div>
-                            <div id='matchDay'>
-                                <p>FRI 29 JUL 2022</p>
-                                <p>DACIA ARENA</p>
+                            </SwiperSlide>
+                            <SwiperSlide>
+                            <div id='matchDiv'>
+                                <div id='matchTime'>
+                                    <div>
+                                        <h3>DAY</h3>
+                                        <p>60</p>
+                                    </div>
+                                    <div>
+                                        <h3>HOUR</h3>
+                                        <p>1</p>
+                                    </div>
+                                    <div>
+                                        <h3>MINUTE</h3>
+                                        <p>40</p>
+                                    </div>
+                                    <div>
+                                        <h3>SECOND</h3>
+                                        <p>59</p>
+                                    </div>
+                                </div>
+                                <div id='matchImg'>
+                                    <div>
+                                        <img src='./image/logo.png' alt=''></img>
+                                        <p className='teamName'>Udinese</p>
+                                    </div>
+                                    <div id='matchBox'>
+                                        <p>17:30</p>
+                                    </div>
+                                    <div>
+                                        <img src='./image/logo.png' alt=''></img>
+                                        <p className='teamName'>Chelsea</p>
+                                    </div>
+                                </div>
+                                <div id='matchDay'>
+                                    <p>FRI 29 JUL 2022</p>
+                                    <p>DACIA ARENA</p>
+                                </div>
                             </div>
-                        </div>
+                            </SwiperSlide>
+                        </Swiper>
                     </div>
 
                     <div id='result'>

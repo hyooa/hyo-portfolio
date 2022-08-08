@@ -47,6 +47,9 @@ const Player = () => {
                             </table>
                         </form>
                     </div>
+                    <div id='playerBtn'>
+                        <a href='/playerMore'><button>More</button></a>
+                    </div>
                 </div>
             </div>
             <div id='player_right'>

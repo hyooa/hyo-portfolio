@@ -1,0 +1,107 @@
+@keyframes updownMore {
+    0%{
+        bottom : 25px;
+    }
+    50%{
+        bottom : 33px;
+    }
+    100%{
+        bottom : 25px;
+    }
+}
+#playerMore {
+    // ㅡㅡㅡㅡ 첫번째
+    #playerText {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        .playerImg {
+            width: 100%;
+            text-align: center;
+            img {
+                height: 100%;
+            }
+        }
+        .playerName {
+            width: 50%;
+            p {
+                font-weight: bold;
+                &:nth-child(1) {
+                    position: absolute;
+                    top: 0;
+                    left: 5%;
+                    color: #001489;
+                    font-size: 400px;
+                    text-shadow: 6px 6px 1px silver;
+                }
+                &:nth-child(2) {
+                    text-align: right;
+                    width: 60%;
+                    position: absolute;
+                    top: 25%;
+                    right: 5%;
+                    font-size: 200px;
+                    text-shadow: 6px 6px 1px silver;
+                }
+            }
+        }
+        .scroll {
+            transition: opacity 0.5s;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            flex-direction: column;
+            span {
+                position: absolute;
+                bottom: 25px;
+                right: -8px;
+                color: #222;
+                font-size: 20px;
+                animation: updownMore 1s linear infinite alternate;
+            }
+        }
+    }
+    // ㅡㅡㅡㅡ 두번째
+    #playerPoto {
+        margin-top: 150px;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        .potoText {
+            width: 50%;
+            padding-top: 250px;
+            p {
+                &:nth-child(1) {
+                    margin-bottom: 30px;
+                }
+                line-height: 1.6;
+                font-size: 24px;
+                width: 70%;
+                align-items: center;
+            }
+        }
+        .potoImg {
+            width: 50%;
+            img {
+                margin-top: 130px;
+                width: 70%;
+                height: 70%;
+                background-color: #333;
+            }
+        }
+    }
+    // ㅡㅡㅡㅡ 세번째
+    #playerNews {
+        width: 100%;
+        height: 100vh;
+        background-color: salmon;
+    }
+    // ㅡㅡㅡㅡ 네번째
+    #comment {
+        width: 100%;
+        height: 100vh;
+        background-color: pink;
+    }
+}
