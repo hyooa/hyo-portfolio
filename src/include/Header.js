@@ -53,7 +53,7 @@ const Header = () => {
                 </div>
                 <ul id='toggle'>
                     <a href='/'><li>HOME</li></a>
-                    <a href='/match'><li>Fixtures & Results</li></a>
+                    <a href='/match'><li>Fixtures & Ticket</li></a>
                     <a href='/player'><li>PLAYER</li></a>
                     <a href='/contact'><li>Contact Us</li></a>
                     {/* <a href='/faq'><li>FAQ</li></a> */}

@@ -142,13 +142,13 @@ const Middle3 = () => {
                             <form>
                                 <table>
                                     <tr>
-                                        <th>순위</th>
+                                        <th>RK</th>
                                         <th></th>
-                                        <th>팀명</th>
-                                        <th>경기수</th>
-                                        <th>승</th>
-                                        <th>무</th>
-                                        <th>패</th>
+                                        <th>TEAM</th>
+                                        <th>GAMES</th>
+                                        <th>W</th>
+                                        <th>D</th>
+                                        <th>L</th>
                                     </tr>
                                     <tr>
                                         <td>1</td>

@@ -1,7 +1,6 @@
 #contact {
     text-align: center;
-    overflow: hidden;
-    height: 100vh;
+    margin-bottom: 300px;
     img {
         opacity: 0.1;
         position: fixed;
@@ -88,26 +87,49 @@
     position: relative;
     margin: 80px auto;
     max-width: 1400px;
-    >form {
-        text-align: center;
-        border-collapse: collapse;
-        // MuiTable-root
-        // MuiTableBody-root 
-        // MuiTableRow-root
-        // MuiTableCell-root
-        .MuiTableRow-root {
-            &:nth-child(1) {
-                .MuiTableCell-root {
-                    color: #fff;
-                    font-weight: bold;
-                    border: none;
-                }
-                background-color: #001489;
+    ul {
+        display: flex;
+        li {
+            width: 20%;
+        }
+    }
+    #fix {
+        background-color: #001489;
+        li {
+            color: #fff;
+            padding: 12px 0;
+        }
+    }
+    #tableDiv {
+        > ul {
+            border-bottom: 1px solid #222;
+            padding: 15px 0;
+            overflow: hidden;
+        }
+        #question {
+            background-color: rgba(255, 255, 255, 0.164);
+            padding: 80px;
+            border: none;
+        }
+        #answer {
+            background-color: rgba(145, 145, 145, 0.342);
+            padding: 50px;
+            li {
+                &:nth-child(1) {width: 20%;}
+                &:nth-child(2) {width: 80%;}
             }
         }
-        .MuiTableCell-root {
-            text-align: center;
-            border-bottom: 1px solid #333;
+        .show {
+            display: block;
+        }
+        .hide {
+            display: none;
+        }
+        .show2 {
+            display: block;
+        }
+        .hide2 {
+            display: none;
         }
     }
 }
