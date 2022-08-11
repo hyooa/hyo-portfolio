@@ -64,7 +64,7 @@
         }
     }
     // ㅡㅡㅡㅡ 두번째
-    #playerPoto {
+    #playerPhoto {
         margin-top: 150px;
         width: 100%;
         display: flex;
@@ -75,13 +75,13 @@
             transform: scale(1.3);
             transition: 0.5s;
         }
-        .potoImg {
+        .photoImg {
             width: 1400px;
-            .potoOne {
+            .photoOne {
                 display: flex;
                 width: 100%;
                 height: 50%;
-                .potoOne_right {
+                .photoOne_right {
                     width: 50%;
                     height: 100%;
                     img {
@@ -89,7 +89,7 @@
                         height: 100%;
                     }
                 }
-                .potoOne_left {
+                .photoOne_left {
                     width: 50%;
                     height: 100%;
                     >div {
@@ -113,7 +113,7 @@
                     }
                 }
             }
-            .potoTwo {
+            .photoTwo {
                 width: 100%;
                 > img {
                     width: 33.3333%;
@@ -124,7 +124,7 @@
     // ㅡㅡㅡㅡ 세번째
     #comment {
         width: 1400px;
-        margin-bottom: 300px;
+        margin: 300px auto;
         > h3 {
             font-size: 80px;
         }

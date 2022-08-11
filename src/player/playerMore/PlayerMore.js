@@ -46,26 +46,26 @@ const PlayerMore = () => {
                     <IoIosArrowRoundDown size="25"/>
                 </div>
             </div>
-            <div id='playerPoto'>
-                <div className='potoImg'>
-                    <div className='potoOne'>
-                        <div className='potoOne_left'>
+            <div id='playerPhoto'>
+                <div className='photoImg'>
+                    <div className='photoOne'>
+                        <div className='photoOne_left'>
                             <div>
-                                <img src='./image/logo2.png' alt=''></img>
-                                <img src='./image/logo2.png' alt=''></img>
+                                <img src='./image/선수사진/첼시1.jpg' alt=''></img>
+                                <img src='./image/선수사진/첼시2.jpg' alt=''></img>
                             </div>
                             <div>
-                                <img src='./image/logo2.png' alt=''></img>
+                                <img src='./image/선수사진/첼시3.jpg' alt=''></img>
                             </div>
                         </div>
-                        <div className='potoOne_right'>
-                            <img src='./image/logo2.png' alt=''></img>
+                        <div className='photoOne_right'>
+                            <img src='./image/선수사진/첼시4.jpg' alt=''></img>
                         </div>
                     </div>
-                    <div className='potoTwo'>
-                        <img src='./image/logo2.png' alt=''></img>
-                        <img src='./image/logo2.png' alt=''></img>
-                        <img src='./image/logo2.png' alt=''></img>
+                    <div className='photoTwo'>
+                        <img src='./image/선수사진/첼시5.jpg' alt=''></img>
+                        <img src='./image/선수사진/첼시6.jpg' alt=''></img>
+                        <img src='./image/선수사진/첼시7.jpg' alt=''></img>
                     </div>
                 </div>
             </div>

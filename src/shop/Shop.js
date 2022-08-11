@@ -4,6 +4,7 @@ import './shop.scss';
 const Shop = () => {
     return (
         <div id='shop'>
+            <img src='./image/logo2.png' alt=''></img>
             <div>
                 <h1>Shop</h1>
             </div>

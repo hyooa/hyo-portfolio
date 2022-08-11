@@ -5,7 +5,7 @@ import {IoIosArrowRoundDown} from 'react-icons/io';
 const Player = () => {
     return (
         <div id='player'>
-            <div id='player_poto'>
+            <div id='player_photo'>
                 <p id='one'></p>
                 <div>
                     <div id='scrollBar'>

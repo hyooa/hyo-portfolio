@@ -1,21 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper";
-import { Carousel } from 'antd';
 
 const Middle3 = () => {
+
     return (
             <div id='main3'>
                 <div>
                     <h2>Fixtures & Results</h2>
-                    <div id='main3_icon'>
-                    </div>
                 </div>
                 <div id='main3_box'>
                     <img src='./image/logo.png' alt=''></img>
                     <div id='match'>
                         <div id='boxText'>Fixtures</div>
-                        <Swiper pagination={true} modules={[Pagination]} className="mySwiper">
+                        <Swiper 
+                        pagination={true} modules={[Pagination]} className="mySwiper">
                             <SwiperSlide>
                             <div id='matchDiv'>
                                 <div id='matchTime'>

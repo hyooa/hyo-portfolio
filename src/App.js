@@ -8,11 +8,12 @@ import Login from './login/Login';
 import Main from './main/Main';
 import Player from './player/Player';
 import Shop from './shop/Shop';
-
 import Match from './match/Match';
 import FAQ from './f&q/FAQ';
 import ContactUs from './contactUs/ContactUs'
 import PlayerMore from './player/playerMore/PlayerMore';
+import Host from './host/Host';
+import MyPage from './mypage/MyPage';
 
 function App() {
 // 마우스 커서 start
@@ -101,6 +102,8 @@ const mouseMoveEvent = (e) => { // MoveEvent
         <Route path='/match' element={<Match />} />
         <Route path='/faq' element={<FAQ />} />
         <Route path='/contact' element={<ContactUs />} />
+        <Route path='/mypage' element={<MyPage />} />
+        <Route path='/host' element={<Host />} />
       </Routes>
       {/* <Footer></Footer> */}
     </div>
