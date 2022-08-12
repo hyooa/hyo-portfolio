@@ -26,11 +26,11 @@ const Player = () => {
                                 </tr>
                                 <tr>
                                     <th>PLACE OF BIRTH:</th>
-                                    <td>Kepa Arrizabalaga</td>
+                                    <td>Ondarroa, Spain</td>
                                 </tr>
                                 <tr>
                                     <th>POSITION:</th>
-                                    <td>Ondarroa, Spain</td>
+                                    <td>Goalkeeper</td>
                                 </tr>
                                 <tr>
                                     <th>DOB:</th>

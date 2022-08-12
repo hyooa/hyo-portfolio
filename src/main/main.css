@@ -46,9 +46,9 @@
 
 /* 두번째 */
 #main2 {
-    overflow: hidden;
     width: 100%;
     height: 100vh;
+    padding-top: 10px;
 }
 #main2 > div:nth-child(1) {
     position: relative;

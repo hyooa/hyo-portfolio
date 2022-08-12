@@ -2,8 +2,8 @@ import React from 'react';
 
 const Host = () => {
     return (
-        <div>
-            
+        <div id='host'>
+            <h1>HOST</h1>
         </div>
     );
 };

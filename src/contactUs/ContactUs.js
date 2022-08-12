@@ -1,5 +1,6 @@
 import React,{ useState } from 'react';
 import './contactUs.scss';
+import { BsSearch } from 'react-icons/bs';
 import { Table, TableBody, TableCell, TableRow } from '@mui/material';
 
 function contactPopup() {
@@ -24,11 +25,17 @@ const ContactUs = () => {
                 <h1>Contact Us</h1>
             </div>
             <div id='contact_table'>
+                <div id='search'>
+                    <form>
+                        <input placeholder='검색하기'></input>
+                        <span><BsSearch size='20'></BsSearch></span>
+                    </form>
+                </div>
                 <div>
                     <div id='fix'>
                         <ul>
                             <li>번호</li>
-                            <li>내용</li>
+                            <li>제목</li>
                             <li>글쓴이</li>
                             <li>작성일</li>
                             <li>답변등록여부</li>

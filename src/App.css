@@ -109,6 +109,8 @@ a {
     top: 6%;
     right: 13%;
     z-index: 50;
+    overflow-y: scroll;
+    height: 830px;
 }
 #toggle li {
     color: #fff;

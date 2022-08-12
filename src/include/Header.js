@@ -59,8 +59,8 @@ const Header = () => {
                     {/* <a href='/faq'><li>FAQ</li></a> 자주 묻는 질문*/}
                     <a href='/shop'><li>SHOP</li></a>
                     <a href='/login'><li>LOGIN</li></a>
-                    {/* <a href='/mypage'><li>My Page</li></a> */}
-                    {/* <a href='/host'><li>HOST</li></a> */}
+                    <a href='/mypage'><li>My Page</li></a>
+                    <a href='/host'><li>HOST</li></a>
                 </ul>
             </div>
     </header>
