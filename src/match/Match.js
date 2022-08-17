@@ -103,7 +103,7 @@ const Match = () => {
                             </div>
                         </div>
                         <div className='text'>
-                            <img src='./image/logo.png' alt=''></img>
+                            <img src='./image/logo/토트넘.png' alt=''></img>
                             <div>Chelsea</div>
                         </div>
                     </div>
@@ -121,7 +121,7 @@ const Match = () => {
                             </div>
                         </div>
                         <div className='text'>
-                            <img src='./image/logo.png' alt=''></img>
+                            <img src='./image/logo/웨스트햄.png' alt=''></img>
                             <div>Chelsea</div>
                         </div>
                     </div>
@@ -139,7 +139,25 @@ const Match = () => {
                             </div>
                         </div>
                         <div className='text'>
+                            <img src='./image/logo/노리치시티.png' alt=''></img>
+                            <div>Chelsea</div>
+                        </div>
+                    </div>
+                    <div id='matchTeam'>
+                        <div id='ticket' onClick={()=>leftPopup()}>티켓 구매</div>
+                        <div className='text'>
+                            <div>Chelsea</div>
                             <img src='./image/logo.png' alt=''></img>
+                        </div>
+                        <div className='time'>
+                            <div>17:50</div>
+                            <div>
+                                <div>FRI 29 JUL 2022</div>
+                                <div>DACIA ARENA</div>
+                            </div>
+                        </div>
+                        <div className='text'>
+                            <img src='./image/logo/노팅엄.png' alt=''></img>
                             <div>Chelsea</div>
                         </div>
                     </div>

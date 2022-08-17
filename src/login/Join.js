@@ -18,10 +18,10 @@ const Join = () => {
                                 <input></input>
                             </td>
                         </tr>
-                        <tr>
-                            <th>ID</th>
+                        <tr id='mail'>
+                            <th>Email</th>
                             <td>
-                                <input placeholder='6-12자 이내, 영문, 숫자 사용가능'></input>
+                                <input></input>@<input></input>
                             </td>
                         </tr>
                         <tr>

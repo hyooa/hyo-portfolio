@@ -91,7 +91,7 @@ const Login = () => {
                 <form>
                     <LoginTable>
                         <tr>
-                            <th>ID</th>
+                            <th>Email</th>
                             <LoginInput></LoginInput>
                         </tr>
                         <tr>

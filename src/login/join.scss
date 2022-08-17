@@ -50,6 +50,18 @@
         }
     }
 }
+#mail td {
+    input {
+        width: 47%;
+        height: 70px;
+        &:nth-child(1) {
+            margin-right: 10px;
+        }
+        &:nth-child(2) {
+            margin-left: 10px;
+        }
+    }
+}
 #joinPhone{
     th {
         margin-top: 15px;
@@ -70,7 +82,7 @@
         cursor: pointer;
     }
     input {
-        width: 245px;
+        width: 39%;
         height: 70px;
         margin-bottom: 50px;
         &:nth-child(1) {
