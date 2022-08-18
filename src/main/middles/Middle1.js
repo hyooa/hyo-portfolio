@@ -12,7 +12,7 @@ const Middle1 = () => {
         var imgNum = Math.round(Math.random()*2);
         var objImg = document.getElementById('img');
         objImg.src = imgArr[imgNum];
-        setTimeout(showImg, 4000);
+        setTimeout(showImg, 3000);
     }
 
     return (

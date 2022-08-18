@@ -1,0 +1,74 @@
+#host {
+    max-width: 1400px;
+    margin-bottom: 100px;
+    h1 {
+        font-size: 180px;
+        font-weight: 900;
+        color: #001350;
+        text-shadow: 5px 5px 1px #ccc;
+        position: relative;
+        top: 50px;
+        left: 10px;
+    }
+    >div {
+        background-color: #eee;
+        border-radius: 16px;
+        box-shadow: 5px 5px 4px #ccc;
+        text-align: center;
+        >#register {
+            padding: 100px 0;
+            position: relative;
+        }
+    }
+    #choice {
+        position: absolute;
+        top: -3%;
+        right: 5%;
+        background-color: #eee;
+        width: 30%;
+        height: 7%;
+        line-height: 3;
+        border-radius: 50px;
+        ul {
+            display: flex;
+            font-size: 20px;
+            li {
+                font-weight: bold;
+                border-radius: 50px;
+                margin: 5px;
+                padding: 0 55px;
+                &:hover {
+                    background-color: #ccc;
+                    box-shadow: 2px 2px 1px #999;
+                    transition: 0.3s;
+                }
+            }
+        }
+    }
+    #input {
+        max-width: 1200px;
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            tr {
+            }
+            td {
+                padding: 20px 0;
+                border-bottom: 1px solid #ccc;
+                &:nth-child(1) {
+                    width: 30%;
+                }
+                &:nth-child(2) {
+                    width: 70%;
+                }
+            }
+            input {
+                width: 60%;
+                height: 50px;
+                border: none;
+                outline: none;
+                padding-left: 5%;
+            }
+        }
+    }
+}

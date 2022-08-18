@@ -1,6 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { FiFacebook, FiTwitter } from 'react-icons/fi';
 import { AiFillInstagram, AiOutlineYoutube } from 'react-icons/ai';
+import { getCookie, removeCookie } from '../util/cookie';
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { setLogout } from '../modules/logincookie';
 
     //검색창 클릭하면 나오게 하기
     function searchPopUp(){
@@ -9,6 +13,19 @@ import { AiFillInstagram, AiOutlineYoutube } from 'react-icons/ai';
     }
     
 const Header = () => {
+    const dispatch = useDispatch();
+    const isLogin = useSelector(state => state.logincookie.isLogin)
+    const id = getCookie('username');
+    const logoutClick = () => {
+        removeCookie('username')
+        removeCookie('usermail')
+        dispatch(setLogout())
+        // alert("로그아웃 되었습니다.");
+    }
+    useEffect(() => {
+
+    }, [isLogin])
+
     return (
         <header>
             <div id='menu' onClick={()=>searchPopUp()}>
@@ -56,11 +73,25 @@ const Header = () => {
                     <a href='/match'><li>Fixtures & Ticket</li></a>
                     <a href='/player'><li>PLAYER</li></a>
                     <a href='/contact'><li>Contact Us</li></a>
-                    {/* <a href='/faq'><li>FAQ</li></a> 자주 묻는 질문*/}
                     <a href='/shop'><li>SHOP</li></a>
-                    <a href='/login'><li>LOGIN</li></a>
-                    <a href='/mypage'><li>My Page</li></a>
-                    <a href='/host'><li>HOST</li></a>
+                    {/* <a href='/faq'><li>FAQ</li></a> 자주 묻는 질문*/}
+                    {
+                        isLogin && id !== '관리자' && <>
+                            <a href='/mypage'><li>My Page</li></a>
+                            <a href='/'><li onClick={logoutClick}>Logout</li></a>
+                        </>
+                    }
+                    {
+                        id === '관리자' && <>
+                            <a href='/host'><li>HOST</li></a>
+                            <a href='/'><li onClick={logoutClick}>Logout</li></a>
+                        </>
+                    }
+                    {
+                        isLogin || <>
+                            <a href='/login'><li>Login</li></a>
+                        </>
+                    }
                 </ul>
             </div>
     </header>

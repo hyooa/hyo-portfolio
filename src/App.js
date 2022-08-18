@@ -1,7 +1,6 @@
 import React, {useRef, useEffect} from 'react';
 import { Routes, Route } from 'react-router-dom';
 import './App.css';
-// import Footer from './include/Footer';
 import Header from './include/Header';
 import Join from './login/Join';
 import Login from './login/Login';
@@ -14,6 +13,9 @@ import ContactUs from './contactUs/ContactUs'
 import PlayerMore from './player/playerMore/PlayerMore';
 import Host from './host/Host';
 import MyPage from './mypage/MyPage';
+import { useDispatch } from 'react-redux';
+import { getCookie } from './util/cookie';
+import { setLogin } from './modules/logincookie';
 
 function App() {
 // 마우스 커서 start
@@ -87,6 +89,15 @@ const mouseMoveEvent = (e) => { // MoveEvent
 }
 
 // 마우스 커서 end
+
+// 페이지 전환시 로그아웃 되지 않도록
+const dispatch = useDispatch();
+const uname = getCookie('username');
+useEffect(() => {
+  if(uname) {
+    dispatch(setLogin())
+  }
+}, [])
 
   return (
     <div className="App">
