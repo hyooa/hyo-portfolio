@@ -6,7 +6,7 @@ import { MdDelete } from 'react-icons/md';
 
 window.onload = function() {
     var prevScrollpos = window.pageYOffset;
-    console.log(prevScrollpos);
+    // console.log(prevScrollpos);
     window.onscroll = scrollToggle;
     function scrollToggle() {
         var scroll = document.querySelector('.scroll');

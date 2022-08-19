@@ -68,7 +68,7 @@ const MyPage = () => {
                                     <input type='checkbox'></input>
                                     <img src='./image/logo.png' alt=''></img>
                                     <img src='./image/logo/맨시티.png' alt=''></img>
-                                    <span>Nottingham Forest</span>
+                                    <span>Manchester United</span>
                                     <span>1장</span>
                                     <span>60,000</span>
                                 </div>
@@ -76,7 +76,7 @@ const MyPage = () => {
                                     <input type='checkbox'></input>
                                     <img src='./image/logo.png' alt=''></img>
                                     <img src='./image/logo/웨스트햄.png' alt=''></img>
-                                    <span>Nottingham Forest</span>
+                                    <span>Reading</span>
                                     <span>2장</span>
                                     <span>60,000</span>
                                 </div>
@@ -84,7 +84,7 @@ const MyPage = () => {
                                     <input type='checkbox'></input>
                                     <img src='./image/logo.png' alt=''></img>
                                     <img src='./image/logo/노리치시티.png' alt=''></img>
-                                    <span>Nottingham Forest</span>
+                                    <span>Arsenal</span>
                                     <span>2장</span>
                                     <span>60,000</span>
                                 </div>
@@ -92,7 +92,7 @@ const MyPage = () => {
                                     <input type='checkbox'></input>
                                     <img src='./image/logo.png' alt=''></img>
                                     <img src='./image/logo/토트넘.png' alt=''></img>
-                                    <span>Nottingham Forest</span>
+                                    <span>Tottenham Hotspur</span>
                                     <span>2장</span>
                                     <span>60,000</span>
                                 </div>

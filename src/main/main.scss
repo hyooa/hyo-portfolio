@@ -1,0 +1,351 @@
+/* ㅡㅡㅡㅡㅡ main ㅡㅡㅡㅡㅡ */
+
+/* 첫번째 */
+
+@keyframes side {
+    0% { left: -50%; }
+    50% { left: 15% }
+    100% { left: 150px; }
+}
+@keyframes side2 {
+    0% { right: -50%; }
+    50% { right: 15% }
+    100% { right: 150px; }
+}
+
+#main {
+    width: 100%;
+    height: 100vh;
+    background-color: #e6e2dd;
+    position: relative;
+    margin-bottom: 50px;
+    overflow: hidden;
+}
+#main > img {
+    width: 100%;
+    height: 100%;
+    opacity: 0.7;
+}
+#main_text h1 {
+    color: #fff;
+}
+#text_left {
+    position: absolute;
+    top: 80px;
+    left: 150px;
+    font-size: 120px;
+    animation: side 1.3s linear alternate;
+}
+#text_right {
+    position: absolute;
+    bottom: 80px;
+    right: 150px;
+    font-size: 100px;
+    animation: side2 1.3s linear alternate;
+}
+
+/* 두번째 */
+#main2 {
+    width: 100%;
+    height: 100vh;
+    padding-top: 10px;
+}
+#main2 > div:nth-child(1) {
+    position: relative;
+}
+#main2 h2 {
+    font-size: 55px;
+    margin: 150px 0 120px 80px;
+}
+#main2_icon {
+    position: absolute;
+    top: 15px;
+    left: 800px;
+}
+#main2 .list {
+    /* margin-left: 50px; */
+    display: flex;
+}
+#main2 .list .item {
+    margin-right: 100px;
+}
+#main2 .list .item h4 {
+    font-size: 12px;
+    text-align: right;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #999;
+}
+#main2 .list .item embed {
+    width: 400px;
+    height: 300px;
+}
+/* 터치 스크롤 */
+.list {
+    display: flex;
+    width: 100%;
+    /* transform: translate(0, 0); */
+}
+.item {
+    user-select: none;
+}
+.link {
+    display: block;
+    -webkit-user-drag: none;
+}
+.link img {
+    display: block;
+    -webkit-user-drag: none;
+}
+
+/* 세번째 */
+#main3 {
+    width: 100%;
+    height: 100vh;
+    margin-bottom: 50px;
+}
+#main3 h2 {
+    font-size: 55px;
+    padding: 100px 0 100px 80px;
+}
+#main3_box {
+    display: flex;
+    background-color: #001489;
+    border-radius: 16px;
+    max-width: 1600px;
+    height: 580px;
+    position: relative;
+}
+#boxText {
+    color: #fff;
+    padding: 35px 0 30px 100px;
+    font-size: 52px;
+    text-align: left;
+    font-weight: bold;
+    text-shadow: 3px 3px 1px #cfc42a;
+}
+#match > div:nth-child(1) {
+    position: absolute;
+}
+#result > div:nth-child(1) {
+    text-align: right;
+    padding-right: 100px;
+}
+#main3_box > img {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 150px;
+}
+/* ㅡㅡㅡㅡ (1) 경기 ㅡㅡㅡㅡ */
+.swiper {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    overflow: hidden;
+}
+.swiper-wrapper {
+    display: flex;
+}
+.swiper-pagination {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    display: flex;
+    width: 10%;
+}
+.swiper-pagination-bullet { 
+    width: 12px; 
+    height: 12px; 
+    border-radius: 50%;
+    border: 1px solid yellow; 
+}
+.swiper-pagination-bullet-active { 
+    transition: 0.5s;
+    background: yellow; 
+}
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+}
+.swiper-slide > div {
+    width: 100%;
+    height: 100%;
+    margin-top: 140px;
+}
+.swiper-slide > img {
+    width: 100%;
+    height: 100%;
+    margin-top: 140px;
+}
+
+#match {
+    width: 50%;
+}
+    /* 시간 */
+#matchTime {
+    display: flex;
+    text-align: center;
+    width: 500px;
+}
+#matchTime h3 {
+    color: #fff;
+    margin-bottom: 5px;
+}
+#matchTime p {
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    background: linear-gradient(#555, #333);
+    width: 50px;
+    height: 50px;
+    line-height: 2;
+    border-radius: 16px;
+    border: 1px solid #666;
+}
+    /* 이미지 */
+#matchImg {
+    text-align: center;
+    margin: 50px auto 20px;
+    display: flex;
+    width: 600px;
+}
+#matchImg #matchBox {
+    background-color: #fff;
+    width: 100px;
+    height: 50px;
+    margin-top: 30px;
+}
+#matchImg #matchBox p {
+    color: #001350;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 2;
+}
+#matchImg p {
+    color: #fff;
+    font-size: 26px;
+}
+.teamName {
+    text-shadow: 2px 2px 2px #000;
+}
+#matchImg img {
+    width: 110px;
+}
+    /* 날짜 */
+#matchDay {
+    text-align: center;
+}
+#matchDay p:nth-child(1) {
+    font-size: 20px;
+    font-weight: bold;
+}
+#matchDay p {
+    color: #fff;
+    line-height: 1.8;
+}
+/* ㅡㅡㅡㅡ (2) 결과 ㅡㅡㅡㅡ */
+#result {
+    width: 50%;
+    height: 100%;
+}
+#resultDiv {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    background-color: #fff;
+    width: 600px;
+    height: 400px;
+    margin: 0 auto;
+    border-radius: 16px;
+}
+#result form {
+    margin: 0 20px;
+}
+#result table {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    border-collapse: collapse;
+}
+#result table img {
+    width: 43px;
+}
+#result table th {
+    padding: 25px 0;
+}
+#result table td {
+    width: 14.285%;
+    padding: 8px 0;
+    border-bottom: 1px solid #555;
+}
+#result table tr:last-child td {
+    border: none;
+}
+
+/* 스크롤바 */
+#resultDiv::-webkit-scrollbar {
+    width: 10px;
+}
+#resultDiv::-webkit-scrollbar-thumb {
+    background: #001350;
+    border-radius: 10px;
+}
+#resultDiv::-webkit-scrollbar-track {
+    background: rgba(33, 122, 244, .1);
+}
+
+/* 반응형 💔 */
+@keyframes textSide {
+    0% { left: -50%; }
+    50% { left: 15% }
+    100% { left: 150px; }
+}
+#screen {display: none;}
+@media screen and (max-width : 414px) {
+    #main {
+        max-width: 414px;
+        #img {
+            display: none;
+        }
+        #screen {
+            display: block;
+        }
+    } 
+    #main_text {
+        h1 {
+            font-size: 150px;
+            display: flex;
+            flex-wrap: wrap;
+            position: absolute;
+            top: 0;
+            left: 0;
+            span {
+                color: #fff;
+                line-height: 0.8;
+            }
+        }
+        #text_left {
+            top: 0px;
+            left: 0px;
+        }
+        #text_right {
+            h1 {display: none;}
+        }
+    }
+    #main2 {
+        display: none;
+    }
+    #main3 {
+        max-width: 414px;
+        #main3_box {
+            display: block;
+        }
+        #match {
+            height: 580px;
+        }
+        #result {}
+    }
+}

@@ -18,9 +18,18 @@ const Middle1 = () => {
     return (
             <div id='main'>
                 <img id='img' src='' alt=''></img>
+                <img id='screen' src='./image/선수사진/첼시7.jpg' alt=''></img>
                 <div id='main_text'>
                     <div id='text_left'>
-                        <h1>CHELSEA</h1>
+                        <h1>
+                            <span>C</span>
+                            <span>H</span>
+                            <span>E</span>
+                            <span>L</span>
+                            <span>S</span>
+                            <span>E</span>
+                            <span>A</span>
+                        </h1>
                     </div>
                     <div id='text_right'>
                         <h1>Football Club</h1>

@@ -13,6 +13,7 @@ const Match = () => {
                 <div id='toggleSpan' onClick={()=>leftPopup()}>
                     <span></span>
                     <span></span>
+                    <p>Close</p>
                 </div>
                 <div id='matchBox'>
                     <div id='topText'>
@@ -104,7 +105,7 @@ const Match = () => {
                         </div>
                         <div className='text'>
                             <img src='./image/logo/토트넘.png' alt=''></img>
-                            <div>Chelsea</div>
+                            <div>Manchester City</div>
                         </div>
                     </div>
                     <div id='matchTeam'>
@@ -122,7 +123,7 @@ const Match = () => {
                         </div>
                         <div className='text'>
                             <img src='./image/logo/웨스트햄.png' alt=''></img>
-                            <div>Chelsea</div>
+                            <div>Tottenham Hotspur</div>
                         </div>
                     </div>
                     <div id='matchTeam'>
@@ -140,7 +141,7 @@ const Match = () => {
                         </div>
                         <div className='text'>
                             <img src='./image/logo/노리치시티.png' alt=''></img>
-                            <div>Chelsea</div>
+                            <div>West Ham United</div>
                         </div>
                     </div>
                     <div id='matchTeam'>
@@ -158,7 +159,7 @@ const Match = () => {
                         </div>
                         <div className='text'>
                             <img src='./image/logo/노팅엄.png' alt=''></img>
-                            <div>Chelsea</div>
+                            <div>Manchester United</div>
                         </div>
                     </div>
                 </div>

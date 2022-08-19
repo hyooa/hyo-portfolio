@@ -1,5 +1,5 @@
 import React from 'react';
-import './main.css';
+import './main.scss';
 import Middle1 from './middles/Middle1';
 import Middle2 from './middles/Middle2';
 import Middle3 from './middles/Middle3';

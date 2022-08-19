@@ -83,7 +83,11 @@ const Header = () => {
                     }
                     {
                         id === '관리자' && <>
-                            <a href='/host'><li>HOST</li></a>
+                            <div id='flex'>
+                                <a href='/mypage'><li>My Page</li></a>
+                                <p>/</p>
+                                <a href='/host'><li>HOST</li></a>
+                            </div>
                             <a href='/'><li onClick={logoutClick}>Logout</li></a>
                         </>
                     }

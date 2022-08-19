@@ -22,26 +22,30 @@
     }
     #choice {
         position: absolute;
-        top: -3%;
-        right: 5%;
+        top: -30px;
+        right: 50px;
         background-color: #eee;
-        width: 30%;
-        height: 7%;
+        width: 400px;
+        height: 80px;
         line-height: 3;
-        border-radius: 50px;
+        border-radius: 40px;
         ul {
             display: flex;
-            font-size: 20px;
+            font-size: 18px;
+            justify-content: space-around;
+            padding: 5px 0;
             li {
-                font-weight: bold;
-                border-radius: 50px;
-                margin: 5px;
                 padding: 0 55px;
-                &:hover {
-                    background-color: #ccc;
-                    box-shadow: 2px 2px 1px #999;
-                    transition: 0.3s;
-                }
+            }
+            .hostPlayer.color {
+                border-radius: 50px;
+                background-color: rgb(211, 211, 211);
+                box-shadow: 2px 2px 1px #999;
+            }
+            .hostTicket.color {
+                border-radius: 50px;
+                background-color: rgb(211, 211, 211);
+                box-shadow: 2px 2px 1px #999;
             }
         }
     }
@@ -50,25 +54,125 @@
         table {
             width: 100%;
             border-collapse: collapse;
-            tr {
-            }
             td {
                 padding: 20px 0;
                 border-bottom: 1px solid #ccc;
                 &:nth-child(1) {
                     width: 30%;
+                    text-align: right;
                 }
                 &:nth-child(2) {
                     width: 70%;
                 }
             }
             input {
-                width: 60%;
+                width: 70%;
                 height: 50px;
                 border: none;
                 outline: none;
                 padding-left: 5%;
             }
         }
+    }
+}
+#host #btn {
+    margin: 80px auto 0;
+    border: 2px solid yellow;
+    width: 100px;
+    height: 50px;
+    position: relative;
+    &:hover{
+        transition: 0.5s;
+    }
+    button {
+        background-color: #001489;
+        color: #fff;
+        outline: none;
+        border: none;
+        width: 100px;
+        height: 50px;
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        transition: 0.3s;
+        cursor: pointer;
+    }
+    &:hover button {
+        top: -2px;
+        left: -2px;
+        transition: 0.3s;
+        background-color: #001350;
+    }
+}
+
+
+.ant-upload-list {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 55%;
+}
+.ant-upload-list-picture-card-container {
+    width: 104px;
+    height: 104px;
+    margin: 20px auto;
+    position: relative;
+    &:hover .ant-upload-list-item-actions{
+        opacity: 1;
+        transition: 0.3s;
+    }
+}
+.ant-upload-list-item {
+    overflow: hidden;
+}
+.ant-upload-list-item-name {
+    font-size: 14px;
+}
+.ant-upload-list-item-actions {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: 0.3s;
+    > a{
+        color: #fff;
+        margin-right: 10px;
+    }
+    button {
+        background-color: none;
+        outline: none;
+        &:hover {
+            color: red;
+        }
+    }
+}
+.ant-upload-list-item-image {
+    width: 100%;
+}
+.ant-upload {
+    width: 104px;
+    height: 104px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: border-color .3s;
+    &:hover {
+        border-color: blue;
+    }
+    >span {
+        background-color: #fafafa;
+        border: 1px dashed #d9d9d9;
+        color: #777;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        text-align: center;
+    }
+}
+.hostTicket {
+    #home > img {
+        width: 13%;
     }
 }

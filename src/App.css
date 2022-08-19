@@ -205,3 +205,18 @@ a {
 svg, path {
     color: inherit;
 }
+
+#flex {
+    display: flex;
+}
+#flex > p {
+    font-size: 90px;
+    font-weight: bold;
+    padding: 0 20px;
+}
+
+@media screen and (max-width : 414px) {
+    body {
+        
+    }
+}
