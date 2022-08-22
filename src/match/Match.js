@@ -83,7 +83,7 @@ const Match = () => {
                     </ul>
                 </div>
                 <div id='league'>
-                    <img src='./image/호랑이.png' alt=''></img>
+                    <img src='./image/사자.png' alt=''></img>
                     <span>Premier League</span>
                 </div>
                 <div id='number'>

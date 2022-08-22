@@ -58,63 +58,47 @@ const Player = () => {
                         <img src='' alt=''></img>
                     </ul>
                     <ul>
-                        <li>Kepa Arrizabalaga</li>
+                        <li>Marcos Alonso</li>
                         <img src='' alt=''></img>
                     </ul>
                     <ul>
-                        <li>Kepa Arrizabalaga</li>
+                        <li>Edouard Mendy</li>
                         <img src='' alt=''></img>
                     </ul>
                     <ul>
-                        <li>Kepa Arrizabalaga</li>
+                        <li>Marcus Bettinelli</li>
                         <img src='' alt=''></img>
                     </ul>
                     <ul>
-                        <li>Kepa Arrizabalaga</li>
+                        <li>Thiago Emiliano da Silva</li>
                         <img src='' alt=''></img>
                     </ul>
                     <ul>
-                        <li>Kepa Arrizabalaga</li>
+                        <li>Trevoh Chalobah</li>
                         <img src='' alt=''></img>
                     </ul>
                     <ul>
-                        <li>Kepa Arrizabalaga</li>
+                        <li>Ben Chilwell</li>
                         <img src='' alt=''></img>
                     </ul>
                     <ul>
-                        <li>Kepa Arrizabalaga</li>
+                        <li>Reece James</li>
                         <img src='' alt=''></img>
                     </ul>
                     <ul>
-                        <li>Kepa Arrizabalaga</li>
+                        <li>Cesar Azpilicueta</li>
                         <img src='' alt=''></img>
                     </ul>
                     <ul>
-                        <li>Kepa Arrizabalaga</li>
+                        <li>Emerson Palmieri dos Santos</li>
                         <img src='' alt=''></img>
                     </ul>
                     <ul>
-                        <li>Kepa Arrizabalaga</li>
+                        <li>N'Golo Kante</li>
                         <img src='' alt=''></img>
                     </ul>
                     <ul>
-                        <li>Kepa Arrizabalaga</li>
-                        <img src='' alt=''></img>
-                    </ul>
-                    <ul>
-                        <li>Kepa Arrizabalaga</li>
-                        <img src='' alt=''></img>
-                    </ul>
-                    <ul>
-                        <li>Kepa Arrizabalaga</li>
-                        <img src='' alt=''></img>
-                    </ul>
-                    <ul>
-                        <li>Kepa Arrizabalaga</li>
-                        <img src='' alt=''></img>
-                    </ul>
-                    <ul>
-                        <li>Kepa Arrizabalaga</li>
+                        <li>Mason Mount</li>
                         <img src='' alt=''></img>
                     </ul>
             </div>

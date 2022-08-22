@@ -113,7 +113,7 @@ useEffect(() => {
         <Route path='/match' element={<Match />} />
         <Route path='/faq' element={<FAQ />} />
         <Route path='/contact' element={<ContactUs />} />
-        <Route path='/mypage' element={<MyPage />} />
+        <Route path='/mypage/:no' element={<MyPage />} />
         <Route path='/host' element={<Host />} />
       </Routes>
       {/* <Footer></Footer> */}

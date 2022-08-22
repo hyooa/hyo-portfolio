@@ -1,8 +1,26 @@
+import axios from 'axios';
 import React from 'react';
+import { useParams } from 'react-router-dom';
 import './myPage.scss';
+import useAsync from '../customHook/useAsync';
+
+async function getCustomer(no) {
+    const response = await axios.get(`http://localhost:3001/mypage/${no}`);
+    console.log(response.data);
+    return response.data;
+}
 
 const MyPage = () => {
+    const {no} = useParams();
+    const [state] = useAsync(() => getCustomer(no), [no]);
+    const { loading, data, error } = state;
+    if(loading) return <div>로딩중</div>;
+    if(error) return <div>에러</div>;
+    if(!data) return <div>값 없음</div>;
+
+
     return (
+        // http://localhost:3000/mypage/1
         <div id='mypage'>
             <h1><span>My</span>Page</h1>
             <div>
@@ -13,23 +31,23 @@ const MyPage = () => {
                             <table>
                                 <tr>
                                     <td>NAME</td>
-                                    <td>권효영</td>
+                                    <td>{data.username}</td>
                                 </tr>
                                 <tr>
                                     <td>Email</td>
-                                    <td>hyoyoung@naver.com</td>
+                                    <td>{data.usermail}</td>
                                 </tr>
                                 <tr>
                                     <td>Date of Birth</td>
-                                    <td>2022.02.02</td>
+                                    <td>{data.userbirth}</td>
                                 </tr>
                                 <tr>
                                     <td>Phone Number</td>
-                                    <td>010.0000.0000</td>
+                                    <td>{data.userphone}</td>
                                 </tr>
                                 <tr id='add'>
                                     <td>Address</td>
-                                    <td>울산 남구 그린컴퓨터 3층 404호</td>
+                                    <td>{data.useradd}</td>
                                 </tr>
                                 <tr>
                                     <td>SMS 수신 동의</td>
