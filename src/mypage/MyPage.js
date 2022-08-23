@@ -1,26 +1,27 @@
 import axios from 'axios';
-import React from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useEffect } from 'react';
 import './myPage.scss';
-import useAsync from '../customHook/useAsync';
-
-async function getCustomer(no) {
-    const response = await axios.get(`http://localhost:3001/mypage/${no}`);
-    console.log(response.data);
-    return response.data;
-}
+import { getMyPage } from '../modules/mypage';
+import { useDispatch, useSelector } from 'react-redux';
+import { getCookie } from '../util/cookie';
 
 const MyPage = () => {
-    const {no} = useParams();
-    const [state] = useAsync(() => getCustomer(no), [no]);
-    const { loading, data, error } = state;
+
+    const no = getCookie("usermail");
+    const {data, loading, error} = useSelector(state=>state.myPage.mypage);
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(getMyPage(no))
+    }, [dispatch])
+
     if(loading) return <div>로딩중</div>;
     if(error) return <div>에러</div>;
     if(!data) return <div>값 없음</div>;
 
+    // console.log(data);
+
 
     return (
-        // http://localhost:3000/mypage/1
         <div id='mypage'>
             <h1><span>My</span>Page</h1>
             <div>
@@ -39,7 +40,7 @@ const MyPage = () => {
                                 </tr>
                                 <tr>
                                     <td>Date of Birth</td>
-                                    <td>{data.userbirth}</td>
+                                    <td></td>
                                 </tr>
                                 <tr>
                                     <td>Phone Number</td>
@@ -51,7 +52,7 @@ const MyPage = () => {
                                 </tr>
                                 <tr>
                                     <td>SMS 수신 동의</td>
-                                    <td>동의</td>
+                                    <td></td>
                                 </tr>
                             </table>
                             <div id='btn'>

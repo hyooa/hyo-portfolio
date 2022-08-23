@@ -66,7 +66,8 @@ const Join = () => {
                                 <input
                                 name="username" type="text"
                                 value={formDate.username}
-                                onChange={onChange}></input>
+                                onChange={onChange}
+                                required></input>
                             </td>
                         </tr>
                         <tr id='mail'>
@@ -75,7 +76,8 @@ const Join = () => {
                                 <input
                                 name="usermail" type="text"
                                 value={formDate.usermail}
-                                onChange={onChange}></input>
+                                onChange={onChange}
+                                required></input>
                             </td>
                         </tr>
                         <tr>
@@ -84,7 +86,8 @@ const Join = () => {
                                 <input type="password" placeholder='8자 이상, 문자/숫자/기호 사용 가능'
                                 name="userpass"
                                 value={formDate.userpass}
-                                onChange={onChange}></input>
+                                onChange={onChange}
+                                required></input>
                             </td>
                         </tr>
                         <tr>
@@ -93,7 +96,8 @@ const Join = () => {
                                 <input type="password" placeholder='8자 이상, 문자/숫자/기호 사용 가능'
                                 name="userpassck"
                                 value={formDate.userpassck}
-                                onChange={onChange}></input>
+                                onChange={onChange}
+                                required></input>
                             </td>
                         </tr>
                         {/* <tr id='joinData'>
@@ -112,7 +116,8 @@ const Join = () => {
                                 <input
                                 name="userphone" type="text"
                                 value={formDate.userphone}
-                                onChange={onChange}></input>
+                                onChange={onChange}
+                                required></input>
                             </td>
                         </tr>
                         <tr id='joinAdd'>
@@ -121,7 +126,8 @@ const Join = () => {
                                 <input
                                 name="useradd" type="text"
                                 value={formDate.useradd}
-                                onChange={onChange}></input>
+                                onChange={onChange}
+                                required></input>
                                 <button>우편번호검색</button>
                             </td>
                         </tr>

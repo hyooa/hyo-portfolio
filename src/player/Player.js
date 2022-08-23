@@ -1,8 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './player.scss';
 import {IoIosArrowRoundDown} from 'react-icons/io';
+import { useSelector, useDispatch } from 'react-redux';
+import { getPlayer } from '../modules/player';
+import { getCookie } from '../util/cookie';
+import PlayerScroll from './playerScroll/PlayerScroll';
 
 const Player = () => {
+
+    // const no = getCookie("name");
+    const { data, loading, err } = useSelector(state => state.myPlayers.players);
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(getPlayer())
+    }, [dispatch])
+
+    if(loading) return <div>로딩중</div>;
+    if(err) return <div>에러</div>;
+    if(!data) return <div>값 없음</div>;
+
     return (
         <div id='player'>
             <div id='player_photo'>
@@ -52,56 +68,7 @@ const Player = () => {
                     </div>
                 </div>
             </div>
-            <div id='player_right'>
-                    <ul>
-                        <li>Kepa Arrizabalaga</li>
-                        <img src='' alt=''></img>
-                    </ul>
-                    <ul>
-                        <li>Marcos Alonso</li>
-                        <img src='' alt=''></img>
-                    </ul>
-                    <ul>
-                        <li>Edouard Mendy</li>
-                        <img src='' alt=''></img>
-                    </ul>
-                    <ul>
-                        <li>Marcus Bettinelli</li>
-                        <img src='' alt=''></img>
-                    </ul>
-                    <ul>
-                        <li>Thiago Emiliano da Silva</li>
-                        <img src='' alt=''></img>
-                    </ul>
-                    <ul>
-                        <li>Trevoh Chalobah</li>
-                        <img src='' alt=''></img>
-                    </ul>
-                    <ul>
-                        <li>Ben Chilwell</li>
-                        <img src='' alt=''></img>
-                    </ul>
-                    <ul>
-                        <li>Reece James</li>
-                        <img src='' alt=''></img>
-                    </ul>
-                    <ul>
-                        <li>Cesar Azpilicueta</li>
-                        <img src='' alt=''></img>
-                    </ul>
-                    <ul>
-                        <li>Emerson Palmieri dos Santos</li>
-                        <img src='' alt=''></img>
-                    </ul>
-                    <ul>
-                        <li>N'Golo Kante</li>
-                        <img src='' alt=''></img>
-                    </ul>
-                    <ul>
-                        <li>Mason Mount</li>
-                        <img src='' alt=''></img>
-                    </ul>
-            </div>
+            <PlayerScroll players={data}/>
         </div>
     );
 };

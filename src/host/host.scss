@@ -105,72 +105,77 @@
     }
 }
 
+// 선수 사진 등록
+// .ant-space
+// .ant-space-item
+// .ant-upload
+// .ant-btn > span 2개
 
-.ant-upload-list {
-    display: flex;
-    flex-wrap: wrap;
-    max-width: 55%;
-}
-.ant-upload-list-picture-card-container {
-    width: 104px;
-    height: 104px;
-    margin: 20px auto;
-    position: relative;
-    &:hover .ant-upload-list-item-actions{
-        opacity: 1;
-        transition: 0.3s;
-    }
-}
-.ant-upload-list-item {
-    overflow: hidden;
-}
-.ant-upload-list-item-name {
-    font-size: 14px;
-}
-.ant-upload-list-item-actions {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 0;
-    transition: 0.3s;
-    > a{
-        color: #fff;
-        margin-right: 10px;
-    }
-    button {
-        background-color: none;
-        outline: none;
-        &:hover {
-            color: red;
+// .ant-upload-list
+// .ant-upload-list-picture-container
+// .ant-upload-span
+// .ant-upload-list-item-name
+// .ant-upload-list-item-card-actions picture > button > .anticon anticon-delete
+.hostPlayer {
+    #mainImg {
+        .ant-space {
+            .ant-upload-list-picture-container{
+                width: 60%;
+            }
         }
     }
 }
-.ant-upload-list-item-image {
-    width: 100%;
-}
-.ant-upload {
-    width: 104px;
-    height: 104px;
-    margin-top: 10px;
-    margin-bottom: 15px;
-    border-radius: 2px;
-    cursor: pointer;
-    transition: border-color .3s;
-    &:hover {
-        border-color: blue;
-    }
-    >span {
-        background-color: #fafafa;
-        border: 1px dashed #d9d9d9;
-        color: #777;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 100%;
+.ant-space {
+    width: 80%;
+    display: flex;
+    .ant-space-item {
+        margin: 0 auto;
         text-align: center;
+        align-items: center;
+        .ant-upload {
+            .ant-btn {
+                outline: none;
+                border: none;
+                background-color: #fff;
+                cursor: pointer;
+                margin-bottom: 10px;
+                width: 70%;
+                height: 40px;
+                &:hover {
+                    border: blue 2px dotted;
+                }
+                > span {
+                    padding: 0 5px;
+                }
+            }
+        }
     }
 }
+.ant-upload-list {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    .ant-upload-list-picture-container {
+        width: 30%;
+        margin: 0 auto;
+        margin-bottom: 10px;
+        .ant-upload-span {
+            width: 10%;
+            .ant-upload-list-item-name {
+                font-size: 14px;
+            }
+            button {
+                outline: none;
+                border: none;
+                padding-left: 5px;
+            }
+            &:hover button {
+                color: red;
+            }
+        }
+    }
+}
+
 .hostTicket {
     #home > img {
         width: 13%;

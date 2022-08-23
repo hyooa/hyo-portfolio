@@ -119,6 +119,11 @@ const Login = () => {
                     setCookie('username', `${username}`, {path : '/', expires})
                     dispatch(setLogin())
                     dispatch(goToHome(navigate))
+
+                    // id, pw 모두 일치 
+                    // 작업 완료 되면 페이지 이동(새로고침)
+                    // sessionStorage.setItem('user_id', id)
+                    // document.location.href = '/'
                 } else {
                     alert("이메일과 비밀번호를 확인해주세요.");
                 }
@@ -144,7 +149,8 @@ const Login = () => {
                             placeholder='이메일을 입력하세세요.'
                             name='usermail'
                             value={loginDate.usermail}
-                            onChange={onChange}></LoginInput>
+                            onChange={onChange}
+                            required></LoginInput>
                         </tr>
                         <tr>
                             <th>Password</th>
@@ -152,7 +158,8 @@ const Login = () => {
                             placeholder='비밀번호를 입력하세세요.'
                             name='userpass'
                             value={loginDate.userpass}
-                            onChange={onChange}></LoginInput>
+                            onChange={onChange}
+                            required></LoginInput>
                         </tr>
                     </LoginTable>
                     <LoginBtn>
