@@ -1,42 +1,80 @@
 import React from 'react';
 import { useState } from 'react';
-import { Upload } from 'antd';
-import ImgCrop from 'antd-img-crop';
+import { Upload, Button, Space } from 'antd';
+import { API_URL } from '../../config/contansts';
+import { UploadOutlined } from '@ant-design/icons';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const HostTicket = () => {
-    const [fileList, setFileList] = useState([
-        // {
-        //     uid: '-1',
-        //     name: 'image.png',
-        //     status: 'done',
-        //     url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-        //   },
-    ]);
-    
-      const onChange = ({ fileList: newFileList }) => {
-        setFileList(newFileList);
-      };
-    
-      const onPreview = async (file) => {
-        let src = file.url;
-    
-        if (!src) {
-          src = await new Promise((resolve) => {
-            const reader = new FileReader();
-            reader.readAsDataURL(file.originFileObj);
-    
-            reader.onload = () => resolve(reader.result);
-          });
+    const navigate = useNavigate();
+
+    const [ formDate, setFormDate ] = useState({
+        Kickoff : "",
+        awaylogo : "",
+        awayname : "",
+        gamedate : "",
+        stadium : "",
+        tkname : "",
+        tkdate : "",
+        tkprice : "",
+        month : "",
+    });
+
+    const onTicket = (e) => {
+        const { name, value } = e.target;
+        setFormDate({
+            ...formDate,
+            [name] : value,
+            awaylogo : awaylogo,
+        })
+    }
+    const onSubmit = (e) => {
+        console.log(formDate);
+        hostticket();
+    }
+    function hostticket() {
+        axios.post(`${API_URL}/host`, formDate)
+        .then(res => {
+            console.log(res);
+            // navigate('/');
+            alert('티켓 등록이 완료되었습니다.');
+        })
+        .catch(e => {
+            console.log(e);
+            alert('error');
+        })
+    }
+
+    // 이미지 경로 상태관리하기
+    const [awaylogo, setAwayLogo] = useState([]); //배열로 변경해서 관리하기
+    // 이미지 처리 함수
+    const onChangeImg = (info) => {
+        // 파일 업로드 중
+        if(info.file.status === 'uploading') {
+            console.log('ing~');
+            return;
         }
-    
-        const image = new Image();
-        image.src = src;
-        const imgWindow = window.open(src);
-        imgWindow?.document.write(image.outerHTML);
-      };
+        // 파일 업로드 완료
+        if(info.file.status === 'done') {
+            const res2 = info.fileList;
+            const imgs = []; // 이미지 리스트 배열
+            imgs.push(res2.map(data => `${data.name}`))
+            setAwayLogo(imgs.toString()) // 배열을 다시 문자열로 변경
+            setFormDate({
+                ...formDate,
+                awaylogo : awaylogo
+            })
+            console.log('성공');
+        }
+        // 파일 업로드 에러
+        if(awaylogo.file.status === 'error') {
+            console.log('에러');
+        }
+    }
     return (
         <>
-            <form className='hostTicket'>
+            <form className='hostTicket' onSubmit={onSubmit}>
                 <table>
                     <tr>
                         <td>HomeTeam Name</td>
@@ -44,7 +82,7 @@ const HostTicket = () => {
                     </tr>
                     <tr>
                         <td>AwayTeam Name</td>
-                        <td><input></input></td>
+                        <td><input name='awayname' onChange={onTicket} required></input></td>
                     </tr>
                     <tr>
                         <td>HomeTeam Logo</td>
@@ -53,46 +91,62 @@ const HostTicket = () => {
                     <tr>
                         <td>AwayTeam Logo</td>
                         <td>
-                        <ImgCrop rotate>
-                        <Upload
-                            action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
-                            listType="picture-card"
-                            fileList={fileList}
-                            onChange={onChange}
-                            onPreview={onPreview}
-                        >
-                            {fileList.length < 1 && '+ Upload'}
-                        </Upload>
-                        </ImgCrop>
+                        <Space>
+                            <Upload
+                            onChange={onChangeImg}
+                            action={`${API_URL}/upload2`}
+                            listType="picture"
+                            maxCount={1}
+                            name="image2" 
+                            showUploadList={true} 
+                            required
+                            >
+                            <Button icon={<UploadOutlined />}>Upload (Max: 1)</Button>
+                            </Upload>
+                        </Space>
                         </td>
                     </tr>
                     <tr>
                         <td>Stadium</td>
-                        <td><input placeholder='ex) WEMBLEY STADIUM'></input></td>
+                        <td><input 
+                        name='stadium' onChange={onTicket} required
+                        placeholder='ex) WEMBLEY STADIUM'></input></td>
                     </tr>
                     <tr>
                         <td>Game Date</td>
-                        <td><input placeholder='ex) SUN 15 MAY 2022 (요일, 일, 월, 년도)'></input></td>
+                        <td><input 
+                        name='gamedate' onChange={onTicket} required
+                        placeholder='ex) SUN 15 MAY 2022 (요일, 일, 월, 년도)'></input></td>
                     </tr>
                     <tr>
                         <td>Kick-off</td>
-                        <td><input placeholder='ex) hh:mm'></input></td>
+                        <td><input 
+                        name='Kickoff' onChange={onTicket} required
+                        placeholder='ex) hh:mm'></input></td>
                     </tr>
                     <tr>
                         <td>Month</td>
-                        <td><input placeholder='ex) August, September, October, November, December'></input></td>
+                        <td><input 
+                        name='month' onChange={onTicket} required
+                        placeholder='ex) August, September, October, November, December'></input></td>
                     </tr>
                     <tr>
                         <td>AwayTeam Korean Name</td>
-                        <td><input placeholder='ex) 첼시'></input></td>
+                        <td><input 
+                        name='tkname' onChange={onTicket} required
+                        placeholder='ex) 첼시'></input></td>
                     </tr>
                     <tr>
                         <td>Ticket Date</td>
-                        <td><input placeholder='ex) 0월 00일 0요일'></input></td>
+                        <td><input 
+                        name='tkdate' onChange={onTicket} required
+                        placeholder='ex) 0월 00일 0요일'></input></td>
                     </tr>
                     <tr>
                         <td>Ticket Price</td>
-                        <td><input placeholder='ex) 50,000'></input></td>
+                        <td><input 
+                        name='tkprice' onChange={onTicket} required
+                        placeholder='ex) 50,000'></input></td>
                     </tr>
                 </table>
                 <div id='btn'>

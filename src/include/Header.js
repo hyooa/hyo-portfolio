@@ -5,6 +5,8 @@ import { getCookie, removeCookie } from '../util/cookie';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { setLogout } from '../modules/logincookie';
+import axios from 'axios';
+import { API_URL } from "../config/contansts";
 
     //검색창 클릭하면 나오게 하기
     function searchPopUp(){

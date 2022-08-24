@@ -65,6 +65,6 @@ export default function myPlayers(state = initialState, action) {
                 }
             }
         default :
-        return state;
+            return state;
     }
 }

@@ -8,15 +8,14 @@ import PlayerScroll from './playerScroll/PlayerScroll';
 
 const Player = () => {
 
-    // const no = getCookie("name");
-    const { data, loading, err } = useSelector(state => state.myPlayers.players);
+    const { data, loading, error } = useSelector(state => state.myPlayers.players);
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(getPlayer())
-    }, [dispatch])
-
+    }, [dispatch]);
+    
     if(loading) return <div>로딩중</div>;
-    if(err) return <div>에러</div>;
+    if(error) return <div>에러</div>;
     if(!data) return <div>값 없음</div>;
 
     return (
@@ -68,7 +67,17 @@ const Player = () => {
                     </div>
                 </div>
             </div>
-            <PlayerScroll players={data}/>
+            {/* <PlayerScroll players={data}/> */}
+            <div id='player_right'>
+                {/* <PlayerScroll players={data} /> */}
+                <ul>
+                    <li>hyoyoung</li>
+                    <img src='' alt=''></img>
+                </ul>
+                {/* {data.map(player => (
+                    <PlayerScroll key={player.no} player={player} />
+                ))} */}
+            </div>
         </div>
     );
 };
