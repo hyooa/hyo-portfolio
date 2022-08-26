@@ -1,5 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './match.scss';
+import { useDispatch, useSelector } from 'react-redux';
+import { getTicket } from '../modules/match';
+import { API_URL } from '../config/contansts';
 
 function leftPopup() {
     console.log('클릭');
@@ -7,6 +10,19 @@ function leftPopup() {
 }
 
 const Match = () => {
+
+    const { data, loading, error } = useSelector(state=>state.myTicket.ticket)
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(getTicket())
+    }, [dispatch])
+
+    if(loading) return <div>로딩중</div>;
+    if(error) return <div>에러</div>;
+    if(!data) return <div>값 없음</div>;
+
+    console.log(data);
+
     return (
         <div id='fixtures'>
             <div id='leftToggle'>
@@ -54,7 +70,6 @@ const Match = () => {
                     </div>
                 </div>
             </div>
-            {/* <Ticket/> */}
             <img src='./image/logo2.png' alt=''></img>
             <h1>Fixtures & Ticket</h1>
             <div id='center'>
@@ -90,78 +105,26 @@ const Match = () => {
                     <p><span>10</span>개의 경기가 있습니다.</p>
                 </div>
                 <div id='matchList'>
-                    <div id='matchTeam'>
-                        <div id='ticket' onClick={()=>leftPopup()}>티켓 구매</div>
-                        <div className='text'>
-                            <div>Chelsea</div>
-                            <img src='./image/logo.png' alt=''></img>
-                        </div>
-                        <div className='time'>
-                            <div>17:50</div>
-                            <div>
-                                <div>FRI 29 JUL 2022</div>
-                                <div>DACIA ARENA</div>
+                    {data.map(match=> (
+                        <div id='matchTeam' key={match.no}>
+                            <div id='ticket' onClick={()=>leftPopup()}>티켓 구매</div>
+                            <div className='text'>
+                                <div>Chelsea</div>
+                                <img src='./image/logo.png' alt=''></img>
+                            </div>
+                            <div className='time'>
+                                <div>{match.kickoff}</div>
+                                <div>
+                                    <div>{match.gamedate}</div>
+                                    <div>{match.stadium}</div>
+                                </div>
+                            </div>
+                            <div className='text'>
+                                <img src={`${API_URL}/ticket/${match.awaylogo}`} alt=''></img>
+                                <div>{match.awayname}</div>
                             </div>
                         </div>
-                        <div className='text'>
-                            <img src='./image/logo/토트넘.png' alt=''></img>
-                            <div>Manchester City</div>
-                        </div>
-                    </div>
-                    <div id='matchTeam'>
-                        <div id='ticket' onClick={()=>leftPopup()}>티켓 구매</div>
-                        <div className='text'>
-                            <div>Chelsea</div>
-                            <img src='./image/logo.png' alt=''></img>
-                        </div>
-                        <div className='time'>
-                            <div>17:50</div>
-                            <div>
-                                <div>FRI 29 JUL 2022</div>
-                                <div>DACIA ARENA</div>
-                            </div>
-                        </div>
-                        <div className='text'>
-                            <img src='./image/logo/웨스트햄.png' alt=''></img>
-                            <div>Tottenham Hotspur</div>
-                        </div>
-                    </div>
-                    <div id='matchTeam'>
-                        <div id='ticket' onClick={()=>leftPopup()}>티켓 구매</div>
-                        <div className='text'>
-                            <div>Chelsea</div>
-                            <img src='./image/logo.png' alt=''></img>
-                        </div>
-                        <div className='time'>
-                            <div>17:50</div>
-                            <div>
-                                <div>FRI 29 JUL 2022</div>
-                                <div>DACIA ARENA</div>
-                            </div>
-                        </div>
-                        <div className='text'>
-                            <img src='./image/logo/노리치시티.png' alt=''></img>
-                            <div>West Ham United</div>
-                        </div>
-                    </div>
-                    <div id='matchTeam'>
-                        <div id='ticket' onClick={()=>leftPopup()}>티켓 구매</div>
-                        <div className='text'>
-                            <div>Chelsea</div>
-                            <img src='./image/logo.png' alt=''></img>
-                        </div>
-                        <div className='time'>
-                            <div>17:50</div>
-                            <div>
-                                <div>FRI 29 JUL 2022</div>
-                                <div>DACIA ARENA</div>
-                            </div>
-                        </div>
-                        <div className='text'>
-                            <img src='./image/logo/노팅엄.png' alt=''></img>
-                            <div>Manchester United</div>
-                        </div>
-                    </div>
+                    ))}
                 </div>
             </div>
         </div>

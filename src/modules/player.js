@@ -26,19 +26,15 @@ export const getPlayer = () => async dispatch => {
     dispatch({ type : GET_PLAYERS })
     console.log("실행실행");
     try {
-       
-        const res = await axios.get(`${API_URL}/player`)
-        
-
-    // res.header("Access-Control-Allow-Origin", "*");
-  
+        // const res = await axios.get(`${API_URL}/player`)
+        const res = await axios.get('http://localhost:3001/player')
         const result = res.data;
-        console.log("실행실행");
-        dispatch({ type : GET_PLAYERS_SUCCESS, result: result })
-        
+        console.log(res);
+        dispatch({ type : GET_PLAYERS_SUCCESS, result })
     }
     catch(e) {
         dispatch({ type : GET_PLAYERS_ERROR, error : e })
+        console.log("에러");
     }
 }
 
