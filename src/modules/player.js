@@ -24,10 +24,18 @@ const GET_PLAYERS_ERROR = "GET_PLAYERS_ERROR";
 // 3. 액션 생성 함수 정의
 export const getPlayer = () => async dispatch => {
     dispatch({ type : GET_PLAYERS })
+    console.log("실행실행");
     try {
+       
         const res = await axios.get(`${API_URL}/player`)
+        
+
+    // res.header("Access-Control-Allow-Origin", "*");
+  
         const result = res.data;
-        dispatch({ type : GET_PLAYERS_SUCCESS, result })
+        console.log("실행실행");
+        dispatch({ type : GET_PLAYERS_SUCCESS, result: result })
+        
     }
     catch(e) {
         dispatch({ type : GET_PLAYERS_ERROR, error : e })

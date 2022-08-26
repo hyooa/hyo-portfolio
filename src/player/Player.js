@@ -3,20 +3,20 @@ import './player.scss';
 import {IoIosArrowRoundDown} from 'react-icons/io';
 import { useSelector, useDispatch } from 'react-redux';
 import { getPlayer } from '../modules/player';
-import { getCookie } from '../util/cookie';
-import PlayerScroll from './playerScroll/PlayerScroll';
 
 const Player = () => {
 
-    const { data, loading, error } = useSelector(state => state.myPlayers.players);
+    const { data, loading, error } = useSelector(state=>state.myPlayers.players);
     const dispatch = useDispatch();
     useEffect(() => {
-        dispatch(getPlayer())
+        dispatch(getPlayer());
     }, [dispatch]);
     
     if(loading) return <div>로딩중</div>;
     if(error) return <div>에러</div>;
     if(!data) return <div>값 없음</div>;
+
+    console.log(data[0]);
 
     return (
         <div id='player'>

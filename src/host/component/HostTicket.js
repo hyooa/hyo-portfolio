@@ -9,7 +9,7 @@ import axios from 'axios';
 const HostTicket = () => {
     const navigate = useNavigate();
 
-    const [ formDate, setFormDate ] = useState({
+    const [ formDateTicket, setFormDateTicket ] = useState({
         Kickoff : "",
         awaylogo : "",
         awayname : "",
@@ -23,22 +23,23 @@ const HostTicket = () => {
 
     const onTicket = (e) => {
         const { name, value } = e.target;
-        setFormDate({
-            ...formDate,
+        setFormDateTicket({
+            ...formDateTicket,
             [name] : value,
             awaylogo : awaylogo,
         })
     }
-    const onSubmit = (e) => {
-        console.log(formDate);
+    const onSubmitTicket = (e) => {
+        e.preventDefault();
+        console.log(formDateTicket);
         hostticket();
     }
     function hostticket() {
-        axios.post(`${API_URL}/host`, formDate)
+        axios.post(`${API_URL}/hostTicket`, formDateTicket)
         .then(res => {
             console.log(res);
-            // navigate('/');
             alert('티켓 등록이 완료되었습니다.');
+            // navigate('/');
         })
         .catch(e => {
             console.log(e);
@@ -49,7 +50,7 @@ const HostTicket = () => {
     // 이미지 경로 상태관리하기
     const [awaylogo, setAwayLogo] = useState([]); //배열로 변경해서 관리하기
     // 이미지 처리 함수
-    const onChangeImg = (info) => {
+    const onChangeImage = (info) => {
         // 파일 업로드 중
         if(info.file.status === 'uploading') {
             console.log('ing~');
@@ -61,8 +62,8 @@ const HostTicket = () => {
             const imgs = []; // 이미지 리스트 배열
             imgs.push(res2.map(data => `${data.name}`))
             setAwayLogo(imgs.toString()) // 배열을 다시 문자열로 변경
-            setFormDate({
-                ...formDate,
+            setFormDateTicket({
+                ...formDateTicket,
                 awaylogo : awaylogo
             })
             console.log('성공');
@@ -74,7 +75,7 @@ const HostTicket = () => {
     }
     return (
         <>
-            <form className='hostTicket' onSubmit={onSubmit}>
+            <form className='hostTicket' onSubmit={onSubmitTicket}>
                 <table>
                     <tr>
                         <td>HomeTeam Name</td>
@@ -93,13 +94,12 @@ const HostTicket = () => {
                         <td>
                         <Space>
                             <Upload
-                            onChange={onChangeImg}
+                            onChange={onChangeImage}
                             action={`${API_URL}/upload2`}
                             listType="picture"
                             maxCount={1}
                             name="image2" 
-                            showUploadList={true} 
-                            required
+                            showUploadList={true}
                             >
                             <Button icon={<UploadOutlined />}>Upload (Max: 1)</Button>
                             </Upload>

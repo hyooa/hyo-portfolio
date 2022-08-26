@@ -16,6 +16,7 @@ import MyPage from './mypage/MyPage';
 import { useDispatch } from 'react-redux';
 import { getCookie } from './util/cookie';
 import { setLogin } from './modules/logincookie';
+import HostTicket from './host/component/HostTicket';
 
 function App() {
 // 마우스 커서 start

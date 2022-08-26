@@ -33,6 +33,7 @@ const HostPlayer = () => {
     }
     const onSubmit = (e) => {
         // console.log(formDate);
+        e.preventDefault();
         hostplayer();
     }
     function hostplayer() {
