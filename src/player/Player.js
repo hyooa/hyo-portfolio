@@ -6,17 +6,17 @@ import { getPlayer } from '../modules/player';
 
 const Player = () => {
 
-    const { data, loading, error } = useSelector(state=>state.myPlayers.players);
-    const dispatch = useDispatch();
-    useEffect(() => {
-        dispatch(getPlayer());
-    }, [dispatch]);
+    // const { data, loading, error } = useSelector(state=>state.myPlayers.players);
+    // const dispatch = useDispatch();
+    // useEffect(() => {
+    //     dispatch(getPlayer());
+    // }, [dispatch]);
     
-    if(loading) return <div>로딩중</div>;
-    if(error) return <div>에러</div>;
-    if(!data) return <div>값 없음</div>;
+    // if(loading) return <div>로딩중</div>;
+    // if(error) return <div>에러</div>;
+    // if(!data) return <div>값 없음</div>;
 
-    console.log(data[0]);
+    // console.log(data[0]);
 
     return (
         <div id='player'>

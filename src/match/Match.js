@@ -3,6 +3,9 @@ import './match.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { getTicket } from '../modules/match';
 import { API_URL } from '../config/contansts';
+import Month from './component/Month';
+import MatchList from './component/MatchList';
+import LeftToggle from './component/LeftToggle';
 
 function leftPopup() {
     console.log('클릭');
@@ -23,105 +26,52 @@ const Match = () => {
 
     console.log(data);
 
+    const CK = data.filter(match => match.no);
+    console.log(CK.length);
+    const month = [...new Set(data.map(match => match.month))]
+    console.log(month);
+
     return (
         <div id='fixtures'>
-            <div id='leftToggle'>
-                <div id='toggleSpan' onClick={()=>leftPopup()}>
-                    <span></span>
-                    <span></span>
-                    <p>Close</p>
-                </div>
-                <div id='matchBox'>
-                    <div id='topText'>
-                        <h2>Ticket</h2>
-                        <div>
-                            <h3>Tottenham Hotspur</h3>
-                            <p>Premier League</p>
-                            <p>티켓은 최대 2장까지 구매 가능합니다.</p>
-                        </div>
-                    </div>
-                    <div id='info'>
-                        <ul>
-                            <li>토트넘 홋스퍼</li>
-                            <li>프리미어 리그</li>
-                            <li>8월 14일 일요일</li>
-                            <li>Kick-off 4:30pm</li>
-                        </ul>
-                    </div>
-                    <div id='buy'>
-                        <p>가격<span id='price'>30,000원</span></p>
-                        <p>수량
-                            <select name="num" id="num">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                            </select>
-                        </p>
-                        <p>총합<span id='total'>30,000원</span></p>
-                    </div>
-                    <div id='btn'>
-                        <div>
-                            <button><span>장바구니</span></button>
-                            <span>장바구니</span>
-                        </div>
-                        <div>
-                            <button><span>구매하기</span></button>
-                            <span>구매하기</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <LeftToggle />
             <img src='./image/logo2.png' alt=''></img>
             <h1>Fixtures & Ticket</h1>
             <div id='center'>
-                <div id='month'>
-                    <ul>
-                        <li>
-                            <p>August</p>
+            <div id='month'>
+                <ul>
+                    {month.map((month, index) => 
+                        <li month={month} key={index}>
+                            <p>{month}</p>
                             <p></p>
                         </li>
-                        <li>
-                            <p>September</p>
-                            <p></p>
-                        </li>
-                        <li>
-                            <p>October</p>
-                            <p></p>
-                        </li>
-                        <li>
-                            <p>November</p>
-                            <p></p>
-                        </li>
-                        <li>
-                            <p>December</p>
-                            <p></p>
-                        </li>
-                    </ul>
-                </div>
+                    )}
+                </ul>
+            </div>
                 <div id='league'>
                     <img src='./image/사자.png' alt=''></img>
                     <span>Premier League</span>
                 </div>
                 <div id='number'>
-                    <p><span>10</span>개의 경기가 있습니다.</p>
+                    <p><span>{CK.length}</span>개의 경기가 있습니다.</p>
                 </div>
                 <div id='matchList'>
-                    {data.map(match=> (
-                        <div id='matchTeam' key={match.no}>
+                    {data.map((month, index)=> (
+                        <div id='matchTeam' month={month} key={index}>
                             <div id='ticket' onClick={()=>leftPopup()}>티켓 구매</div>
                             <div className='text'>
                                 <div>Chelsea</div>
                                 <img src='./image/logo.png' alt=''></img>
                             </div>
                             <div className='time'>
-                                <div>{match.kickoff}</div>
+                                <div>{month.kickoff}</div>
                                 <div>
-                                    <div>{match.gamedate}</div>
-                                    <div>{match.stadium}</div>
+                                    <div>{month.gamedate}</div>
+                                    <div>{month.stadium}</div>
                                 </div>
                             </div>
                             <div className='text'>
-                                <img src={`${API_URL}/ticket/${match.awaylogo}`} alt=''></img>
-                                <div>{match.awayname}</div>
+                                <img src={`${API_URL}/ticket/${month.awaylogo}`} alt=''></img>
+                                <div>{month.awayname}</div>
                             </div>
                         </div>
                     ))}

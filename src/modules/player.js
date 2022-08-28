@@ -20,6 +20,7 @@ const initialState = {
 const GET_PLAYERS = "GET_PLAYERS";
 const GET_PLAYERS_SUCCESS = "GET_PLAYERS_SUCCESS";
 const GET_PLAYERS_ERROR = "GET_PLAYERS_ERROR";
+const URL = '/player';
 
 // 3. 액션 생성 함수 정의
 export const getPlayer = () => async dispatch => {
@@ -28,13 +29,15 @@ export const getPlayer = () => async dispatch => {
     try {
         // const res = await axios.get(`${API_URL}/player`)
         const res = await axios.get('http://localhost:3001/player')
+        // const res = await axios.get(URL)
         const result = res.data;
         console.log(res);
+        console.log('실행 !!');
         dispatch({ type : GET_PLAYERS_SUCCESS, result })
     }
     catch(e) {
         dispatch({ type : GET_PLAYERS_ERROR, error : e })
-        console.log("에러");
+        console.log("에러야");
     }
 }
 

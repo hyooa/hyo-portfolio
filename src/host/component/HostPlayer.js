@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { Upload, Button, Space } from 'antd';
 import axios from 'axios';
 import { API_URL } from '../../config/contansts';
@@ -32,9 +32,13 @@ const HostPlayer = () => {
         })
     }
     const onSubmit = (e) => {
-        // console.log(formDate);
-        e.preventDefault();
+        e.preventDefault(); // 새로고침 방지
         hostplayer();
+    }
+    const onKeyPress = (e) => {
+        if(e.key === "Enter") {
+            onSubmit();
+        }
     }
     function hostplayer() {
         axios.post(`${API_URL}/host`, formDate)
@@ -110,7 +114,7 @@ const HostPlayer = () => {
 
     return (
         <>
-            <form className='hostPlayer' onSubmit={onSubmit}>
+            <form className='hostPlayer' onSubmit={onSubmit} onKeyPress={onKeyPress}>
                 <table>
                     <tr>
                         <td>Main Photo(1개)</td>

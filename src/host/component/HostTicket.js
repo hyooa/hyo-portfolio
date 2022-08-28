@@ -34,6 +34,11 @@ const HostTicket = () => {
         console.log(formDateTicket);
         hostticket();
     }
+    const onKeyPress = (e) => {
+        if(e.key === "Enter") {
+            onSubmitTicket();
+        }
+    }
     function hostticket() {
         axios.post(`${API_URL}/hostTicket`, formDateTicket)
         .then(res => {
@@ -75,7 +80,7 @@ const HostTicket = () => {
     }
     return (
         <>
-            <form className='hostTicket' onSubmit={onSubmitTicket}>
+            <form className='hostTicket' onSubmit={onSubmitTicket} onKeyPress={onKeyPress}>
                 <table>
                     <tr>
                         <td>HomeTeam Name</td>
