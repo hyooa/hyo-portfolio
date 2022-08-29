@@ -38,27 +38,41 @@
                 //     background-color: #ccc;
                 //     box-shadow: 2px 2px 2px #999;
                 // }
-                &:hover p:nth-child(2){
-                    opacity: 1;
-                    transition: 0.3s;
-                }
-                p:nth-child(1) {
-                    position: relative;
-                    z-index: 10;
-                }
-                p:nth-child(2) {
+                &.bgcolor p:nth-child(2){
                     z-index: 1;
                     position: absolute;
                     top: 13px;
                     left: 10px;
-                    // background-color: #0230c763;
                     background-color: rgba(255, 255, 0, 0.678);
                     width: 90%;
                     height: 30px;
                     transform: skewY(-5deg);
-                    opacity: 0;
                     transition: 0.3s;
                 }
+                // &:hover p:nth-child(2){
+                //     opacity: 1;
+                //     transition: 0.3s;
+                // }
+                p:nth-child(1) {
+                    position: relative;
+                    z-index: 10;
+                }
+                // p:nth-child(2) {
+                //     z-index: 1;
+                //     position: absolute;
+                //     top: 13px;
+                //     left: 10px;
+                //     // background-color: #0230c763;
+                //     background-color: rgba(255, 255, 0, 0.678);
+                //     width: 90%;
+                //     height: 30px;
+                //     transform: skewY(-5deg);
+                //     opacity: 0;
+                //     transition: 0.3s;
+                // }
+                // p:nth-child(2).color {
+                //     background-color: rgba(255, 255, 0, 0.678);
+                // }
             }
         }
     }

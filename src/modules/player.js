@@ -27,8 +27,8 @@ export const getPlayer = () => async dispatch => {
     dispatch({ type : GET_PLAYERS })
     console.log("실행실행");
     try {
-        // const res = await axios.get(`${API_URL}/player`)
-        const res = await axios.get('http://localhost:3001/player')
+        const res = await axios.get(`${API_URL}/player`)
+        // const res = await axios.get('http://localhost:3001/player')
         // const res = await axios.get(URL)
         const result = res.data;
         console.log(res);

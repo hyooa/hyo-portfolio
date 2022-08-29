@@ -17,6 +17,7 @@ import { useDispatch } from 'react-redux';
 import { getCookie } from './util/cookie';
 import { setLogin } from './modules/logincookie';
 import HostTicket from './host/component/HostTicket';
+import MatchMonth from './match/MatchMonth';
 
 function App() {
 // 마우스 커서 start
@@ -112,6 +113,7 @@ useEffect(() => {
         <Route path='/playerMore' element={<PlayerMore />} />
         <Route path='/shop' element={<Shop />} />
         <Route path='/match' element={<Match />} />
+        <Route path='/matchMonth/:month' element={<MatchMonth />} />
         <Route path='/faq' element={<FAQ />} />
         <Route path='/contact' element={<ContactUs />} />
         <Route path='/mypage' element={<MyPage />} />

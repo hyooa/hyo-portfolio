@@ -13,6 +13,11 @@ const initialState = {
         loading : false,
         data : null,
         error : null
+    },
+    ticketMonth : {
+        loading : false,
+        data : null,
+        error : null
     }
 }
 
@@ -20,6 +25,10 @@ const initialState = {
 const GET_TICKET = "GET_TICKET";
 const GET_TICKET_SUCCESS = "GET_TICKET_SUCCESS";
 const GET_TICKET_ERROR = "GET_TICKET_ERROR";
+
+const GET_MONTH = "GET_MONTH";
+const GET_MONTH_SUCCESS = "GET_MONTH_SUCCESS";
+const GET_MONTH_ERROR = "GET_MONTH_ERROR";
 
 // 3. 액션 생성 함수 정의
 export const getTicket = () => async dispatch => {
@@ -31,6 +40,18 @@ export const getTicket = () => async dispatch => {
     }
     catch(e) {
         dispatch({ type : GET_TICKET_ERROR, error : e })
+    }
+}
+
+export const getTicketMonth = (month) => async dispatch => {
+    dispatch({ type : GET_MONTH })
+    try {
+        const res = await axios.get(`${API_URL}/matchMonth/${month}`)
+        const result = res.data;
+        dispatch({ type : GET_MONTH_SUCCESS, result })
+    }
+    catch(e) {
+        dispatch({ type : GET_MONTH_ERROR, error : e })
     }
 }
 
@@ -46,19 +67,47 @@ export default function myTicket(state = initialState, action) {
                     error: null
                 }
             }
-            case GET_TICKET_SUCCESS :
+        case GET_TICKET_SUCCESS :
+            return {
+                ...state,
+                ticket : {
+                    loading: false,
+                    data: action.result,
+                    error: null
+                }
+            }
+        case GET_TICKET_ERROR :
+            return {
+                ...state,
+                ticket : {
+                    loading: false,
+                    data: null,
+                    error: action.error,
+                }
+            }
+
+            case GET_MONTH :
                 return {
                     ...state,
-                    ticket : {
+                    ticketMonth : {
+                        loading: true,
+                        data: null,
+                        error: null
+                    }
+                }
+            case GET_MONTH_SUCCESS :
+                return {
+                    ...state,
+                    ticketMonth : {
                         loading: false,
                         data: action.result,
                         error: null
                     }
                 }
-            case GET_TICKET_ERROR :
+            case GET_MONTH_ERROR :
                 return {
                     ...state,
-                    ticket : {
+                    ticketMonth : {
                         loading: false,
                         data: null,
                         error: action.error,
