@@ -5,19 +5,18 @@ import Header from './include/Header';
 import Join from './login/Join';
 import Login from './login/Login';
 import Main from './main/Main';
-import Player from './player/Player';
 import Shop from './shop/Shop';
 import Match from './match/Match';
 import FAQ from './f&q/FAQ';
 import ContactUs from './contactUs/ContactUs'
-import PlayerMore from './player/playerMore/PlayerMore';
+import PlayerMore from './suhan/playerMore/PlayerMore';
 import Host from './host/Host';
 import MyPage from './mypage/MyPage';
 import { useDispatch } from 'react-redux';
 import { getCookie } from './util/cookie';
 import { setLogin } from './modules/logincookie';
-import HostTicket from './host/component/HostTicket';
 import MatchMonth from './match/MatchMonth';
+import Suhan from './suhan/Suhan';
 
 function App() {
 // 마우스 커서 start
@@ -106,11 +105,11 @@ useEffect(() => {
       <div ref={dot} className='cursor'></div>
       <Header></Header>
       <Routes>
+        <Route path="/suhan" element={<Suhan />} />
         <Route path="/" element={<Main />} />
         <Route path="/login" element={<Login />} />
         <Route path="/join" element={<Join />} />
-        <Route path="/player" element={<Player />} />
-        <Route path='/playerMore' element={<PlayerMore />} />
+        <Route path='/playerMore/:name' element={<PlayerMore />} />
         <Route path='/shop' element={<Shop />} />
         <Route path='/match' element={<Match />} />
         <Route path='/matchMonth/:month' element={<MatchMonth />} />

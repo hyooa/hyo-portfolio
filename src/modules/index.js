@@ -1,15 +1,15 @@
 import { combineReducers } from "redux";
 import logincookie from "./logincookie";
 import myPage from "./mypage";
-import myPlayers from "./player";
 import myTicket from "./match";
+import my from './suhan';
 
 // 💛 여러개 reducer 합치기
 const rootReducer = combineReducers({ 
     logincookie,
     myPage,
-    myPlayers,
-    myTicket
+    myTicket,
+    my
 });
 
 export default rootReducer;

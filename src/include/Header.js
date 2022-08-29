@@ -73,7 +73,7 @@ const Header = () => {
                 <ul id='toggle'>
                     <a href='/'><li>HOME</li></a>
                     <a href='/match'><li>Fixtures & Ticket</li></a>
-                    <a href='/player'><li>PLAYER</li></a>
+                    <a href='/suhan'><li>PLAYER</li></a>
                     <a href='/contact'><li>Contact Us</li></a>
                     <a href='/shop'><li>SHOP</li></a>
                     {/* <a href='/faq'><li>FAQ</li></a> 자주 묻는 질문*/}
