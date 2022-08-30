@@ -43,18 +43,18 @@ export const getAa = () => async dispatch => {
     }
 }
 
-// export const getMore = (name) => async dispatch => {
-//     dispatch({ type : GET_MORE })
-//     try {
-//         const res = await axios.get(`${API_URL}/playerPhoto/${name}`)
-//         const result = res.data;
-//         dispatch({ type : GET_MORE_SUCCESS, result })
-//     }
-//     catch(e) {
-//         dispatch({ type : GET_MORE_ERROR, error : e })
-//         console.log("에러");
-//     }
-// }
+export const getMore = (name) => async dispatch => {
+    dispatch({ type : GET_MORE })
+    try {
+        const res = await axios.get(`${API_URL}/playerMore/${name}`)
+        const result = res.data;
+        dispatch({ type : GET_MORE_SUCCESS, result })
+    }
+    catch(e) {
+        dispatch({ type : GET_MORE_ERROR, error : e })
+        console.log("에러");
+    }
+}
 
 // 4. 리듀서 선언
 export default function my(state = initialState, action) {

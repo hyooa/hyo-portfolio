@@ -61,11 +61,16 @@
             #player_text {
                 margin: 40px auto;
                 text-align: left;
+                width: 100%;
+                table {
+                    width: 60%;
+                }
                 th {
                     width: 50%;
                     font-size: 20px;
                 }
                 td {
+                    width: 50%;
                     font-size: 18px;
                 }
                 table tr th, td {

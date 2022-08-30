@@ -1,20 +1,23 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {API_URL} from '../../config/contansts'
-
-function leftPopup(data) {
-    console.log('클릭');
-    document.querySelector('#leftToggle').classList.toggle('popup');
-}
+import LeftToggle from '../component/LeftToggle';
 
 const MatchList = ({data}) => {
+                                // 🚨 초기값 ????????? 🚨
+    const [list , setList] = useState("Leicester City");
+    const onClick = (e) => {
+        setList(e.target.className);
+        document.querySelector('#leftToggle').classList.toggle('popup');
+    }
+    console.log(list); // match.awayname 받아옴
 
     const CK = data.filter(match => match.no);
     // console.log(CK.length);
-
     // console.log(data);
 
     return (
         <>
+        <LeftToggle data={data} state={list}/>
         <div id='league'>
             <img src='../image/사자.png' alt=''></img>
             <span>Premier League</span>
@@ -25,7 +28,7 @@ const MatchList = ({data}) => {
         <div id='matchList'>
                     {data.map(match=> (
                         <div id='matchTeam' key={match.no}>
-                            <div id='ticket' onClick={()=>leftPopup()}>티켓 구매</div>
+                            <div id='ticket' className={`${match.awayname}`} onClick={onClick}>티켓 구매</div>
                             <div className='text'>
                                 <div>Chelsea</div>
                                 <img src='../image/logo.png' alt=''></img>

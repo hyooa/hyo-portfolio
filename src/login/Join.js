@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import './join.scss';
 import { API_URL } from '../config/contansts';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+// import {useRouter} from 'next/router';
 
 const Join = () => {
     const navigate = useNavigate();
@@ -50,6 +51,44 @@ const Join = () => {
         })
     }
 
+    // 이름, 이메일, 비밀번호, 비밀번호 확인
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const [passwordConfirm, setPasswordConfirm] = useState('')
+    
+    // 오류메시지 상태저장
+    const [nameMessage, setNameMessage] = useState('')
+    const [emailMessage, setEmailMessage] = useState('')
+    const [passwordMessage, setPasswordMessage] = useState('')
+    const [passwordConfirmMessage, setPasswordConfirmMessage] = useState('')
+
+    // 유효성 검사
+    const [isName, setIsName] = useState(false)
+    const [isEmail, setIsEmail] = useState(false)
+    const [isPassword, setIsPassword] = useState(false)
+    const [isPasswordConfirm, setIsPasswordConfirm] = useState(false)
+    // const router = useRouter()
+
+    // 이름
+    const onChangeName = (e) => {
+        setName(e.target.value)
+        if(e.target.value.length < 2 || e.target.value.length > 20) {
+            setNameMessage('2글자 이상, 20글자 미만으로 입력해주세요.');
+            setIsName(false);
+        } else {
+            setNameMessage('올바른 이름 형식입니다.');
+            setIsName(true);
+        }
+    }
+
+    // 이메일
+    const onChangeEmail = (e) => {
+        const emailRegex = 
+        /([\w-.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/
+        // const
+    }
+
     return (
         <div id='joinStyled'>
             <img src='./image/logo2.png' alt=''></img>
@@ -83,7 +122,7 @@ const Join = () => {
                         <tr>
                             <th>Password</th>
                             <td>
-                                <input type="password" placeholder='8자 이상, 문자/숫자/기호 사용 가능'
+                                <input type="password" placeholder='8자 이상, 영문자/숫자/특수문자 사용 가능'
                                 name="userpass"
                                 value={formDate.userpass}
                                 onChange={onChange}
@@ -93,7 +132,7 @@ const Join = () => {
                         <tr>
                             <th>Password 확인</th>
                             <td>
-                                <input type="password" placeholder='8자 이상, 문자/숫자/기호 사용 가능'
+                                <input type="password" placeholder='8자 이상, 영문자/숫자/특수문자 사용 가능'
                                 name="userpassck"
                                 value={formDate.userpassck}
                                 onChange={onChange}

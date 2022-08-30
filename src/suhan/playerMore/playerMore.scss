@@ -115,7 +115,9 @@
             }
             .photoTwo {
                 width: 100%;
+                height: 30%;
                 > img {
+                    height: 100%;
                     width: 33.3333%;
                 }
             }
@@ -124,7 +126,7 @@
     // ㅡㅡㅡㅡ 세번째
     #comment {
         width: 1400px;
-        margin: 300px auto;
+        margin: 0px auto 300px;
         > h3 {
             font-size: 80px;
         }

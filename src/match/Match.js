@@ -30,7 +30,6 @@ const Match = () => {
 
     return (
         <div id='fixtures'>
-            <LeftToggle />
             <img src='../image/logo2.png' alt=''></img>
             <h1>Fixtures & Ticket</h1>
             <div id='center'>

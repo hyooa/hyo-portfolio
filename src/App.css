@@ -17,6 +17,7 @@
 }
 .App *::selection {
     background: #4b63ca;
+    color: #fff;
   }
 * {
     padding: 0;

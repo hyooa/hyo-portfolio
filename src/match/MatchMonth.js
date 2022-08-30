@@ -7,17 +7,12 @@ import LeftToggle from './component/LeftToggle';
 import { Link, useParams } from 'react-router-dom';
 
 const MatchMonth = () => {
-    const [ isClick, setIsClick ] = useState(false);
-    const handleMonth = () => {
-        setIsClick(true);
-        console.log("월 클릭");
-    }
-
 
     const {month} = useParams();
     const { data, loading, error } = useSelector(state=>state.myTicket.ticketMonth);
     const dispatch = useDispatch();
-    console.log(month);
+    // console.log(month);
+    // console.log(data);
 
     useEffect(() => {
         dispatch(getTicketMonth(month))
@@ -27,10 +22,8 @@ const MatchMonth = () => {
     if(error) return <div>에러</div>;
     if(!data) return <div>값 없음</div>;
 
-
     return (
         <div id='fixtures'>
-            <LeftToggle />
             <img src='../image/logo2.png' alt=''></img>
             <h1>Fixtures & Ticket</h1>
             <div id='center'>
