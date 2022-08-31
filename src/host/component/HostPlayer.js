@@ -5,6 +5,7 @@ import axios from 'axios';
 import { API_URL } from '../../config/contansts';
 import { useNavigate } from 'react-router-dom';
 import { UploadOutlined } from '@ant-design/icons';
+import { setCookie } from '../../util/cookie';
 
 const HostPlayer = () => {
     const navigate = useNavigate();
@@ -49,7 +50,7 @@ const HostPlayer = () => {
         })
         .catch(e => {
             console.log(e);
-            alert('error');
+            alert('선수 등록에 실패했습니다.');
         })
     }
 

@@ -48,7 +48,7 @@ const HostTicket = () => {
         })
         .catch(e => {
             console.log(e);
-            alert('error');
+            alert('티켓 등록에 실패했습니다.');
         })
     }
 

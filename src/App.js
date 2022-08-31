@@ -17,6 +17,7 @@ import { getCookie } from './util/cookie';
 import { setLogin } from './modules/logincookie';
 import MatchMonth from './match/MatchMonth';
 import Suhan from './suhan/Suhan';
+import Comment from './suhan/playerMore/Comment';
 
 function App() {
 // 마우스 커서 start
@@ -110,6 +111,7 @@ useEffect(() => {
         <Route path="/login" element={<Login />} />
         <Route path="/join" element={<Join />} />
         <Route path='/playerMore/:name' element={<PlayerMore />} />
+        {/* <Route path='/playerMore/:player' element={<Comment />} /> */}
         <Route path='/shop' element={<Shop />} />
         <Route path='/match' element={<Match />} />
         <Route path='/matchMonth/:month' element={<MatchMonth />} />

@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import './playerMore.scss';
 import { BackTop } from 'antd';
-import { IoIosHeart, IoIosArrowRoundDown, IoIosAddCircleOutline, IoIosAddCircle } from 'react-icons/io';
-import { MdDelete } from 'react-icons/md';
+import { IoIosArrowRoundDown} from 'react-icons/io';
 import { useDispatch, useSelector } from 'react-redux';
 import { getMore } from '../../modules/suhan';
 import {  useParams } from 'react-router-dom';
 import { API_URL } from '../../config/contansts';
+import Comment from './Comment';
 
 window.onload = function() {
     var prevScrollpos = window.pageYOffset;
@@ -95,52 +95,7 @@ const PlayerMore = () => {
                     </div>
                 </div>
             </div>
-            <div id='comment'>
-                <h3>Fan Comments</h3>
-                <div id='fanInput'>
-                    <form>
-                        <input placeholder='입력해주세요.'></input>
-                        <div>
-                            <IoIosAddCircleOutline size='40'></IoIosAddCircleOutline>
-                        </div>
-                    </form>
-                </div>
-                <div id='fanText'>
-                    <div>
-                        <div>
-                            <div>
-                                <IoIosHeart size='25'></IoIosHeart>
-                            </div>
-                            <div>100</div>
-                        </div>
-                        <div>아이디</div>
-                        <div className='text'>안녕하세요~안녕하세요~안녕하세요~안녕하세요~안녕하세요~안녕하세요~안녕하세요~안녕하세요~안녕하세요~안녕하세요~안녕하세요~안녕하세요~안녕하세요~</div>
-                        <div className='remove'><MdDelete></MdDelete></div>
-                    </div>
-                    <div>
-                        <div>
-                            <div>
-                                <IoIosHeart size='25'></IoIosHeart>
-                            </div>
-                            <div>100</div>
-                        </div>
-                        <div>아이디</div>
-                        <div className='text'>안녕하세요~</div>
-                        <div className='remove'><MdDelete></MdDelete></div>
-                    </div>
-                    <div>
-                        <div>
-                            <div>
-                                <IoIosHeart size='25'></IoIosHeart>
-                            </div>
-                            <div>100</div>
-                        </div>
-                        <div>아이디</div>
-                        <div className='text'>안녕하세요~</div>
-                        <div className='remove'><MdDelete></MdDelete></div>
-                    </div>
-                </div>
-            </div>
+            <Comment playerDate={data}/>
         </div>
     );
 };

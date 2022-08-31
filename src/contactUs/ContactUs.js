@@ -1,12 +1,7 @@
 import React,{ useState } from 'react';
 import './contactUs.scss';
 import { BsSearch } from 'react-icons/bs';
-import { Table, TableBody, TableCell, TableRow } from '@mui/material';
-
-function contactPopup() {
-    console.log('클릭');
-    document.querySelector('#inputPopup').classList.toggle('inputUp');
-}
+import Input from './component/Input';
 
 const ContactUs = () => {
     const [isOpen, setOpen] = useState(false);
@@ -74,34 +69,7 @@ const ContactUs = () => {
                         </div>
                     </div>
                 </div>
-                <div id='contact_input'>
-                    <p onClick={()=>contactPopup()}>문의하기</p>
-                    <form id='inputPopup'>
-                        <Table>
-                            <TableBody>
-                                <TableRow>
-                                    <TableCell>아이디</TableCell>
-                                </TableRow>
-                                <TableRow>
-                                    <TableCell>2021.01.01</TableCell>
-                                </TableRow>
-                                <TableRow>
-                                    <TableCell><input placeholder='제목'></input></TableCell>
-                                </TableRow>
-                                <TableRow>
-                                    <TableCell><textarea placeholder='내용을 입력해주세요.' rows="10" cols="50"></textarea></TableCell>
-                                </TableRow>
-                                <TableRow id='checkBox'>
-                                    <TableCell>
-                                        공개글<input type="checkbox" id='ckOne'></input><label id='labelOne'></label>
-                                        비밀글<input type="checkbox" id='ckTwo'></input><label></label>
-                                    </TableCell>
-                                </TableRow>
-                            </TableBody>
-                            <button>등록</button>
-                        </Table>
-                    </form>
-                </div>
+                <Input />
             </div>
             
         </div>
