@@ -32,16 +32,18 @@ const Input = () => {
         axios.post(`${API_URL}/contact`, input)
         .then(res => {
             // console.log(res);
-            alert('문의글 등록이 완료되었습니다.');
+            // alert('문의글 등록이 완료되었습니다.');
         })
         .catch(e => {
             // console.log(e);
-            alert('문의글 등록에 실패했습니다.');
+            // alert('문의글 등록에 실패했습니다.');
         })
     }
     const onSubmit = (e) => {
         e.preventDefault();
         contactInput();
+        alert("문의글 등록이 완료되었습니다.");
+        document.location.href = document.location.href;
     }
     const onKeyPress = (e) => {
         if(e.key === "Enter") {

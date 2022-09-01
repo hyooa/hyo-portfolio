@@ -3,12 +3,9 @@ import { useState, useRef } from 'react';
 import { Upload, Button, Space } from 'antd';
 import axios from 'axios';
 import { API_URL } from '../../config/contansts';
-import { useNavigate } from 'react-router-dom';
 import { UploadOutlined } from '@ant-design/icons';
-import { setCookie } from '../../util/cookie';
 
 const HostPlayer = () => {
-    const navigate = useNavigate();
 
     // 선수 등록
     const [ formDate, setFormDate ] = useState({
@@ -35,6 +32,8 @@ const HostPlayer = () => {
     const onSubmit = (e) => {
         e.preventDefault(); // 새로고침 방지
         hostplayer();
+        alert("선수 등록이 완료되었습니다.");
+        document.location.href = document.location.href;
     }
     const onKeyPress = (e) => {
         if(e.key === "Enter") {
@@ -45,12 +44,11 @@ const HostPlayer = () => {
         axios.post(`${API_URL}/host`, formDate)
         .then(res => {
             console.log(res);
-            // navigate('/');
-            alert('선수 등록이 완료되었습니다.');
+            // alert('선수 등록이 완료되었습니다.');
         })
         .catch(e => {
             console.log(e);
-            alert('선수 등록에 실패했습니다.');
+            // alert('선수 등록에 실패했습니다.');
         })
     }
 

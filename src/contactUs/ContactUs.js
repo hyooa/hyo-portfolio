@@ -2,6 +2,7 @@ import React,{ useState } from 'react';
 import './contactUs.scss';
 import { BsSearch } from 'react-icons/bs';
 import Input from './component/Input';
+import { getCookie } from '../util/cookie';
 
 const ContactUs = () => {
     const [isOpen, setOpen] = useState(false);
@@ -69,7 +70,9 @@ const ContactUs = () => {
                         </div>
                     </div>
                 </div>
-                <Input />
+                {(getCookie("usermail")) ?
+                <Input /> : <a href='/login'><div className='conLogin'>로그인</div></a>
+                }
             </div>
             
         </div>

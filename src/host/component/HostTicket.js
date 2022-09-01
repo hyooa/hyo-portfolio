@@ -3,11 +3,9 @@ import { useState } from 'react';
 import { Upload, Button, Space } from 'antd';
 import { API_URL } from '../../config/contansts';
 import { UploadOutlined } from '@ant-design/icons';
-import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const HostTicket = () => {
-    const navigate = useNavigate();
 
     const [ formDateTicket, setFormDateTicket ] = useState({
         Kickoff : "",
@@ -33,6 +31,8 @@ const HostTicket = () => {
         e.preventDefault();
         console.log(formDateTicket);
         hostticket();
+        alert("티켓 등록이 완료되었습니다.");
+        document.location.href = document.location.href;
     }
     const onKeyPress = (e) => {
         if(e.key === "Enter") {
@@ -43,12 +43,11 @@ const HostTicket = () => {
         axios.post(`${API_URL}/hostTicket`, formDateTicket)
         .then(res => {
             console.log(res);
-            alert('티켓 등록이 완료되었습니다.');
-            // navigate('/');
+            // alert('티켓 등록이 완료되었습니다.');
         })
         .catch(e => {
             console.log(e);
-            alert('티켓 등록에 실패했습니다.');
+            // alert('티켓 등록에 실패했습니다.');
         })
     }
 

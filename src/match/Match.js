@@ -1,18 +1,17 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './match.scss';
 import { useDispatch, useSelector } from 'react-redux';
-import { getTicket, getTicketMonth } from '../modules/match';
-import { API_URL } from '../config/contansts';
+import { getTicket } from '../modules/match';
 import MatchList from './component/MatchList';
-import LeftToggle from './component/LeftToggle';
-import { Link, useParams } from 'react-router-dom';
-
-function leftPopup() {
-    console.log('클릭');
-    document.querySelector('#leftToggle').classList.toggle('popup');
-}
 
 const Match = () => {
+
+        const [list , setList] = useState("August");
+        const onClick = (e) => {
+            // console.log(e.target);
+            setList(e.target.className);
+        }
+        // console.log(list);
 
     const { data, loading, error } = useSelector(state=>state.myTicket.ticket)
     const dispatch = useDispatch();
@@ -27,6 +26,10 @@ const Match = () => {
 
     const month = [...new Set(data.map(match => match.month))]
     // console.log(month);
+    
+    const select = data.filter(month=>month.month===list)
+    // console.log(select);
+    // console.log(data[select].awayname);
 
     return (
         <div id='fixtures'>
@@ -35,18 +38,16 @@ const Match = () => {
             <div id='center'>
                 <div id='month'>
                     <ul>
-                        {month.map((month, index) => (
-                            <Link to={`/matchMonth/${month}`}>
-                            <li month={month} key={index}>
-                                <p>{month}</p>
+                        {month.map((month) => (
+                            <li>
+                                <p onClick={onClick} className={`${month}`}>{month}</p>
                                 <p></p>
                             </li>
-                            </Link>
                         )
                         )}
                     </ul>
                 </div>
-                <MatchList data={data}/>
+                <MatchList state={select}/>
             </div>
         </div>
     );

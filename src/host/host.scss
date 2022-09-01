@@ -25,7 +25,7 @@
         top: -30px;
         right: 50px;
         background-color: #eee;
-        width: 400px;
+        width: 600px;
         height: 80px;
         line-height: 3;
         border-radius: 40px;
@@ -43,6 +43,11 @@
                 box-shadow: 2px 2px 1px #999;
             }
             .hostTicket.color {
+                border-radius: 50px;
+                background-color: rgb(211, 211, 211);
+                box-shadow: 2px 2px 1px #999;
+            }
+            .hostCus.color {
                 border-radius: 50px;
                 background-color: rgb(211, 211, 211);
                 box-shadow: 2px 2px 1px #999;
@@ -179,5 +184,37 @@
 .hostTicket {
     #home > img {
         width: 13%;
+    }
+}
+
+#input > #hostCusForm {
+    > table {
+        > tr {
+            width: 100%;
+            &:first-child {
+                background-color: #001350;
+                td{
+                    color: #fff;
+                }
+            }
+            td{
+                flex-wrap: wrap;
+                width: 15%;
+            }
+            td:nth-child(1) {
+                width: 15%;
+                text-align: center;
+            }
+            > td:nth-child(2) {
+                width: 15%;
+            }
+        }
+    }
+    button {
+        background-color: none;
+        border: none;
+    }
+    .remove:hover button{
+        color: red;
     }
 }
