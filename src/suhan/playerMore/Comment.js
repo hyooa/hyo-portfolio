@@ -45,17 +45,17 @@ const Comment = ({playerDate}) => {
         }
     }
 
-    const {player} = useParams();
-    const {data, loading, error} = useSelector(state=>state.myFan.fans);
-    const dispatch = useDispatch();
-    useEffect(() => {
-        dispatch(getFan(player))
-    }, [dispatch, player])
-    console.log(data);
-    if(loading) return <div>로딩중</div>;
-    if(error) return <div>에러</div>;
-    if(!data) return <div>값 없음</div>;
-    console.log(data);
+    // const {player} = useParams();
+    // const {data, loading, error} = useSelector(state=>state.myFan.fans);
+    // const dispatch = useDispatch();
+    // useEffect(() => {
+    //     dispatch(getFan(player))
+    // }, [dispatch, player])
+    // console.log(data);
+    // if(loading) return <div>로딩중</div>;
+    // if(error) return <div>에러</div>;
+    // if(!data) return <div>값 없음</div>;
+    // console.log(data);
 
     return (
         <div id='comment'>

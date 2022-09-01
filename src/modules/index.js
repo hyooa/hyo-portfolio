@@ -4,6 +4,7 @@ import myPage from "./mypage";
 import myTicket from "./match";
 import my from './suhan';
 import myFan from './fan';
+import myContactUs from "./contactus";
 
 // 💛 여러개 reducer 합치기
 const rootReducer = combineReducers({ 
@@ -11,7 +12,8 @@ const rootReducer = combineReducers({
     myPage,
     myTicket,
     my,
-    myFan
+    myFan,
+    myContactUs
 });
 
 export default rootReducer;

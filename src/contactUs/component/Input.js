@@ -29,7 +29,7 @@ const Input = () => {
         })
     }
     function contactInput() {
-        axios.post(`${API_URL}/contact`, input)
+        axios.post(`${API_URL}/textContact`, input)
         .then(res => {
             // console.log(res);
             // alert('문의글 등록이 완료되었습니다.');
@@ -55,15 +55,15 @@ const Input = () => {
     const nowDate = now.toLocaleDateString();
     // console.log(nowDate);
 
-    const usermail = getCookie("usermail");
-    const {data, loading, error} = useSelector(state=>state.myPage.mypage);
-    const dispatch = useDispatch();
-    useEffect(() => {
-        dispatch(getMyPage(usermail))
-    }, [dispatch])
-    if(loading) return <div>로딩중</div>;
-    if(error) return <div>에러</div>;
-    if(!data) return <div>값 없음</div>;
+    // const usermail = getCookie("usermail");
+    // const {data, loading, error} = useSelector(state=>state.myPage.mypage);
+    // const dispatch = useDispatch();
+    // useEffect(() => {
+    //     dispatch(getMyPage(usermail))
+    // }, [dispatch])
+    // if(loading) return <div>로딩중</div>;
+    // if(error) return <div>에러</div>;
+    // if(!data) return <div>값 없음</div>;
 
     return (
         <div id='contact_input'>
@@ -72,7 +72,7 @@ const Input = () => {
                         <Table>
                             <TableBody>
                                 <TableRow>
-                                    <TableCell>{data.username}</TableCell>
+                                    <TableCell>data.username</TableCell>
                                 </TableRow>
                                 <TableRow>
                                     <TableCell>{nowDate}</TableCell>

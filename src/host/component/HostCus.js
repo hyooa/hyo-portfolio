@@ -16,8 +16,15 @@ const HostCus = () => {
     if(!data) return <div>값 없음</div>;
     // console.log(data);
 
+    const num = data.filter(cus=>cus.no);
+    // console.log(num.length);
+
     return (
         <>
+            <div id='hostName'>
+                <div><span>*</span>이름으로 오름차순 정렬함</div>
+                <div>총 회원 수 <span>{num.length}</span>명</div>
+            </div>
             <form id='hostCusForm'>
                 <table>
                     <tr>
@@ -27,6 +34,7 @@ const HostCus = () => {
                         <td>Phone Number</td>
                         <td>Address</td>
                         <td>SMS 수신 동의</td>
+                        <td>가입일</td>
                         <td>탈퇴</td>
                     </tr>
                     {data.map((data) => 
@@ -37,6 +45,7 @@ const HostCus = () => {
                             <td>{data.userphone}</td>
                             <td>{data.useradd}</td>
                             <td></td>
+                            <td>{data.userdate}</td>
                             <td><button><MdDelete size='20'></MdDelete></button></td>
                         </tr>
                     )}

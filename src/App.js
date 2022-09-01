@@ -111,7 +111,6 @@ useEffect(() => {
         <Route path="/login" element={<Login />} />
         <Route path="/join" element={<Join />} />
         <Route path='/playerMore/:name' element={<PlayerMore />} />
-        {/* <Route path='/playerMore/:player' element={<Comment />} /> */}
         <Route path='/shop' element={<Shop />} />
         <Route path='/match' element={<Match />} />
         <Route path='/faq' element={<FAQ />} />

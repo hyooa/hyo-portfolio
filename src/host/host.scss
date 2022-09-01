@@ -199,14 +199,14 @@
             }
             td{
                 flex-wrap: wrap;
-                width: 15%;
+                width: 13%;
             }
             td:nth-child(1) {
-                width: 15%;
+                width: 13%;
                 text-align: center;
             }
             > td:nth-child(2) {
-                width: 15%;
+                width: 13%;
             }
         }
     }
@@ -216,5 +216,30 @@
     }
     .remove:hover button{
         color: red;
+    }
+}
+#hostName {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 20px;
+    div {
+        &:nth-child(1) {
+            text-align: left;
+            span {
+                color: red;
+                vertical-align: middle;
+                padding-right: 5px;
+                font-size: 18px;
+            }
+        }
+        &:nth-child(2) {
+            text-align: right;
+            span {
+                font-weight: bold;
+                font-size: 18px;
+            }
+        }
+        width: 100%;
     }
 }

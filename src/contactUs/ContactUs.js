@@ -1,12 +1,27 @@
-import React,{ useState } from 'react';
+import React,{ useEffect, useState } from 'react';
 import './contactUs.scss';
 import { BsSearch } from 'react-icons/bs';
 import Input from './component/Input';
 import { getCookie } from '../util/cookie';
+import { useDispatch } from 'react-redux';
+import { getCon } from '../modules/contactus';
 
 const ContactUs = () => {
+    
     const [isOpen, setOpen] = useState(false);
     const [isFix, setFix] = useState(false);
+    
+    const {data, loading, error} = useState(state=>state.myContactUs.con);
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(getCon())
+    }, [dispatch])
+    console.log(data);
+    if(loading) return <div>로딩중</div>;
+    if(error) return <div>에러</div>;
+    if(!data) return <div>값 없음</div>;
+    console.log(data);
+
     const tableToggle = () => {
         setOpen(isOpen => !isOpen);
     }
