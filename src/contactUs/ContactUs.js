@@ -23,7 +23,7 @@ const ContactUs = () => {
     useEffect(() => {
         dispatch(getCon())
     }, [dispatch])
-    console.log(data);
+    // console.log(data);
     if(loading) return <div>로딩중</div>;
     if(error) return <div>에러</div>;
     if(!data) return <div>값 없음</div>;

@@ -13,15 +13,13 @@ function contactPopup() {
 
 const Input = () => {
 
-    const usermail = getCookie("usermail");
-    console.log(usermail);
+    // const usermail = getCookie("usermail");
+    // console.log(usermail);
     const [input, setInput] = useState({
         username : getCookie("username"),
-        usermail : usermail,
+        usermail : getCookie("usermail"),
         title : "",
         content : "",
-        keyword : "",
-        secret : "",
     })
     console.log(input);
 
@@ -34,6 +32,7 @@ const Input = () => {
         })
     }
     function contactInput() {
+        console.log(input)
         axios.post(`${API_URL}/textContact`, input)
         .then(res => {
             // console.log(res);

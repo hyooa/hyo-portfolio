@@ -2,15 +2,16 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getMyCon } from '../../modules/mypage';
 import { MdDelete } from 'react-icons/md';
+import axios from 'axios';
+import { API_URL } from '../../config/contansts';
 
-const Bottom = ({username}) => {
+const Bottom = ({email}) => {
 
-    // 나중에 이메일로 바꾸기 🚨🚨🚨
     const {data, loading, error} = useSelector(state=>state.myPage.mycontact);
     const dispatch = useDispatch();
     useEffect(() =>{
-        dispatch(getMyCon(username))
-    }, [dispatch, username])
+        dispatch(getMyCon(email))
+    }, [dispatch, email])
     if(loading) return <div>로딩중</div>;
     if(error) return <div>에러</div>;
     if(!data) return <div>값 없음</div>;
@@ -19,6 +20,23 @@ const Bottom = ({username}) => {
     
     var localTime = data[0].date;
     const now = localTime.slice(0,10);
+
+    function deleteContact(no) {
+        axios.post(`${API_URL}/mypageConDel/${no}`)
+        .then(result => {
+
+        })
+        .catch(e => {
+
+        })
+    }
+
+    const onDelete = (e) => {
+        alert("문의글 삭제 완료되었습니다.");
+        const no = e.target.value;
+        console.log(no);
+        // deleteContact();
+    }
 
     return (
         <div id='myUs'>
@@ -37,7 +55,7 @@ const Bottom = ({username}) => {
                                 <td>{index+1}</td>
                                 <td>{data.title}</td>
                                 <td>{now}</td>
-                                <td><button><MdDelete size='20'></MdDelete></button></td>
+                                <td><button onClick={onDelete}><MdDelete size='20'></MdDelete></button></td>
                             </tr>
                         )}
                     </table>

@@ -11,7 +11,6 @@ import Basket from './component/Basket';
 const MyPage = () => {
 
     const email = getCookie("usermail");
-    const username = getCookie("username");
 
     return (
         <div id='mypage'>
@@ -22,7 +21,7 @@ const MyPage = () => {
                     <Basket email={email}/>
                 </div>
                 <div id='mypageBto'>
-                    <Bottom username={username}/>
+                    <Bottom email={email}/>
                     <MyCommet email={email}/>
                 </div>
             </div>
