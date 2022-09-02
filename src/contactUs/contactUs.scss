@@ -163,3 +163,10 @@
     margin-bottom: 50px;
     cursor: pointer;
 }
+button {
+    background: none;
+    border: none;
+}
+.remove:hover button{
+    color: red;
+}

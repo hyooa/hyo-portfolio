@@ -12,12 +12,12 @@ const initialState = {
         loading : false,
         data : null,
         error : null
-    }
+    },
 }
 
 const GET_CONTACT = "GET_CONTACT";
 const GET_CONTACT_SUCCESS = "GET_CONTACT_SUCCESS";
-const GET_CONTACT_ERROR = "GET_CONTACT";
+const GET_CONTACT_ERROR = "GET_CONTACT_ERROR";
 
 export const getCon = () => async dispatch => {
     dispatch({ type : GET_CONTACT })

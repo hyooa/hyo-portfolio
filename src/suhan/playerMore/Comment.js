@@ -14,6 +14,7 @@ const Comment = ({playerDate}) => {
 
     const [fan, setFan] = useState({
         id : getCookie("username"),
+        email : getCookie("usermail"),
         comment : "",
         player : playerDate.name,
     })

@@ -13,15 +13,20 @@ function contactPopup() {
 
 const Input = () => {
 
+    const usermail = getCookie("usermail");
+    console.log(usermail);
     const [input, setInput] = useState({
-        id : getCookie("username"),
+        username : getCookie("username"),
+        usermail : usermail,
         title : "",
         content : "",
         keyword : "",
+        secret : "",
     })
+    console.log(input);
 
     const onInput = (e) => {
-        // console.log(input);
+        console.log(input);
         const {name, value} = e.target;
         setInput({
             ...input,
@@ -51,19 +56,11 @@ const Input = () => {
         }
     }
 
+    // 2022-08-30T15:00:00.000Z
     let now = new Date();
     const nowDate = now.toLocaleDateString();
-    // console.log(nowDate);
 
-    // const usermail = getCookie("usermail");
-    // const {data, loading, error} = useSelector(state=>state.myPage.mypage);
-    // const dispatch = useDispatch();
-    // useEffect(() => {
-    //     dispatch(getMyPage(usermail))
-    // }, [dispatch])
-    // if(loading) return <div>로딩중</div>;
-    // if(error) return <div>에러</div>;
-    // if(!data) return <div>값 없음</div>;
+    const username = getCookie("username");
 
     return (
         <div id='contact_input'>
@@ -72,7 +69,7 @@ const Input = () => {
                         <Table>
                             <TableBody>
                                 <TableRow>
-                                    <TableCell>data.username</TableCell>
+                                    <TableCell>{username}</TableCell>
                                 </TableRow>
                                 <TableRow>
                                     <TableCell>{nowDate}</TableCell>
