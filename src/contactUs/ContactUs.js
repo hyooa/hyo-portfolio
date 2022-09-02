@@ -38,7 +38,7 @@ const ContactUs = () => {
     const now = localTime.slice(0,10);
 
     return (
-        // 문제 ) 처음에 값이 없으면 에러 🚨🚨🚨
+        // 문제 ) 처음에 값이 없으면 에러 🚨🚨🚨 // 없을땐 없습니다라고 뜨게하기
         <div id='contact'>
             <img src='./image/logo2.png' alt=''></img>
             <div id='contact_top'>
@@ -83,7 +83,7 @@ const ContactUs = () => {
                         if (data.username !== '관리자')
                         return <div id='tableDiv' key={index}>
                             <ul onClick={() => tableToggle()}>
-                                <li>{index}</li>
+                                <li>{index-1}</li>
                                 <li>{data.title}</li>
                                 <li>{data.username}</li>
                                 <li>{now}</li>

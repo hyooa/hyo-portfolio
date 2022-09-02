@@ -7,6 +7,7 @@ import { API_URL } from '../../config/contansts';
 
 const Bottom = ({email}) => {
 
+    // 문제 ) 처음에 값이 없으면 에러 🚨🚨🚨 // 없을땐 없습니다라고 뜨게하기
     const {data, loading, error} = useSelector(state=>state.myPage.mycontact);
     const dispatch = useDispatch();
     useEffect(() =>{
@@ -18,24 +19,30 @@ const Bottom = ({email}) => {
     // console.log(data);
     // console.log(username);
     
+    // console.log(data[0].no);
+    
     var localTime = data[0].date;
     const now = localTime.slice(0,10);
+
+    const onDelete = (e) => {
+        e.preventDefault();
+        const eValue = e.target.value;
+        deleteContact(eValue);
+        console.log(e.target.value);
+        // alert("문의글 삭제 완료되었습니다.");
+        // document.location.href = document.location.href
+    }
 
     function deleteContact(no) {
         axios.post(`${API_URL}/mypageConDel/${no}`)
         .then(result => {
-
+            console.log(result+'result');
         })
         .catch(e => {
-
+            console.log(e);
+            // console.log(number+'e');
         })
-    }
-
-    const onDelete = (e) => {
-        alert("문의글 삭제 완료되었습니다.");
-        const no = e.target.value;
-        console.log(no);
-        // deleteContact();
+        // console.log(number+'밖');
     }
 
     return (
@@ -55,7 +62,7 @@ const Bottom = ({email}) => {
                                 <td>{index+1}</td>
                                 <td>{data.title}</td>
                                 <td>{now}</td>
-                                <td><button onClick={onDelete}><MdDelete size='20'></MdDelete></button></td>
+                                <td><button onClick={onDelete} value={data.no}><MdDelete size='20'></MdDelete></button></td>
                             </tr>
                         )}
                     </table>
