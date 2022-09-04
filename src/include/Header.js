@@ -76,16 +76,16 @@ const Header = () => {
                     <a href='/match'><li>Fixtures & Ticket</li></a>
                     <a href='/suhan'><li>PLAYER</li></a>
                     <a href='/contact'><li>Contact Us</li></a>
-                    <a href='/shop'><li>SHOP</li></a>
+                    {/* <a href='/shop'><li>SHOP</li></a> */}
                     {/* <a href='/faq'><li>FAQ</li></a> 자주 묻는 질문*/}
                     {
-                        isLogin && id !== '관리자' && <>
+                        isLogin && email !== 'hyoyoung123@naver.com' && <>
                             <a href='/mypage'><li>My Page</li></a>
                             <a href='/'><li onClick={logoutClick}>Logout</li></a>
                         </>
                     }
                     {
-                        id === '관리자' && <>
+                        email === 'hyoyoung123@naver.com' && <>
                             <div id='flex'>
                                 <a href='/mypage'><li>My Page</li></a>
                                 <p>/</p>

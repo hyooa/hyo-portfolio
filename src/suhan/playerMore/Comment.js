@@ -1,12 +1,9 @@
-import React, {useEffect, useState} from 'react';
-import { IoIosHeart, IoIosAddCircleOutline } from 'react-icons/io';
-import { MdDelete } from 'react-icons/md';
+import React, {useState} from 'react';
+import { IoIosAddCircleOutline } from 'react-icons/io';
 import { getCookie } from '../../util/cookie';
 import axios from 'axios';
 import { API_URL } from '../../config/contansts';
-import { useDispatch, useSelector } from 'react-redux';
-import { getFan } from '../../modules/fan';
-import {  useParams } from 'react-router-dom';
+import FanText from './FanText';
 
 const Comment = ({playerDate}) => {
     // console.log(playerDate);
@@ -18,6 +15,8 @@ const Comment = ({playerDate}) => {
         comment : "",
         player : playerDate.name,
     })
+    // console.log(fan);
+
     const onFan = (e) => {
         const {name, value} = e.target;
         setFan({
@@ -46,18 +45,6 @@ const Comment = ({playerDate}) => {
         }
     }
 
-    // const {player} = useParams();
-    // const {data, loading, error} = useSelector(state=>state.myFan.fans);
-    // const dispatch = useDispatch();
-    // useEffect(() => {
-    //     dispatch(getFan(player))
-    // }, [dispatch, player])
-    // console.log(data);
-    // if(loading) return <div>로딩중</div>;
-    // if(error) return <div>에러</div>;
-    // if(!data) return <div>값 없음</div>;
-    // console.log(data);
-
     return (
         <div id='comment'>
             <h3>Fan Comments</h3>
@@ -77,19 +64,7 @@ const Comment = ({playerDate}) => {
                 <a href='/login'><div id='fanLogin'>로그인 후 작성 가능합니다.</div></a>
                 }
             </div>
-            <div id='fanText'>
-                <div>
-                    <div>
-                        <div>
-                            <IoIosHeart size='25'></IoIosHeart>
-                        </div>
-                        <div>100</div>
-                    </div>
-                    <div>아이디</div>
-                    <div className='text'>안녕하세요~안녕하세요~안녕하세요~안녕하세요~안녕하세요~안녕하세요~안녕하세요~안녕하세요~안녕하세요~안녕하세요~안녕하세요~안녕하세요~안녕하세요~</div>
-                    <div className='remove'><MdDelete></MdDelete></div>
-                </div>
-            </div>
+            <FanText playerDate={playerDate}/>
         </div>
     );
 };

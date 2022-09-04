@@ -22,7 +22,7 @@ const FAN_ERROR = "FAN_ERROR";
 export const getFan = (player) => async dispatch => {
     dispatch({ type : FAN })
     try {
-        const res = await axios.get(`${API_URL}/playerMore/${player}`)
+        const res = await axios.get(`${API_URL}/playerMorefan/${player}`)
         const result = res.data;
         dispatch({ type : FAN_SUCCESS, result })
     }

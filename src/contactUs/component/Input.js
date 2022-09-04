@@ -7,11 +7,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getMyPage } from '../../modules/mypage';
 
 function contactPopup() {
-    console.log('클릭');
+    // console.log('클릭');
     document.querySelector('#inputPopup').classList.toggle('inputUp');
 }
 
 const Input = () => {
+
+    // 날짜 고치기 🚀🚀🚀
 
     // const usermail = getCookie("usermail");
     // console.log(usermail);
@@ -21,10 +23,10 @@ const Input = () => {
         title : "",
         content : "",
     })
-    console.log(input);
+    // console.log(input);
 
     const onInput = (e) => {
-        console.log(input);
+        // console.log(input);
         const {name, value} = e.target;
         setInput({
             ...input,
@@ -32,7 +34,7 @@ const Input = () => {
         })
     }
     function contactInput() {
-        console.log(input)
+        // console.log(input)
         axios.post(`${API_URL}/textContact`, input)
         .then(res => {
             // console.log(res);

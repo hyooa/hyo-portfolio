@@ -6,8 +6,12 @@ import { getCookie } from '../util/cookie';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCon } from '../modules/contactus';
 import { MdDelete } from 'react-icons/md';
+import axios from 'axios';
+import { API_URL } from '../config/contansts';
 
 const ContactUs = () => {
+
+    // 날짜 고치기 🚀🚀🚀
     
     const [isOpen, setOpen] = useState(false);
     const [isFix, setFix] = useState(false);
@@ -37,6 +41,32 @@ const ContactUs = () => {
     var localTime = data[0].date;
     const now = localTime.slice(0,10);
 
+
+    // console.log(data[0].no);
+    function deleteConUs(no) {
+        axios.post(`${API_URL}/mypageConDel/${no}`)
+        .then(result=> {
+
+        })
+        .catch(e => {
+
+        })
+    }
+    const onDelete = (e) => {
+        e.preventDefault();
+        const no = e.target.className;
+        // console.log(no);
+        deleteConUs(no);
+        alert("문의글 삭제 완료되었습니다.");
+            document.location.href = document.location.href
+    }
+
+    const userDate = getCookie("usermail");
+    // console.log(userDate);
+    const userEmail = data[0].usermail;
+    console.log(data);
+    console.log(userEmail);
+
     return (
         // 문제 ) 처음에 값이 없으면 에러 🚨🚨🚨 // 없을땐 없습니다라고 뜨게하기
         <div id='contact'>
@@ -63,7 +93,7 @@ const ContactUs = () => {
                         </ul>
                     </div>
                     {data.map((data) => {
-                        if (data.username === '관리자')
+                        if (data.usermail === 'hyoyoung123@naver.com')
                         return <div id='tableDiv'>
                             <ul onClick={() => tableToggle2()}>
                                 <li></li>
@@ -71,7 +101,12 @@ const ContactUs = () => {
                                 <li>{data.username}</li>
                                 <li>{now}</li>
                                 <li></li>
-                                <li className='remove'><button><MdDelete size='20'></MdDelete></button></li>
+                                {
+                                    userDate === 'hyoyoung123@naver.com' &&
+                                    <li className='remove'><button onClick={onDelete} className={`${data.no}`}>삭제</button></li>
+                                }
+                                {userDate !== 'hyoyoung123@naver.com' && <li></li>}
+                                {/* <MdDelete size='20'></MdDelete> */}
                             </ul>
                             <ul id='answer' className={isFix ? 'show2' : 'hide2'}>
                                 <li>{data.content}</li>
@@ -80,7 +115,7 @@ const ContactUs = () => {
                         }
                     )}
                     {data.map((data, index) =>{
-                        if (data.username !== '관리자')
+                        if (data.usermail !== 'hyoyoung123@naver.com')
                         return <div id='tableDiv' key={index}>
                             <ul onClick={() => tableToggle()}>
                                 <li>{index-1}</li>
@@ -88,7 +123,12 @@ const ContactUs = () => {
                                 <li>{data.username}</li>
                                 <li>{now}</li>
                                 <li></li>
-                                <li className='remove'><button><MdDelete size='20'></MdDelete></button></li>
+                                {
+                                    (userDate === data.usermail || userDate === 'hyoyoung123@naver.com') &&
+                                    <li className='remove'><button onClick={onDelete} className={`${data.no}`}>삭제</button></li>
+                                }
+                                {userDate !== data.usermail && userDate !== 'hyoyoung123@naver.com' && <li></li>}
+                                {/* <MdDelete size='20'></MdDelete> */}
                             </ul>
                             <div className={isOpen ? 'show' : 'hide'}>
                                 <ul id='question'>
@@ -96,7 +136,15 @@ const ContactUs = () => {
                                 </ul>
                                 <ul id='answer'>
                                     <li>관리자</li>
-                                    <li></li>
+                                    {
+                                        userDate === 'hyoyoung123@naver.com' &&
+                                        <li><textarea 
+                                        placeholder='답글을 작성해주세요.'
+                                        rows="5" cols="100"></textarea></li>
+                                    }
+                                    {
+                                        userDate !== 'hyoyoung123@naver.com' && <li></li>
+                                    }
                                 </ul>
                             </div>
                         </div>

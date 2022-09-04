@@ -107,10 +107,12 @@ a {
 }
 #toggle {
     position: absolute;
-    top: 6%;
-    right: 13%;
+    padding: 5% 0;
+    top: 50%;
+    right: -15%;
+    transform: translate(-50%,-50%);
     z-index: 50;
-    height: 830px;
+    height: 750px;
 }
 #toggle li {
     color: #fff;
@@ -119,7 +121,7 @@ a {
     text-align: right;
     transition: 0.3s;
     position: relative;
-    line-height: 1.5;
+    line-height: 1.3;
 }
 #toggle li:hover {
     font-size: 100px;

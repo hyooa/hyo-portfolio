@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getMyCon } from '../../modules/mypage';
 import { MdDelete } from 'react-icons/md';
@@ -24,25 +24,24 @@ const Bottom = ({email}) => {
     var localTime = data[0].date;
     const now = localTime.slice(0,10);
 
-    const onDelete = (e) => {
-        e.preventDefault();
-        const eValue = e.target.value;
-        deleteContact(eValue);
-        console.log(e.target.value);
-        // alert("문의글 삭제 완료되었습니다.");
-        // document.location.href = document.location.href
-    }
 
     function deleteContact(no) {
         axios.post(`${API_URL}/mypageConDel/${no}`)
         .then(result => {
-            console.log(result+'result');
+            // console.log(result+'result');
         })
         .catch(e => {
-            console.log(e);
-            // console.log(number+'e');
+            // console.log(e+'e');
         })
-        // console.log(number+'밖');
+    }
+
+    const onDelete = (e) => {
+        e.preventDefault();
+        const no = e.target.className;
+        deleteContact(no);
+        // console.log(no);
+        alert("문의글 삭제 완료되었습니다.");
+        document.location.href = document.location.href
     }
 
     return (
@@ -62,7 +61,8 @@ const Bottom = ({email}) => {
                                 <td>{index+1}</td>
                                 <td>{data.title}</td>
                                 <td>{now}</td>
-                                <td><button onClick={onDelete} value={data.no}><MdDelete size='20'></MdDelete></button></td>
+                                <td><button onClick={onDelete} className={`${data.no}`}>삭제</button></td>
+                                    {/* <MdDelete size='20'></MdDelete></button></td> */}
                             </tr>
                         )}
                     </table>
