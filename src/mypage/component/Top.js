@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getMyPage } from '../../modules/mypage';
+import EditCus from './EditCus';
 
 const Top = ({email}) => {
 
@@ -12,10 +13,23 @@ const Top = ({email}) => {
     if(loading) return <div>로딩중</div>;
     if(error) return <div>에러</div>;
     if(!data) return <div>값 없음</div>;
-    // console.log(data);
-    // console.log(email);
+    console.log(data);
+    console.log(email);
+
+    const originDate = data.userbirth.slice(0,10);
+    const date2 = new Date(originDate);
+    date2.setDate(date2.getDate()+1);
+    // console.log(date2+'date2🚨');
+    const settingDate = date2.toLocaleDateString();
+
+    const onClick = (e) => {
+        e.preventDefault();
+        document.querySelector('#editCus').style.display = 'block';
+    }
 
     return (
+        <>
+        {/* <EditCus  email={email}/> */}
         <div id='info'>
             <div>
                 <h2>회원정보</h2>
@@ -31,7 +45,7 @@ const Top = ({email}) => {
                         </tr>
                         <tr>
                             <td>Date of Birth</td>
-                            <td></td>
+                            <td>{settingDate}</td>
                         </tr>
                         <tr>
                             <td>Phone Number</td>
@@ -42,16 +56,21 @@ const Top = ({email}) => {
                             <td>{data.useradd}</td>
                         </tr>
                         <tr>
+                            <td>성별</td>
+                            <td>{data.gender}</td>
+                        </tr>
+                        <tr>
                             <td>SMS 수신 동의</td>
-                            <td></td>
+                            <td>{data.usersms}</td>
                         </tr>
                     </table>
                     <div id='btn'>
-                        <button>수정하기</button>
+                        <button onClick={onClick}>수정하기</button>
                     </div>
                 </form>
             </div>
         </div>
+        </>
     );
 };
 

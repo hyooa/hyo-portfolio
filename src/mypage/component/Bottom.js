@@ -36,13 +36,14 @@ const Bottom = ({email}) => {
     }
 
     const onDelete = (e) => {
+        if(window.confirm('글을 삭제하시겠습니까 ?\n삭제된 데이터는 복구할 수 없습니다.')) {
         e.preventDefault();
         const no = e.target.className;
         deleteContact(no);
         // console.log(no);
         alert("문의글 삭제 완료되었습니다.");
         document.location.href = document.location.href
-    }
+    }}
 
     return (
         <div id='myUs'>

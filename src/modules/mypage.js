@@ -28,7 +28,12 @@ const initialState = {
         loading : false,
         data : null,
         error : null
-    }
+    },
+    // myEditCus : {
+    //     loading : false,
+    //     data : null,
+    //     error : null
+    // }
 }
 
 // 2. 액션타입 지정
@@ -52,7 +57,25 @@ const GET_COMMENT_MYPAGE = "GET_COMMENT_MYPAGE";
 const GET_COMMENT_MYPAGE_SUCCESS = "GET_COMMENT_MYPAGE_SUCCESS";
 const GET_COMMENT_MYPAGE_ERROR = "GET_COMMENT_MYPAGE_ERROR";
 
+    // 내 정보 수정
+// const GET_EDIT_MYPAGE = "GET_EDIT_MYPAGE";
+// const GET_EDIT_MYPAGE_SUCCESS = "GET_EDIT_MYPAGE_SUCCESS";
+// const GET_EDIT_MYPAGE_ERROR = "GET_EDIT_MYPAGE_ERROR";
+
 // 3. 액션 생성 함수 정의
+
+// export const getMyEdit = (no) => async dispatch => {
+//     dispatch({ type : GET_EDIT_MYPAGE })
+//     try {
+//         const res = await axios.get(`${API_URL}/editCustomer/${no}`)
+//         const result = res.data;
+//         dispatch({ type : GET_EDIT_MYPAGE_SUCCESS, result })
+//     }
+//     catch(e) {
+//         dispatch({ type : GET_EDIT_MYPAGE_ERROR, error : e })
+//     }
+// }
+
 export const getMyCus = () => async dispatch => {
     dispatch({ type : GET_MYCUS })
     try {
@@ -215,6 +238,34 @@ export default function myPage(state = initialState, action) {
                                         error : action.error
                                     }
                                 }
+
+                                // case GET_EDIT_MYPAGE :
+                                //     return {
+                                //         ...state,
+                                //         myEditCus : {
+                                //             loading : true,
+                                //             data : null,
+                                //             error : null
+                                //         }
+                                //     }
+                                // case GET_EDIT_MYPAGE_SUCCESS :
+                                //     return {
+                                //         ...state,
+                                //         myEditCus : {
+                                //             loading : false,
+                                //             data : action.result,
+                                //             error : null
+                                //         }
+                                //     }
+                                // case GET_EDIT_MYPAGE_ERROR :
+                                //     return {
+                                //         ...state,
+                                //         myEditCus : {
+                                //             loading : false,
+                                //             data : null,
+                                //             error : action.error
+                                //         }
+                                //     }
         default :
             return state;
     }

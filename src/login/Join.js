@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import './join.scss';
 import { API_URL } from '../config/contansts';
 import axios from 'axios';
@@ -13,10 +13,10 @@ const Join = () => {
         userpassck:"",
         useradd : "",
         userphone : "",
-        // userbirth : "",
-        // usersms : "",
-        // userdate : "",
+        userbirth : "",
+        usersms : "",
         usermail : "",
+        gender : "",
     })
     const onChange = (e) => {
         const { name, value } = e.target;
@@ -24,7 +24,10 @@ const Join = () => {
             ...formDate,
             [ name ] : value
         })
+        // console.log(name);
+        console.log(value);
     }
+
     const onSubmitch = (e) => {
         // form에 원래 연결된 이벤트 제거
         e.preventDefault();
@@ -35,9 +38,12 @@ const Join = () => {
         // input에 값이 있는지 체크하고
         // 입력이 다 되어있으면 post 전송
         if (formDate.username !== "" && formDate.userpass !== "" && formDate.userpassck !== "" &&
-        formDate.useradd !== "" && formDate.userphone !== "" && 
-         formDate.usermail !== "") {
+        formDate.useradd !== "" && formDate.userphone !== "" && formDate.userbirth !== "" && 
+         formDate.usermail !== "" && formDate.gender !== "" && formDate.usersms !== "") {
             addMember()
+            alert(`회원가입이 완료되었습니다.\n환영합니다. ${formDate.username}님`);
+        } else {
+            alert("다시 확인해주세요.");
         }
     }
     function addMember() {
@@ -50,6 +56,22 @@ const Join = () => {
             console.log(e);
         })
     }
+
+    const onKeyPress = (e) => {
+        if(e.key === "Enter") {
+            onSubmitch();
+        }
+    }
+
+    // 당일 날짜 이후로는 선택 안되게하기
+    function dateCheck(){
+        var nowDate = Date.now();
+        var timeOff = new
+        Date().getTimezoneOffset()*60000;
+        var today = new Date(nowDate-timeOff).toISOString().split("T")[0];
+        document.getElementById("Date").setAttribute("max", today);
+    }
+    
 
     // 이름, 이메일, 비밀번호, 비밀번호 확인
     const [name, setName] = useState('');
@@ -88,7 +110,9 @@ const Join = () => {
         /([\w-.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/
         // const
     }
-
+    useEffect(()=>{
+        dateCheck();
+    },[])
     return (
         <div id='joinStyled'>
             <img src='./image/logo2.png' alt=''></img>
@@ -139,19 +163,19 @@ const Join = () => {
                                 required></input>
                             </td>
                         </tr>
-                        {/* <tr id='joinData'>
+                        <tr id='joinData'>
                             <th>Date of Birth</th>
                             <td>
-                                <input type="date"
-                                name="userdate"
-                                value={formDate.userdate}
-                                onChange={onChange}></input>
+                                <input type="date" id='Date'
+                                name="userbirth"
+                                value={formDate.userbirth}
+                                onChange={onChange}
+                                required></input>
                             </td>
-                        </tr> */}
+                        </tr>
                         <tr id='joinPhone'>
                             <th>Phone Number</th>
                             <td>
-                                {/* <input></input> - <input></input> - <input></input> */}
                                 <input
                                 name="userphone" type="text"
                                 value={formDate.userphone}
@@ -170,20 +194,34 @@ const Join = () => {
                                 <button>우편번호검색</button>
                             </td>
                         </tr>
-                        {/* <tr id='joinBox'>
-                            <th>SMS 수신 동의</th>
+                        <tr id='gender'>
+                            <th>Gender</th>
                             <td>
-                                동의 <input type="checkbox"
-                                name="usersms"
-                                value={formDate.usersms}
+                                남성 <input type="radio"
+                                name="gender"
+                                value="남성"
                                 onChange={onChange}></input>
 
-                                비동의 <input type="checkbox"
-                                name="usersms"
-                                value={formDate.usersms}
+                                여성 <input type="radio"
+                                name="gender"
+                                value="여성"
                                 onChange={onChange}></input>
                             </td>
-                        </tr> */}
+                        </tr>
+                        <tr id='joinBox'>
+                            <th>SMS 수신 동의</th>
+                            <td>
+                                동의 <input type="radio"
+                                name="usersms"
+                                value="동의"
+                                onChange={onChange}></input>
+
+                                비동의 <input type="radio"
+                                name="usersms"
+                                value="비동의"
+                                onChange={onChange}></input>
+                            </td>
+                        </tr>
                     </table>
                     <div id='joinBtn'>
                         <button type="submit">Join Us</button>

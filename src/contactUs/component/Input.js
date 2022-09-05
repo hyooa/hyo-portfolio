@@ -12,14 +12,17 @@ function contactPopup() {
 }
 
 const Input = () => {
-
-    // 날짜 고치기 🚀🚀🚀
+    
+    let now = new Date();
+    const nowDate = now.toLocaleDateString();
+    // console.log(nowDate);
 
     // const usermail = getCookie("usermail");
     // console.log(usermail);
     const [input, setInput] = useState({
         username : getCookie("username"),
         usermail : getCookie("usermail"),
+        date : nowDate,
         title : "",
         content : "",
     })
@@ -38,11 +41,9 @@ const Input = () => {
         axios.post(`${API_URL}/textContact`, input)
         .then(res => {
             // console.log(res);
-            // alert('문의글 등록이 완료되었습니다.');
         })
         .catch(e => {
             // console.log(e);
-            // alert('문의글 등록에 실패했습니다.');
         })
     }
     const onSubmit = (e) => {
@@ -56,10 +57,6 @@ const Input = () => {
             onSubmit();
         }
     }
-
-    // 2022-08-30T15:00:00.000Z
-    let now = new Date();
-    const nowDate = now.toLocaleDateString();
 
     const username = getCookie("username");
 

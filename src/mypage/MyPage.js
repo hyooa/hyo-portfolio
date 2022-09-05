@@ -7,10 +7,12 @@ import Top from './component/Top';
 import Bottom from './component/Bottom';
 import MyCommet from './component/MyCommet';
 import Basket from './component/Basket';
+import EditCus from './component/EditCus';
 
 const MyPage = () => {
 
     const email = getCookie("usermail");
+    console.log(email);
 
     return (
         <div id='mypage'>
@@ -19,6 +21,7 @@ const MyPage = () => {
                 <div>
                     <Top email={email}/>
                     <Basket email={email}/>
+                    <EditCus email={email}/>
                 </div>
                 <div id='mypageBto'>
                     <Bottom email={email}/>

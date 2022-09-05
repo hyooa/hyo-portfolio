@@ -32,17 +32,7 @@ const ContactUs = () => {
     if(error) return <div>에러</div>;
     if(!data) return <div>값 없음</div>;
 
-    // var localTime = moment().format('YYYY-MM-DD');
-    // var localTime = moment().utc().format('YYYY-MM-DD')
-    // console.log(localTime.slice(0,10));
-    // let now = localTime.slice(0,10);
-
-    // 2022-08-30T15:00:00.000Z 자르기
-    var localTime = data[0].date;
-    const now = localTime.slice(0,10);
-
-
-    // console.log(data[0].no);
+   
     function deleteConUs(no) {
         axios.post(`${API_URL}/mypageConDel/${no}`)
         .then(result=> {
@@ -53,19 +43,23 @@ const ContactUs = () => {
         })
     }
     const onDelete = (e) => {
+        // if(window.confirm('글을 삭제하시겠습니까 ?\n삭제된 데이터는 복구할 수 없습니다.')) {
         e.preventDefault();
         const no = e.target.className;
         // console.log(no);
         deleteConUs(no);
         alert("문의글 삭제 완료되었습니다.");
-            document.location.href = document.location.href
+        document.location.href = document.location.href
     }
+
+    const now = new Date(); // 현재 시간
+    const utcNow = now.getTime() + (now.getTimezoneOffset() * 60 * 1000); // 현재 시간을 utc로 변환한 밀리세컨드값
+    const koreaTimeDiff = 9 * 60 * 60 * 1000; // 한국 시간은 UTC보다 9시간 빠름(9시간의 밀리세컨드 표현)
+    const koreaNow = new Date(utcNow + koreaTimeDiff); // utc로 변환된 값을 한국 시간으로 변환시키기 위해 9시간(밀리세컨드)를 더함
+    // console.log(koreaNow+'koreaNow⭐');
 
     const userDate = getCookie("usermail");
     // console.log(userDate);
-    const userEmail = data[0].usermail;
-    console.log(data);
-    console.log(userEmail);
 
     return (
         // 문제 ) 처음에 값이 없으면 에러 🚨🚨🚨 // 없을땐 없습니다라고 뜨게하기
@@ -86,20 +80,30 @@ const ContactUs = () => {
                         <ul>
                             <li>번호</li>
                             <li>제목</li>
-                            <li>글쓴이</li>
+                            <li>작성자</li>
                             <li>작성일</li>
+                            <li>조회수</li>
                             <li>답변등록여부</li>
                             <li>삭제</li>
                         </ul>
                     </div>
                     {data.map((data) => {
+                        // 일자 더하기
+                        const originDate = data.date.slice(0,10);
+                        const date2 = new Date(originDate);
+                        date2.setDate(date2.getDate()+1);
+                        // console.log(date2+'date2🚨');
+                        const settingDate = date2.toLocaleDateString();
+                        // console.log(settingDate);
+
                         if (data.usermail === 'hyoyoung123@naver.com')
                         return <div id='tableDiv'>
                             <ul onClick={() => tableToggle2()}>
                                 <li></li>
                                 <li>{data.title}</li>
                                 <li>{data.username}</li>
-                                <li>{now}</li>
+                                <li>{settingDate}</li>
+                                <li></li>
                                 <li></li>
                                 {
                                     userDate === 'hyoyoung123@naver.com' &&
@@ -115,13 +119,21 @@ const ContactUs = () => {
                         }
                     )}
                     {data.map((data, index) =>{
+                        const originDate = data.date.slice(0,10);
+                        const date2 = new Date(originDate);
+                        date2.setDate(date2.getDate()+1);
+                        // console.log(date2+'date2🚨');
+                        const settingDate = date2.toLocaleDateString();
+                        // console.log(settingDate);
+
                         if (data.usermail !== 'hyoyoung123@naver.com')
                         return <div id='tableDiv' key={index}>
                             <ul onClick={() => tableToggle()}>
-                                <li>{index-1}</li>
+                                <li>{index}</li>
                                 <li>{data.title}</li>
                                 <li>{data.username}</li>
-                                <li>{now}</li>
+                                <li>{settingDate}</li>
+                                <li></li>
                                 <li></li>
                                 {
                                     (userDate === data.usermail || userDate === 'hyoyoung123@naver.com') &&
