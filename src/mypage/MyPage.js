@@ -8,6 +8,7 @@ import Bottom from './component/Bottom';
 import MyCommet from './component/MyCommet';
 import Basket from './component/Basket';
 import EditCus from './component/EditCus';
+import List from './component/List';
 
 const MyPage = () => {
 
@@ -20,8 +21,11 @@ const MyPage = () => {
             <div>
                 <div>
                     <Top email={email}/>
-                    <Basket email={email}/>
+                    <List />
                     <EditCus email={email}/>
+                </div>
+                <div>
+                    <Basket email={email}/>
                 </div>
                 <div id='mypageBto'>
                     <Bottom email={email}/>

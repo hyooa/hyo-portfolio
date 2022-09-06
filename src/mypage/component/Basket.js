@@ -1,6 +1,9 @@
 import React from 'react';
 
+
 const Basket = () => {
+
+    // 날짜 지나면 자동으로 사라지게 해야됨 ...
     return (
         <div id='basket'>
             <div>
@@ -12,49 +15,19 @@ const Basket = () => {
                             <label for='ci'><span></span>전체선택</label>
                         </div>
                         <div>
-                            <p><span>0</span>개를 선택하셨습니다.</p>
+                            <p>선택항목 : <span>0</span>개</p>
+                            <button>삭제</button>
                         </div>
                     </div>
                     <div id='box'>
                         <div>
                             <input type='checkbox'></input>
                             <img src='./image/logo.png' alt=''></img>
-                            <img src='./image/logo/노팅엄.png' alt=''></img>
+                            <img src='./image/logo.png' alt=''></img>
                             <span>Nottingham Forest</span>
                             <span>2장</span>
                             <span>60,000</span>
-                        </div>
-                        <div>
-                            <input type='checkbox'></input>
-                            <img src='./image/logo.png' alt=''></img>
-                            <img src='./image/logo/맨시티.png' alt=''></img>
-                            <span>Manchester United</span>
-                            <span>1장</span>
-                            <span>60,000</span>
-                        </div>
-                        <div>
-                            <input type='checkbox'></input>
-                            <img src='./image/logo.png' alt=''></img>
-                            <img src='./image/logo/웨스트햄.png' alt=''></img>
-                            <span>Reading</span>
-                            <span>2장</span>
-                            <span>60,000</span>
-                        </div>
-                        <div>
-                            <input type='checkbox'></input>
-                            <img src='./image/logo.png' alt=''></img>
-                            <img src='./image/logo/노리치시티.png' alt=''></img>
-                            <span>Arsenal</span>
-                            <span>2장</span>
-                            <span>60,000</span>
-                        </div>
-                        <div>
-                            <input type='checkbox'></input>
-                            <img src='./image/logo.png' alt=''></img>
-                            <img src='./image/logo/토트넘.png' alt=''></img>
-                            <span>Tottenham Hotspur</span>
-                            <span>2장</span>
-                            <span>60,000</span>
+                            <button>삭제</button>
                         </div>
                     </div>
                     <div id='total'>

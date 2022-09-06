@@ -2,9 +2,9 @@ import axios from 'axios';
 import React, {useState, useReducer} from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 import { API_URL } from '../../config/contansts';
 import { getMyEdit, getMyPage } from '../../modules/mypage';
-import { useParams } from 'react-router-dom';
 
 const EditCus = ({email}) => {
 
@@ -18,7 +18,7 @@ const EditCus = ({email}) => {
         dispatch(getMyPage(email))
     }, [dispatch, email])
     // console.log(data);
-    console.log(email);
+    // console.log(email);
 
     const [inputData, setInputData] = useState({
         my_username : "",
@@ -41,26 +41,34 @@ const EditCus = ({email}) => {
             my_gender : data ? data.gender : ""
         })
     }, [data])
-    // console.log(inputData);
+    console.log(data);
 
     // input값 수정될 수 있게
     const onChange = (e) => {
         const { name, value } = e.target;
-        console.log(inputData);
+        // console.log(inputData);
         // console.log(value);
         setInputData({
             ...inputData,
             [name]:value
         })
     }
+    // console.log(inputData);
 
-    function Edit(no) {
+    const {no} = useParams();
+    // console.log(no);
+
+    if(loading) return <div>로딩중</div>;
+    if(error) return <div>에러</div>;
+    if(!data) return <div>값 없음</div>;
+
+    function Edit() {
         axios.put(`${API_URL}/editCustomer/${no}`, inputData)
         .then(res => {
-            // console.log(res);
+            console.log(res);
         })
         .catch(e => {
-            // console.log(e);
+            console.log(e);
         })
     }
 
@@ -90,9 +98,7 @@ const EditCus = ({email}) => {
     //     dateCheck();
     // },[])
 
-    if(loading) return <div>로딩중</div>;
-    if(error) return <div>에러</div>;
-    if(!data) return <div>값 없음</div>;
+
 
     const originDate = data.userbirth.slice(0,10);
     const date2 = new Date(originDate);
