@@ -41,7 +41,7 @@ const EditCus = ({email}) => {
             my_gender : data ? data.gender : ""
         })
     }, [data])
-    console.log(data);
+    // console.log(data);
 
     // input값 수정될 수 있게
     const onChange = (e) => {
@@ -53,22 +53,21 @@ const EditCus = ({email}) => {
             [name]:value
         })
     }
-    // console.log(inputData);
-
-    const {no} = useParams();
-    // console.log(no);
 
     if(loading) return <div>로딩중</div>;
     if(error) return <div>에러</div>;
     if(!data) return <div>값 없음</div>;
 
+    const no = data.no;
+    // console.log(no);
+
     function Edit() {
         axios.put(`${API_URL}/editCustomer/${no}`, inputData)
         .then(res => {
-            console.log(res);
+            // console.log(res);
         })
         .catch(e => {
-            console.log(e);
+            // console.log(e);
         })
     }
 
@@ -85,20 +84,6 @@ const EditCus = ({email}) => {
             onSubmit();
         }
     }
-
-    // 당일 날짜 이후로는 선택 안되게하기
-    // function dateCheck(){
-    //     var nowDate = Date.now();
-    //     var timeOff = new
-    //     Date().getTimezoneOffset()*60000;
-    //     var today = new Date(nowDate-timeOff).toISOString().split("T")[0];
-    //     document.getElementById("Date").setAttribute("max", today);
-    // }
-    // useEffect(()=>{
-    //     dateCheck();
-    // },[])
-
-
 
     const originDate = data.userbirth.slice(0,10);
     const date2 = new Date(originDate);
@@ -131,7 +116,10 @@ const EditCus = ({email}) => {
                             required></input></td>
                         </tr>
                         <tr>
-                            <td>Date of Birth</td>
+                            <td>
+                                Date of Birth
+                                <p>(yyyy-mm-dd 형식에 맞춰 수정가능합니다.)</p>
+                            </td>
                             <td><input onChange={onChange}
                             name='my_userbirth' id='Date'
                             defaultValue={settingDate}

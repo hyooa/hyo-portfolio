@@ -13,6 +13,7 @@ const {kakao} = window;
 const LeftToggle = ({state}) => {
 
     function Kakao() {
+            console.log(state.stadium);
             const container = document.getElementById('map'); // 지도를 담을 영역
             const options = {
                 center : new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
@@ -23,7 +24,7 @@ const LeftToggle = ({state}) => {
             //드래그 막기
             // map.setDraggable(false);
             //줌 막기
-            map.setZoomable(false);
+            // map.setZoomable(false);
             
             // 주소-좌표 변환 객체를 생성합니다.
             const geocoder = new kakao.maps.services.Geocoder();
@@ -52,7 +53,7 @@ const LeftToggle = ({state}) => {
     }
     useEffect(() => {
         Kakao()
-    }, []);
+    }, [state]);
 
     const [myTi, setMyTi] = useState({
         usermail : "",
@@ -63,7 +64,7 @@ const LeftToggle = ({state}) => {
     })
     
     return (
-        <div id='leftToggle'>
+            <div id='leftToggle'>
                 <div id='toggleSpan' onClick={()=>leftPopup()}>
                     <span></span>
                     <span></span>
@@ -79,6 +80,7 @@ const LeftToggle = ({state}) => {
                         </div>
                     </div>
                     <div id='info'>
+                        <p><span>*</span>위치는 학원으로 고정해두었습니다.(국내지도)</p>
                         <div id='map' style={{
                             width : '400px',
                             height : '200px'
