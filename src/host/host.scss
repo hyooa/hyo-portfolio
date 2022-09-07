@@ -213,6 +213,7 @@
     button {
         background: none;
         border: none;
+        cursor: pointer;
     }
     .remove:hover button{
         color: red;
@@ -226,6 +227,7 @@
     div {
         &:nth-child(1) {
             text-align: left;
+            font-size: 14px;
             span {
                 color: red;
                 vertical-align: middle;

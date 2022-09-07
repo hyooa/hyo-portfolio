@@ -12,7 +12,7 @@ const List = () => {
                     <div id='box'>
                         <div>
                             <img src='./image/logo.png' alt=''></img>
-                            <img src='./image/logo/노팅엄.png' alt=''></img>
+                            <img src='./image/logo.png' alt=''></img>
                             <span>Nottingham Forest</span>
                             <span>2장</span>
                             <span>60,000</span>

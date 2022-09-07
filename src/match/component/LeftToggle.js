@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import {Link} from 'react-router-dom';
 import { getCookie } from '../../util/cookie';
 
-function leftPopup() {
+function leftPopup(e) {
     console.log('클릭');
     document.querySelector('#leftToggle').classList.toggle('popup');
 }

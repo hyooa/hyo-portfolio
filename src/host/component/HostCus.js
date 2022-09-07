@@ -44,7 +44,7 @@ const HostCus = () => {
     return (
         <>
             <div id='hostName'>
-                <div><span>*</span>이름으로 오름차순 정렬함</div>
+                <div><span>*</span>이름으로 오름차순 정렬함 (관리자 상단고정)</div>
                 <div>총 회원 수 <span>{num.length}</span>명</div>
             </div>
             <form id='hostCusForm'>
@@ -67,6 +67,28 @@ const HostCus = () => {
                         const settingDate = date2.toLocaleDateString();
                         // console.log(settingDate);
 
+                        if(data.usermail === 'hyoyoung123@naver.com')
+                        return <tr className='remove'>
+                            <td>{data.username}</td>
+                            <td>{data.gender}</td>
+                            <td>{data.usermail}</td>
+                            <td>{settingDate}</td>
+                            <td>{data.userphone}</td>
+                            <td>{data.useradd}</td>
+                            <td>{data.usersms}</td>
+                            <td>{data.userdate}</td>
+                            <td><button onClick={onDelete} className={`${data.no}`}>삭제</button></td>
+                            {/* <MdDelete size='20'></MdDelete> */}
+                        </tr>
+                    })}
+                    {data.map((data) => {
+                        const originDate = data.userbirth.slice(0,10);
+                        const date2 = new Date(originDate);
+                        date2.setDate(date2.getDate()+1);
+                        const settingDate = date2.toLocaleDateString();
+                        // console.log(settingDate);
+
+                        if(data.usermail !== 'hyoyoung123@naver.com')
                         return <tr className='remove'>
                             <td>{data.username}</td>
                             <td>{data.gender}</td>

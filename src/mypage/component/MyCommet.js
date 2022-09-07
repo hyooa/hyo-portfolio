@@ -43,16 +43,16 @@ const MyCommet = ({email}) => {
             <div>
                 <h2>내 Commet</h2>
                 <form>
-                    <table>
+                    <table id='comTable'>
                         <tr>
                             <td>no</td>
-                            <td>하트</td>
+                            <td>❤</td>
                             <td>선수</td>
                             <td>내용</td>
-                            <td>삭제</td>
+                            <td><MdDelete size='18'></MdDelete></td>
                         </tr>
                         {data.map((data, index) =>
-                            <tr className='remove' key={index}>
+                            <tr key={index}>
                                 <td>{index+1}</td>
                                 <td>{data.like}</td>
                                 <td>{data.player}</td>

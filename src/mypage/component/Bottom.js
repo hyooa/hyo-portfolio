@@ -55,10 +55,10 @@ const Bottom = ({email}) => {
                             <td>no</td>
                             <td>제목</td>
                             <td>작성일</td>
-                            <td>삭제</td>
+                            <td><MdDelete size='18'></MdDelete></td>
                         </tr>
                         {data.map((data, index) => 
-                            <tr className='remove' key={index}>
+                            <tr key={index}>
                                 <td>{index+1}</td>
                                 <td>{data.title}</td>
                                 <td>{now}</td>

@@ -22,11 +22,10 @@ const Input = () => {
     const [input, setInput] = useState({
         username : getCookie("username"),
         usermail : getCookie("usermail"),
-        date : nowDate,
         title : "",
         content : "",
     })
-    // console.log(input);
+    // console.log(getCookie("usermail"));
 
     const onInput = (e) => {
         // console.log(input);

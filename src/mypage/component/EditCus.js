@@ -118,7 +118,7 @@ const EditCus = ({email}) => {
                         <tr>
                             <td>
                                 Date of Birth
-                                <p>(yyyy-mm-dd 형식에 맞춰 수정가능합니다.)</p>
+                                <p>(수정시 yyyy-mm-dd 형식에<br></br>맞춰 수정바랍니다.)</p>
                             </td>
                             <td><input onChange={onChange}
                             name='my_userbirth' id='Date'

@@ -21,17 +21,81 @@ const Basket = () => {
                     </div>
                     <div id='box'>
                         <div>
-                            <input type='checkbox'></input>
-                            <img src='./image/logo.png' alt=''></img>
-                            <img src='./image/logo.png' alt=''></img>
-                            <span>Nottingham Forest</span>
-                            <span>2장</span>
-                            <span>60,000</span>
-                            <button>삭제</button>
+                            <div><input type='checkbox'></input></div>
+                            <div><img src='./image/logo.png' alt=''></img></div>
+                            <div><img src='./image/logo.png' alt=''></img></div>
+                            <div><span id='boxname'>Nottingham Forest</span></div>
+                            <div><span id='boxcount'>2장</span></div>
+                            <div><span id='boxprice'>60,000</span></div>
+                            <div><button id='sale'>10% 쿠폰 적용</button></div>
+                            <div><button id='remove'>삭제</button></div>
+                        </div>
+                        <div>
+                            <div><input type='checkbox'></input></div>
+                            <div><img src='./image/logo.png' alt=''></img></div>
+                            <div><img src='./image/logo.png' alt=''></img></div>
+                            <div><span id='boxname'>Nottingham Forest</span></div>
+                            <div><span id='boxcount'>2장</span></div>
+                            <div><span id='boxprice'>60,000</span></div>
+                            <div></div>
+                            <div><button id='remove'>삭제</button></div>
+                        </div>
+                        <div>
+                            <div><input type='checkbox'></input></div>
+                            <div><img src='./image/logo.png' alt=''></img></div>
+                            <div><img src='./image/logo.png' alt=''></img></div>
+                            <div><span id='boxname'>Nottingham Forest</span></div>
+                            <div><span id='boxcount'>2장</span></div>
+                            <div><span id='boxprice'>60,000</span></div>
+                            <div></div>
+                            <div><button id='remove'>삭제</button></div>
+                        </div>
+                        <div>
+                            <div><input type='checkbox'></input></div>
+                            <div><img src='./image/logo.png' alt=''></img></div>
+                            <div><img src='./image/logo.png' alt=''></img></div>
+                            <div><span id='boxname'>Nottingham Forest</span></div>
+                            <div><span id='boxcount'>2장</span></div>
+                            <div><span id='boxprice'>60,000</span></div>
+                            <div><button id='sale'>5% 쿠폰 적용</button></div>
+                            <div><button id='remove'>삭제</button></div>
+                        </div>
+                        <div>
+                            <div><input type='checkbox'></input></div>
+                            <div><img src='./image/logo.png' alt=''></img></div>
+                            <div><img src='./image/logo.png' alt=''></img></div>
+                            <div><span id='boxname'>Nottingham Forest</span></div>
+                            <div><span id='boxcount'>2장</span></div>
+                            <div><span id='boxprice'>60,000</span></div>
+                            <div><button id='sale'>10% 쿠폰 적용</button></div>
+                            <div><button id='remove'>삭제</button></div>
+                        </div>
+                        <div>
+                            <div><input type='checkbox'></input></div>
+                            <div><img src='./image/logo.png' alt=''></img></div>
+                            <div><img src='./image/logo.png' alt=''></img></div>
+                            <div><span id='boxname'>Nottingham Forest</span></div>
+                            <div><span id='boxcount'>2장</span></div>
+                            <div><span id='boxprice'>60,000</span></div>
+                            <div><button id='sale'>5% 쿠폰 적용</button></div>
+                            <div><button id='remove'>삭제</button></div>
                         </div>
                     </div>
                     <div id='total'>
-                        <p>주문금액 : 000,000원</p>
+                        {/* <div id='total_sale'>
+                            <div>할인 적용</div>
+                            <div>
+                                <span><input type="radio"></input>10%</span>
+                                <span><input type="radio"></input>10,000원</span>
+                            </div>
+                        </div> */}
+                        <div id='total_money'>
+                            <p>상품 금액 : 000,000원</p>
+                            <p>배송비 : 3,000원</p>
+                            <p><span>*</span>50,000원 이상 배송비 무료</p>
+                            <p>할인금액 : 00,000원</p>
+                            <div>총 주문 금액 : 000,000원</div>
+                        </div>
                     </div>
                     <div id='btn'>
                         <button>구매하기</button>
