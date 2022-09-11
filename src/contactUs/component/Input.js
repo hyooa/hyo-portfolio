@@ -24,6 +24,7 @@ const Input = () => {
         usermail : getCookie("usermail"),
         title : "",
         content : "",
+        secret : "",
     })
     // console.log(getCookie("usermail"));
 
@@ -90,12 +91,16 @@ const Input = () => {
                                     placeholder='해당 문의글의 검색 키워드를 작성해주세요.
                                     구분은 따옴표(,)로 합니다.' rows="3" cols="50"></textarea></TableCell>
                                 </TableRow>
-                                <TableRow id='checkBox'>
-                                    <TableCell>
-                                        공개글<input type="checkbox" id='ckOne'></input><label id='labelOne'></label>
-                                        비밀글<input type="checkbox" id='ckTwo'></input><label></label>
-                                    </TableCell>
-                                </TableRow>
+                                {username !== 'hyoyoung123@naver.com' ||
+                                    <TableRow id='checkBox'>
+                                        <TableCell>
+                                            공개글<input type="radio" onChange={onInput}
+                                            name='secret' value="공개글"></input>
+                                            비밀글<input type="radio" onChange={onInput}
+                                            name='secret' value="비밀글"></input>
+                                        </TableCell>
+                                    </TableRow>
+                                }
                             </TableBody>
                             <button>등록</button>
                         </Table>

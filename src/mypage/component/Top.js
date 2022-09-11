@@ -40,7 +40,7 @@ const Top = ({email}) => {
                             <td>{data.username}</td>
                         </tr>
                         <tr>
-                            <td>Email</td>
+                            <td>E-mail</td>
                             <td>{data.usermail}</td>
                         </tr>
                         <tr>

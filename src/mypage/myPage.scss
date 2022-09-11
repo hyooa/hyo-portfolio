@@ -192,9 +192,31 @@
 }
 
 // 내 팬글
-#myCommet {
+#myUs #usTr > td {
+    &:nth-child(1) {width: 1%;}
+    &:nth-child(2) {width: 20%;}
+    &:nth-child(3) {width: 50%;}
+    &:nth-child(4) {width: 7%;}
+    &:nth-child(5) { width: 20%;}
+}
+#myCommet, #myUs {
     width: 50%;
     margin: 50px auto;
+    .answer {
+        background-color: #eee;
+        width: 100%;
+        padding: 20px;
+    }
+    #usP {
+        text-align: left;
+        padding-left: 20px;
+        span {
+            color: red;
+            font-weight: bold;
+            vertical-align: middle;
+            padding-right: 5px;
+        }
+    }
     > div {
         margin: 70px auto;
         width: 600px;
@@ -238,50 +260,51 @@
 }
 
 // 내 문의글
-#myUs {
-    border-right: 1px solid #ccc;
-    width: 50%;
-    margin: 50px auto;
-    > div {
-        margin: 70px auto;
-        width: 500px;
-        form {
-            max-height: 400px;
-            overflow-y: scroll;
-            background-color: #FAFAFA;
-            border-radius: 16px;
-            box-shadow: 5px 5px 4px #ccc;
-            &::-webkit-scrollbar {
-                width: 10px;
-            }
-            &::-webkit-scrollbar-thumb {
-                background: #001489;
-                border-radius: 10px;
-            }
-            &::-webkit-scrollbar-track {
-                border-radius: 10px;
-                background: rgba(33, 122, 244, .1);
-            }
-        }
-        table {
-            border-collapse: collapse;
-            tr:nth-child(1) td {
-                background-color: #001350;
-                color: #fff;
-                border-bottom: none;
-            }
-            td {
-                padding: 10px 30px;
-                width: 25%;
-                border-bottom: 1px solid #ccc;
-                &:nth-child(1){width: 10%;}
-                &:nth-child(2){width: 30%;}
-                &:nth-child(3){width: 40%;}
-                &:nth-child(4){width: 20%;}
-            }
-        }
-    }
-}
+// #myUs {
+//     border-right: 1px solid #ccc;
+//     width: 50%;
+//     margin: 50px auto;
+//     > div {
+//         margin: 70px auto;
+//         width: 500px;
+//         form {
+//             max-height: 400px;
+//             overflow-y: scroll;
+//             background-color: #FAFAFA;
+//             border-radius: 16px;
+//             box-shadow: 5px 5px 4px #ccc;
+//             &::-webkit-scrollbar {
+//                 width: 10px;
+//             }
+//             &::-webkit-scrollbar-thumb {
+//                 background: #001489;
+//                 border-radius: 10px;
+//             }
+//             &::-webkit-scrollbar-track {
+//                 border-radius: 10px;
+//                 background: rgba(33, 122, 244, .1);
+//             }
+//         }
+//         table {
+//             border-collapse: collapse;
+//             tr:nth-child(1) td {
+//                 background-color: #001350;
+//                 color: #fff;
+//                 border-bottom: none;
+//             }
+//             td {
+//                 padding: 10px 30px;
+//                 width: 25%;
+//                 border-bottom: 1px solid #ccc;
+//                 &:nth-child(1) {width: 1%;}
+//                 &:nth-child(2) {width: 29%;}
+//                 &:nth-child(3) {width: 30%;}
+//                 &:nth-child(4) {width: 20%;}
+//                 &:nth-child(5) { width: 20%;}
+//             }
+//         }
+//     }
+// }
 #mypage > div > div:nth-child(1) {
     position: relative;
 }

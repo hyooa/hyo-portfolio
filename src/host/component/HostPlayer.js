@@ -158,7 +158,7 @@ const HostPlayer = () => {
                     </tr>
                     <tr>
                         <td>Number(등번호)</td>
-                        <td><input name='number' onChange={onPlayer} required></input></td>
+                        <td><input name='number' type='number' onChange={onPlayer} required></input></td>
                     </tr>
                     <tr>
                         <td>National TEAM(국가대표 팀)</td>

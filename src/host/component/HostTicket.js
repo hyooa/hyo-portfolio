@@ -27,6 +27,7 @@ const HostTicket = () => {
             awaylogo : awaylogo,
         })
     }
+    console.log(formDateTicket);
     const onSubmitTicket = (e) => {
         e.preventDefault();
         console.log(formDateTicket);

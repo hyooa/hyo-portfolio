@@ -6,6 +6,20 @@ import axios from 'axios';
 import { API_URL } from '../../config/contansts';
 
 const Bottom = ({email}) => {
+    
+    const [open, setOpen] = useState(null);
+    const [isOpen, setIsOpen] = useState(false);
+    const onClick = (e) => {
+        // console.log(e.target.className);
+        if(open === Number(e.target.className)) {
+            setOpen(null);
+        } else {
+            setOpen(Number(e.target.className))
+        }
+    }
+    useEffect(() => {
+        setIsOpen(open)
+    }, [open])
 
     // 문제 ) 처음에 값이 없으면 에러 🚨🚨🚨 // 없을땐 없습니다라고 뜨게하기
     const {data, loading, error} = useSelector(state=>state.myPage.mycontact);
@@ -49,22 +63,31 @@ const Bottom = ({email}) => {
         <div id='myUs'>
             <div>
                 <h2>내 문의글</h2>
+                <p id='usP'><span>*</span>제목을 클릭하시오.</p>
                 <form>
                     <table>
                         <tr>
                             <td>no</td>
+                            <td>조회수</td>
                             <td>제목</td>
                             <td>작성일</td>
                             <td><MdDelete size='18'></MdDelete></td>
                         </tr>
                         {data.map((data, index) => 
-                            <tr key={index}>
-                                <td>{index+1}</td>
-                                <td>{data.title}</td>
-                                <td>{now}</td>
-                                <td><button onClick={onDelete} className={`${data.no}`}>삭제</button></td>
-                                    {/* <MdDelete size='20'></MdDelete></button></td> */}
-                            </tr>
+                            <>
+                                <tr key={index} id='usTr'>
+                                    <td>{index+1}</td>
+                                    <td></td>
+                                    <td onClick={onClick} className={data.no}>{data.title}</td>
+                                    <td>{now}</td>
+                                    <td><button onClick={onDelete} className={`${data.no}`}>삭제</button></td>
+                                </tr>
+                                {data.no === isOpen &&
+                                    <tr>
+                                        <td className='answer' colSpan={5}>관리자 답글</td>
+                                    </tr>
+                                }
+                            </>
                         )}
                     </table>
                 </form>

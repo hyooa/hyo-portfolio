@@ -10,17 +10,20 @@ import axios from 'axios';
 import { API_URL } from '../config/contansts';
 
 const ContactUs = () => {
-
-    // 날짜 고치기 🚀🚀🚀
     
-    const [isOpen, setOpen] = useState(false);
-    const [isFix, setFix] = useState(false);
-    const tableToggle = () => {
-        setOpen(isOpen => !isOpen);
+    const [open, setOpen] = useState(null);
+    const [isOpen, setIsOpen] = useState(false);
+    const tableToggle = (e) => {
+        // console.log(e.target.className);
+        if(open === Number(e.target.className)) {
+            setOpen(null);
+        } else {
+            setOpen(Number(e.target.className))
+        }
     }
-    const tableToggle2 = () => {
-        setFix(isFix => !isFix);
-    }
+    useEffect(() => {
+        setIsOpen(open)
+    }, [open])
     
     const {data, loading, error} = useSelector(state=>state.myContactUs.con);
     const dispatch = useDispatch();
@@ -31,7 +34,6 @@ const ContactUs = () => {
     if(loading) return <div>로딩중</div>;
     if(error) return <div>에러</div>;
     if(!data) return <div>값 없음</div>;
-
    
     function deleteConUs(no) {
         axios.post(`${API_URL}/mypageConDel/${no}`)
@@ -69,6 +71,9 @@ const ContactUs = () => {
                 <h1>Contact Us</h1>
             </div>
             <div id='contact_table'>
+                <div id='contact_text'>
+                    <p><span>*</span>제목을 클릭하시오.</p>
+                </div>
                 <div id='search'>
                     <form>
                         <input placeholder='검색하기'></input>
@@ -83,6 +88,7 @@ const ContactUs = () => {
                             <li>작성자</li>
                             <li>작성일</li>
                             <li>조회수</li>
+                            <li>공개여부</li>
                             <li>답변등록여부</li>
                             <li>삭제</li>
                         </ul>
@@ -98,11 +104,12 @@ const ContactUs = () => {
 
                         if (data.usermail === 'hyoyoung123@naver.com')
                         return <div id='tableDiv'>
-                            <ul onClick={() => tableToggle2()}>
+                            <ul>
                                 <li></li>
-                                <li>{data.title}</li>
+                                <li onClick={tableToggle} className={data.no}>{data.title}</li>
                                 <li>{data.username}</li>
                                 <li>{settingDate}</li>
+                                <li></li>
                                 <li></li>
                                 <li></li>
                                 {
@@ -112,9 +119,11 @@ const ContactUs = () => {
                                 {userDate !== 'hyoyoung123@naver.com' && <li></li>}
                                 {/* <MdDelete size='20'></MdDelete> */}
                             </ul>
-                            <ul id='answer' className={isFix ? 'show2' : 'hide2'}>
-                                <li>{data.content}</li>
-                            </ul>
+                            {data.no === isOpen &&
+                                <ul id='answer'>
+                                    <li>{data.content}</li>
+                                </ul>
+                            }
                         </div>
                         }
                     )}
@@ -128,12 +137,23 @@ const ContactUs = () => {
 
                         if (data.usermail !== 'hyoyoung123@naver.com')
                         return <div id='tableDiv' key={index}>
-                            <ul onClick={() => tableToggle()}>
+                            <ul>
                                 <li>{index}</li>
-                                <li>{data.title}</li>
-                                <li>{data.username}</li>
+                                { (data.secret !== '비밀글' || userDate === data.usermail || userDate === 'hyoyoung123@naver.com') && 
+                                <>
+                                    <li onClick={tableToggle} className={data.no}>{data.title}</li>
+                                    <li>{data.username}</li>
+                                </>
+                                }
+                                { (data.secret === '비밀글' && userDate !== data.usermail && userDate !== 'hyoyoung123@naver.com') && 
+                                <>
+                                    <li onClick={tableToggle} className={data.no}>비밀글입니다.</li>
+                                    <li>비공개</li>
+                                </>
+                                }
                                 <li>{settingDate}</li>
                                 <li></li>
+                                <li>{data.secret}</li>
                                 <li></li>
                                 {
                                     (userDate === data.usermail || userDate === 'hyoyoung123@naver.com') &&
@@ -142,23 +162,28 @@ const ContactUs = () => {
                                 {userDate !== data.usermail && userDate !== 'hyoyoung123@naver.com' && <li></li>}
                                 {/* <MdDelete size='20'></MdDelete> */}
                             </ul>
-                            <div className={isOpen ? 'show' : 'hide'}>
-                                <ul id='question'>
-                                    <li>{data.content}</li>
-                                </ul>
-                                <ul id='answer'>
-                                    <li>관리자</li>
-                                    {
-                                        userDate === 'hyoyoung123@naver.com' &&
-                                        <li><textarea 
-                                        placeholder='답글을 작성해주세요.'
-                                        rows="5" cols="100"></textarea></li>
-                                    }
-                                    {
-                                        userDate !== 'hyoyoung123@naver.com' && <li></li>
-                                    }
-                                </ul>
-                            </div>
+                            { data.no === isOpen && (data.secret !== '비밀글' || userDate === data.usermail ||  userDate === 'hyoyoung123@naver.com') &&
+                                <div>
+                                    <ul id='question'>
+                                        <li>{data.content}</li>
+                                    </ul>
+                                    <ul id='answer'>
+                                        <li>관리자</li>
+                                        {
+                                            userDate === 'hyoyoung123@naver.com' &&
+                                            <>
+                                            <li><textarea 
+                                            placeholder='답글을 작성해주세요.'
+                                            rows="5" cols="100"></textarea></li>
+                                            <button id='btn'>등록하기</button>
+                                            </>
+                                        }
+                                        {
+                                            userDate !== 'hyoyoung123@naver.com' && <li></li>
+                                        }
+                                    </ul>
+                                </div>
+                            }
                         </div>
                         }
                     )}

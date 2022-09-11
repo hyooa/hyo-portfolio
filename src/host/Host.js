@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import HostCus from './component/HostCus';
 import HostPlayer from './component/HostPlayer';
+import HostRes from './component/HostRes';
 import HostTicket from './component/HostTicket';
 import './host.scss';
 
@@ -37,12 +38,14 @@ const Host = () => {
                             <li onClick={onClick} className="hostCus">회원목록</li>
                             <li onClick={onClick} className="hostPlayer">선수 등록</li>
                             <li onClick={onClick} className="hostTicket">티켓 등록</li>
+                            <li onClick={onClick} className="hostRes">Team 등록</li>
                         </ul>
                     </div>
                     <div id='input'>
                             {isClick==="hostCus"&&<HostCus />}
                             {isClick==="hostPlayer"&&<HostPlayer />}
                             {isClick==="hostTicket"&&<HostTicket />}
+                            {isClick==="hostRes"&&<HostRes />}
                     </div>
                 </div>
             </div>
