@@ -54,14 +54,6 @@ const LeftToggle = ({state}) => {
     useEffect(() => {
         Kakao()
     }, [state]);
-
-    const [myTi, setMyTi] = useState({
-        usermail : "",
-        awaylogo : "",
-        awayname : "",
-        ticket : "",
-        price : "",
-    })
     
     return (
             <div id='leftToggle'>
@@ -80,7 +72,8 @@ const LeftToggle = ({state}) => {
                         </div>
                     </div>
                     <div id='info'>
-                        <p><span>*</span>위치는 학원으로 고정해두었습니다.(국내지도)</p>
+                        <p><span>*</span>위치는 학원으로 고정해두었습니다.<br></br>
+                        (카카오 지도 API 이용, 국내지도만 가능, 무료이용 가능)</p>
                         <div id='map' style={{
                             width : '400px',
                             height : '200px'

@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { API_URL } from '../../config/contansts';
 import { getResult } from '../../modules/match';
+import { getCookie } from '../../util/cookie';
 
 const Result = () => {
 
@@ -15,10 +16,16 @@ const Result = () => {
     if(error) return <div>에러</div>;
     if(!data) return <div>값 없음</div>;
     console.log(data);
+    
+    const usermail = getCookie("usermail");
 
     return (
     <div id='result'>
         <div id='boxText'>Results</div>
+        {
+            usermail === 'hyoyoung123@naver.com' &&
+            <div id='boxBtn'><button>결과 수정하기</button></div>
+        }
         <div id='resultDiv'>
             <form>
                 <table>

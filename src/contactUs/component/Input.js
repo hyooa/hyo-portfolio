@@ -12,7 +12,7 @@ function contactPopup() {
 }
 
 const Input = () => {
-    
+
     let now = new Date();
     const nowDate = now.toLocaleDateString();
     // console.log(nowDate);
@@ -20,31 +20,31 @@ const Input = () => {
     // const usermail = getCookie("usermail");
     // console.log(usermail);
     const [input, setInput] = useState({
-        username : getCookie("username"),
-        usermail : getCookie("usermail"),
-        title : "",
-        content : "",
-        secret : "",
+        username: getCookie("username"),
+        usermail: getCookie("usermail"),
+        title: "",
+        content: "",
+        secret: "",
     })
     // console.log(getCookie("usermail"));
 
     const onInput = (e) => {
         // console.log(input);
-        const {name, value} = e.target;
+        const { name, value } = e.target;
         setInput({
             ...input,
-            [name] : value,
+            [name]: value,
         })
     }
     function contactInput() {
         // console.log(input)
         axios.post(`${API_URL}/textContact`, input)
-        .then(res => {
-            // console.log(res);
-        })
-        .catch(e => {
-            // console.log(e);
-        })
+            .then(res => {
+                // console.log(res);
+            })
+            .catch(e => {
+                // console.log(e);
+            })
     }
     const onSubmit = (e) => {
         e.preventDefault();
@@ -53,59 +53,60 @@ const Input = () => {
         document.location.href = document.location.href;
     }
     const onKeyPress = (e) => {
-        if(e.key === "Enter") {
+        if (e.key === "Enter") {
             onSubmit();
         }
     }
 
     const username = getCookie("username");
+    const usermail = getCookie("usermail");
 
     return (
         <div id='contact_input'>
-                    <p onClick={()=>contactPopup()}>문의하기</p>
-                    <form id='inputPopup' onSubmit={onSubmit} onKeyPress={onKeyPress}>
-                        <Table>
-                            <TableBody>
-                                <TableRow>
-                                    <TableCell>{username}</TableCell>
-                                </TableRow>
-                                <TableRow>
-                                    <TableCell>{nowDate}</TableCell>
-                                </TableRow>
-                                <TableRow>
-                                    <TableCell><input 
-                                    name='title'
-                                    onChange={onInput} required
-                                    placeholder='제목'></input></TableCell>
-                                </TableRow>
-                                <TableRow>
-                                    <TableCell><textarea 
-                                    name='content'
-                                    onChange={onInput} required
-                                    placeholder='내용을 입력해주세요.' rows="10" cols="50"></textarea></TableCell>
-                                </TableRow>
-                                <TableRow>
-                                    <TableCell><textarea
-                                    name='keyword'
-                                    onChange={onInput} required
-                                    placeholder='해당 문의글의 검색 키워드를 작성해주세요.
+            <p onClick={() => contactPopup()}>문의하기</p>
+            <form id='inputPopup' onSubmit={onSubmit} onKeyPress={onKeyPress}>
+                <Table>
+                    <TableBody>
+                        <TableRow>
+                            <TableCell>{username}</TableCell>
+                        </TableRow>
+                        <TableRow>
+                            <TableCell>{nowDate}</TableCell>
+                        </TableRow>
+                        <TableRow>
+                            <TableCell><input
+                                name='title'
+                                onChange={onInput} required
+                                placeholder='제목'></input></TableCell>
+                        </TableRow>
+                        <TableRow>
+                            <TableCell><textarea
+                                name='content'
+                                onChange={onInput} required
+                                placeholder='내용을 입력해주세요.' rows="10" cols="50"></textarea></TableCell>
+                        </TableRow>
+                        <TableRow>
+                            <TableCell><textarea
+                                name='keyword'
+                                onChange={onInput} required
+                                placeholder='해당 문의글의 검색 키워드를 작성해주세요.
                                     구분은 따옴표(,)로 합니다.' rows="3" cols="50"></textarea></TableCell>
-                                </TableRow>
-                                {username !== 'hyoyoung123@naver.com' ||
-                                    <TableRow id='checkBox'>
-                                        <TableCell>
-                                            공개글<input type="radio" onChange={onInput}
-                                            name='secret' value="공개글"></input>
-                                            비밀글<input type="radio" onChange={onInput}
-                                            name='secret' value="비밀글"></input>
-                                        </TableCell>
-                                    </TableRow>
-                                }
-                            </TableBody>
-                            <button>등록</button>
-                        </Table>
-                    </form>
-                </div>
+                        </TableRow>
+                        {usermail !== 'hyoyoung123@naver.com' &&
+                            <TableRow id='checkBox'>
+                                <TableCell>
+                                    공개글<input type="radio" onChange={onInput} required
+                                        name='secret' value="공개글"></input>
+                                    비밀글<input type="radio" onChange={onInput}
+                                        name='secret' value="비밀글"></input>
+                                </TableCell>
+                            </TableRow>
+                        }
+                    </TableBody>
+                    <button>등록</button>
+                </Table>
+            </form>
+        </div>
     );
 };
 

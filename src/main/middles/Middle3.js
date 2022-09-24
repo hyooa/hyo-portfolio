@@ -1,24 +1,31 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper";
+// import { Pagination } from "swiper";
+import SwiperCore, { Navigation, Autoplay, Pagination } from "swiper";
 import { API_URL } from '../../config/contansts';
 import Result from './Result';
 
-const Middle3 = ({data}) => {
+const Middle3 = ({ data }) => {
     console.log(data);
+
     return (
-            <div id='main3'>
-                <div>
-                    <h2>Fixtures & Results</h2>
-                </div>
-                <div id='main3_box'>
-                    <img src='./image/logo.png' alt=''></img>
-                    <div id='match'>
-                        <div id='boxText'>Fixtures</div>
-                        <Swiper 
-                            pagination={true} modules={[Pagination]} className="mySwiper">
-                            {data.map(data => (
-                                <SwiperSlide>
+        <div id='main3'>
+            <div>
+                <h2>Fixtures & Results</h2>
+            </div>
+            <div id='main3_box'>
+                <img src='./image/logo.png' alt=''></img>
+                <div id='match'>
+                    <div id='boxText'>Fixtures</div>
+                    <Swiper
+                        modules={[Pagination]}
+                        loop={true}
+                        slidesPerView={1}
+                        navigation
+                        pagination={{ clickable: true }}
+                        className="mySwiper">
+                        {data.map(data => (
+                            <SwiperSlide>
                                 <div id='matchDiv'>
                                     <div id='matchTime'>
                                         <div>
@@ -56,14 +63,14 @@ const Middle3 = ({data}) => {
                                         <p>{data.stadium}</p>
                                     </div>
                                 </div>
-                                </SwiperSlide>
-                            ))}
-                        </Swiper>
-                    </div>
-                    <Result />
-
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
                 </div>
+                <Result />
+
             </div>
+        </div>
     );
 };
 

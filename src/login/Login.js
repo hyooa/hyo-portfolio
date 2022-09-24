@@ -7,7 +7,7 @@ import { API_URL } from '../config/contansts';
 import { setCookie } from '../util/cookie';
 import { goToHome, setLogin } from '../modules/logincookie';
 
-const LoginStyled = styled.div `
+const LoginStyled = styled.div`
     margin : 0 auto;
     text-align : center;
     align-items: center;
@@ -20,7 +20,7 @@ const LoginStyled = styled.div `
         width: 49%;
     }
 `;
-const LoginTable = styled.table `
+const LoginTable = styled.table`
     tr {
         position: relative;
     }
@@ -32,7 +32,7 @@ const LoginTable = styled.table `
         padding: 0 10px;
     }
 `;
-const LoginInput = styled.input `
+const LoginInput = styled.input`
     outline: none;
     border: 1px solid #333;
     background: none;
@@ -42,13 +42,13 @@ const LoginInput = styled.input `
     font-size: 16px;
     text-align: center;
 `;
-const FanName = styled.div `
+const FanName = styled.div`
     padding: 50px 0;
     h1 {
         font-size: 140px;
     }
 `;
-const LoginBtn = styled.div `
+const LoginBtn = styled.div`
     display: flex;
     width: 400px;
     margin-top: 30px;
@@ -89,55 +89,50 @@ const LoginBtn = styled.div `
 const Login = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const [ loginDate, setLoginDate ] = useState({
-        usermail : "",
-        userpass : ""
+    const [loginDate, setLoginDate] = useState({
+        usermail: "",
+        userpass: ""
     })
     const onChange = (e) => {
         const { name, value } = e.target
         setLoginDate({
             ...loginDate,
-            [name] : value
+            [name]: value
         })
     }
     const onSubmit = (e) => {
         e.preventDefault();
-        if(loginDate.usermail === '' || loginDate.userpass === '') {
+        if (loginDate.usermail === '' || loginDate.userpass === '') {
             alert("이메일과 비밀번호를 입력해주세요.");
         } else {
             axios.post(`${API_URL}/login`, loginDate)
-            .then( result => {
-                let usermail = result.data.usermail;
-                let username = result.data.username;
-                console.log(result);
+                .then(result => {
+                    let usermail = result.data.usermail;
+                    let username = result.data.username;
+                    console.log(result);
 
-                if(usermail !== null && usermail !== '' && usermail !== undefined) {
-                    alert("로그인 되었습니다.");
-                    const expires = new Date();
-                    expires.setMinutes(expires.getMinutes()+60);
-                    setCookie('usermail', `${usermail}`, {path : '/', expires})
-                    setCookie('username', `${username}`, {path : '/', expires})
-                    dispatch(setLogin())
-                    dispatch(goToHome(navigate))
+                    if (usermail !== null && usermail !== '' && usermail !== undefined) {
+                        alert("로그인 되었습니다.");
+                        const expires = new Date();
+                        expires.setMinutes(expires.getMinutes() + 60);
+                        setCookie('usermail', `${usermail}`, { path: '/', expires })
+                        setCookie('username', `${username}`, { path: '/', expires })
+                        dispatch(setLogin())
+                        dispatch(goToHome(navigate))
 
-                    // id, pw 모두 일치 
-                    // 작업 완료 되면 페이지 이동(새로고침)
-                    // sessionStorage.setItem('user_id', id)
-                    // document.location.href = '/'
-                } else {
+                        // id, pw 모두 일치 
+                        // 작업 완료 되면 페이지 이동(새로고침)
+                        // sessionStorage.setItem('user_id', id)
+                        // document.location.href = '/'
+                    } else {
+                        alert("이메일과 비밀번호를 확인해주세요.");
+                    }
+                })
+                .catch(e => {
                     alert("이메일과 비밀번호를 확인해주세요.");
-                }
-            })
-            .catch( e => {
-                alert("이메일과 비밀번호를 확인해주세요.");
-            })
+                })
         }
     }
-    // const onKeyPress = (e) => {
-    //     if(e.key === "Enter") {
-    //         onSubmit();
-    //     }
-    // }
 
     return (
         <LoginStyled>
@@ -145,26 +140,37 @@ const Login = () => {
             <FanName>
                 <h1>Hello Blues</h1>
             </FanName>
+            <div id='ceo'>
+                <p>관리자</p>
+                <ul>
+                    <li>아이디</li>
+                    <li>| hyoyoung123@naver.com</li>
+                </ul>
+                <ul>
+                    <li>비밀번호</li>
+                    <li>| 0000</li>
+                </ul>
+            </div>
             <div id='login'>
                 <form onSubmit={onSubmit}>
                     <LoginTable>
                         <tr>
                             <th>Email</th>
                             <LoginInput
-                            placeholder='이메일을 입력하세세요.'
-                            name='usermail'
-                            value={loginDate.usermail}
-                            onChange={onChange}
-                            required></LoginInput>
+                                placeholder='이메일을 입력하세세요.'
+                                name='usermail'
+                                value={loginDate.usermail}
+                                onChange={onChange}
+                                required></LoginInput>
                         </tr>
                         <tr>
                             <th>Password</th>
                             <LoginInput type="password"
-                            placeholder='비밀번호를 입력하세세요.'
-                            name='userpass'
-                            value={loginDate.userpass}
-                            onChange={onChange}
-                            required></LoginInput>
+                                placeholder='비밀번호를 입력하세세요.'
+                                name='userpass'
+                                value={loginDate.userpass}
+                                onChange={onChange}
+                                required></LoginInput>
                         </tr>
                     </LoginTable>
                     <LoginBtn>
