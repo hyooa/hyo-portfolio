@@ -4,6 +4,7 @@ import { getMyCon } from '../../modules/mypage';
 import { MdDelete } from 'react-icons/md';
 import axios from 'axios';
 import { API_URL } from '../../config/contansts';
+import { getCookie } from '../../util/cookie';
 
 const Bottom = ({ email }) => {
 
@@ -21,7 +22,6 @@ const Bottom = ({ email }) => {
         setIsOpen(open)
     }, [open])
 
-    // 문제 ) 처음에 값이 없으면 에러 🚨🚨🚨 // 없을땐 없습니다라고 뜨게하기
     const { data, loading, error } = useSelector(state => state.myPage.mycontact);
     const dispatch = useDispatch();
     useEffect(() => {
@@ -30,14 +30,6 @@ const Bottom = ({ email }) => {
     if (loading) return <div>로딩중</div>;
     if (error) return <div>에러</div>;
     if (!data) return <div>값 없음</div>;
-    // console.log(data);
-    // console.log(username);
-
-    // console.log(data[0].no);
-
-    var localTime = data[0].date;
-    const now = localTime.slice(0, 10);
-
 
     function deleteContact(no) {
         axios.post(`${API_URL}/mypageConDel/${no}`)
@@ -60,6 +52,8 @@ const Bottom = ({ email }) => {
         }
     }
 
+    const mymail = getCookie("usermail");
+
     return (
         <div id='myUs'>
             <div>
@@ -74,28 +68,38 @@ const Bottom = ({ email }) => {
                             <td>작성일</td>
                             <td><MdDelete size='18'></MdDelete></td>
                         </tr>
-                        {data.map((data, index) =>
-                            <>
-                                <tr key={index} id='usTr'>
-                                    <td>{index + 1}</td>
-                                    <td></td>
-                                    <td onClick={onClick} className={data.no}>{data.title}</td>
-                                    <td>{now}</td>
-                                    <td><button onClick={onDelete} className={`${data.no}`}>삭제</button></td>
-                                </tr>
-                                {data.no === isOpen &&
-                                    <>
-                                        <tr>
-                                            <td className='answer' colSpan={5}>{data.content}</td>
-                                        </tr>
-                                        <tr>
-                                            <td className='answer' colSpan={2}>관리자</td>
-                                            {data.answer === null ?
-                                                <td className='answer' colSpan={3}>아직 답변이 등록되지 않았습니다.</td> : <td className='answer' colSpan={3}>{data.answer}</td>}
-                                        </tr>
-                                    </>
-                                }
-                            </>
+                        {data.map((data, index) => {
+                            const originDate = data.date.slice(0, 10);
+                            const date2 = new Date(originDate);
+                            date2.setDate(date2.getDate() + 1);
+                            const settingDate = date2.toLocaleDateString();
+
+                            if (data.usermail === mymail)
+                                return <>
+                                    <tr key={index} id='usTr'>
+                                        <td>{index + 1}</td>
+                                        <td></td>
+                                        <td onClick={onClick} className={data.no}>{data.title}</td>
+                                        <td>{settingDate}</td>
+                                        <td><button onClick={onDelete} className={`${data.no}`}>삭제</button></td>
+                                    </tr>
+                                    {data.no === isOpen &&
+                                        <>
+                                            <tr>
+                                                <td className='answer' colSpan={5}>{data.content}</td>
+                                            </tr>
+                                            {
+                                                data.usermail !== 'hyoyoung123@naver.com' &&
+                                                <tr>
+                                                    <td className='answer' colSpan={2}>관리자</td>
+                                                    {data.answer === null ?
+                                                        <td className='answer' colSpan={3}>아직 답변이 등록되지 않았습니다.</td> : <td className='answer' colSpan={3}>{data.answer}</td>}
+                                                </tr>
+                                            }
+                                        </>
+                                    }
+                                </>
+                        }
                         )}
                     </table>
                 </form>

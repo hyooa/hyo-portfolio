@@ -94,7 +94,7 @@ const LeftToggle = ({state}) => {
                                 <option value="2">2</option>
                             </select>
                         </p>
-                        <p>총합<span id='total'>30,000원</span></p>
+                        <p>총합<span id='total'>{state.tkprice}원</span></p>
                     </div>
                     {(getCookie("usermail")) ?
                     <div id='btn'>

@@ -12,6 +12,13 @@ import Answer from './component/Answer';
 
 const ContactUs = () => {
 
+    // 검색 기능
+    const [search, setSearch] = useState("");
+    const onChange = (e) => {
+        setSearch(e.target.value);
+    }
+    // console.log(search);
+
     const [open, setOpen] = useState(null);
     const [isOpen, setIsOpen] = useState(false);
     const tableToggle = (e) => {
@@ -36,6 +43,9 @@ const ContactUs = () => {
     if (error) return <div>에러</div>;
     if (!data) return <div>값 없음</div>;
 
+    // 검색 기능 test / toLowerCase 소문자로 바꾸기
+    // console.log(data.filter(data => data.title.toLowerCase().includes("t")));
+
     function deleteConUs(no) {
         axios.post(`${API_URL}/mypageConDel/${no}`)
             .then(result => {
@@ -57,10 +67,8 @@ const ContactUs = () => {
     }
 
     const userDate = getCookie("usermail");
-    // console.log(userDate);
 
     return (
-        // 문제 ) 처음에 값이 없으면 에러 🚨🚨🚨 // 없을땐 없습니다라고 뜨게하기
         <div id='contact'>
             <img src='./image/logo2.png' alt=''></img>
             <div id='contact_top'>
@@ -72,7 +80,7 @@ const ContactUs = () => {
                 </div>
                 <div id='search'>
                     <form>
-                        <input placeholder='검색하기'></input>
+                        <input placeholder='검색하기' value={search} onChange={onChange}></input>
                         <span><BsSearch size='20'></BsSearch></span>
                     </form>
                 </div>
@@ -94,9 +102,7 @@ const ContactUs = () => {
                         const originDate = data.date.slice(0, 10);
                         const date2 = new Date(originDate);
                         date2.setDate(date2.getDate() + 1);
-                        // console.log(date2+'date2🚨');
                         const settingDate = date2.toLocaleDateString();
-                        // console.log(settingDate);
 
                         if (data.usermail === 'hyoyoung123@naver.com')
                             return <div id='tableDiv'>
@@ -123,63 +129,64 @@ const ContactUs = () => {
                             </div>
                     }
                     )}
-                    {data.map((data, index) => {
-                        const originDate = data.date.slice(0, 10);
-                        const date2 = new Date(originDate);
-                        date2.setDate(date2.getDate() + 1);
-                        // console.log(date2+'date2🚨');
-                        const settingDate = date2.toLocaleDateString();
-                        // console.log(settingDate);
+                    {data.filter((data) =>
+                        data.title.toLowerCase().includes(search) ||
+                        data.content.toLowerCase().includes(search)
+                    ).map((data, index) => {
+                            const originDate = data.date.slice(0, 10);
+                            const date2 = new Date(originDate);
+                            date2.setDate(date2.getDate() + 1);
+                            const settingDate = date2.toLocaleDateString();
 
-                        if (data.usermail !== 'hyoyoung123@naver.com')
-                            return <div id='tableDiv' key={index}>
-                                <ul>
-                                    <li>{index}</li>
-                                    {(data.secret !== '비밀글' || userDate === data.usermail || userDate === 'hyoyoung123@naver.com') &&
-                                        <>
-                                            <li onClick={tableToggle} className={data.no}>{data.title}</li>
-                                            <li>{data.username}</li>
-                                        </>
+                            if (data.usermail !== 'hyoyoung123@naver.com')
+                                return <div id='tableDiv' key={index}>
+                                    <ul>
+                                        <li>{index}</li>
+                                        {(data.secret !== '비밀글' || userDate === data.usermail || userDate === 'hyoyoung123@naver.com') &&
+                                            <>
+                                                <li onClick={tableToggle} className={data.no}>{data.title}</li>
+                                                <li>{data.username}</li>
+                                            </>
+                                        }
+                                        {(data.secret === '비밀글' && userDate !== data.usermail && userDate !== 'hyoyoung123@naver.com') &&
+                                            <>
+                                                <li onClick={tableToggle} className={data.no}>비밀글입니다.</li>
+                                                <li>비공개</li>
+                                            </>
+                                        }
+                                        <li>{settingDate}</li>
+                                        <li></li>
+                                        <li>{data.secret}</li>
+                                        {data.answer === null ? <li>X</li> : <li>O</li>}
+                                        {
+                                            (userDate === data.usermail || userDate === 'hyoyoung123@naver.com') &&
+                                            <li className='remove'><button onClick={onDelete} className={`${data.no}`}>삭제</button></li>
+                                        }
+                                        {userDate !== data.usermail && userDate !== 'hyoyoung123@naver.com' && <li></li>}
+                                    </ul>
+                                    {data.no === isOpen && (data.secret !== '비밀글' || userDate === data.usermail || userDate === 'hyoyoung123@naver.com') &&
+                                        <div>
+                                            <ul id='question'>
+                                                <li>{data.content}</li>
+                                            </ul>
+                                            <ul id='answer'>
+                                                <li>관리자</li>
+                                                {
+                                                    userDate === 'hyoyoung123@naver.com' &&
+                                                    (data.answer === null ?
+                                                        <Answer data={data}></Answer>
+                                                        : <li>{data.answer}</li>)
+                                                }
+                                                {
+                                                    userDate !== 'hyoyoung123@naver.com' &&
+                                                    (data.answer === null ? <li>아직 답변이 등록되지 않았습니다.</li> : <li>{data.answer}</li>)
+                                                }
+                                            </ul>
+                                        </div>
                                     }
-                                    {(data.secret === '비밀글' && userDate !== data.usermail && userDate !== 'hyoyoung123@naver.com') &&
-                                        <>
-                                            <li onClick={tableToggle} className={data.no}>비밀글입니다.</li>
-                                            <li>비공개</li>
-                                        </>
-                                    }
-                                    <li>{settingDate}</li>
-                                    <li></li>
-                                    <li>{data.secret}</li>
-                                    {data.answer === null ? <li>X</li> : <li>O</li>}
-                                    {
-                                        (userDate === data.usermail || userDate === 'hyoyoung123@naver.com') &&
-                                        <li className='remove'><button onClick={onDelete} className={`${data.no}`}>삭제</button></li>
-                                    }
-                                    {userDate !== data.usermail && userDate !== 'hyoyoung123@naver.com' && <li></li>}
-                                </ul>
-                                {data.no === isOpen && (data.secret !== '비밀글' || userDate === data.usermail || userDate === 'hyoyoung123@naver.com') &&
-                                    <div>
-                                        <ul id='question'>
-                                            <li>{data.content}</li>
-                                        </ul>
-                                        <ul id='answer'>
-                                            <li>관리자</li>
-                                            {
-                                                userDate === 'hyoyoung123@naver.com' &&
-                                                (data.answer === null ?
-                                                    <Answer data={data}></Answer>
-                                                    : <li>{data.answer}</li>)
-                                            }
-                                            {
-                                                userDate !== 'hyoyoung123@naver.com' &&
-                                                (data.answer === null ? <li>아직 답변이 등록되지 않았습니다.</li> : <li>{data.answer}</li>)
-                                            }
-                                        </ul>
-                                    </div>
-                                }
-                            </div>
-                    }
-                    )}
+                                </div>
+                        }
+                        )}
                 </div>
                 {(getCookie("usermail")) ?
                     <Input /> : <a href='/login'><div className='conLogin'>로그인</div></a>

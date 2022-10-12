@@ -85,13 +85,13 @@ const Input = () => {
                                 onChange={onInput} required
                                 placeholder='내용을 입력해주세요.' rows="10" cols="50"></textarea></TableCell>
                         </TableRow>
-                        <TableRow>
+                        {/* <TableRow>
                             <TableCell><textarea
                                 name='keyword'
                                 onChange={onInput} required
                                 placeholder='해당 문의글의 검색 키워드를 작성해주세요.
                                     구분은 따옴표(,)로 합니다.' rows="3" cols="50"></textarea></TableCell>
-                        </TableRow>
+                        </TableRow> */}
                         {usermail !== 'hyoyoung123@naver.com' &&
                             <TableRow id='checkBox'>
                                 <TableCell>

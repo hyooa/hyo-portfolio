@@ -140,17 +140,6 @@ const Login = () => {
             <FanName>
                 <h1>Hello Blues</h1>
             </FanName>
-            <div id='ceo'>
-                <p>관리자</p>
-                <ul>
-                    <li>아이디</li>
-                    <li>| hyoyoung123@naver.com</li>
-                </ul>
-                <ul>
-                    <li>비밀번호</li>
-                    <li>| 0000</li>
-                </ul>
-            </div>
             <div id='login'>
                 <form onSubmit={onSubmit}>
                     <LoginTable>

@@ -67,16 +67,23 @@
         padding: 8px 10px;
         outline: none;
         border: none;
-        margin-left: 20px;
+        position: absolute;
+        bottom: 10%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         cursor: pointer;
     }
 
     input {
-        width: 76%;
-        margin-bottom: 50px;
 
         &:nth-child(1) {
-            margin-right: 10px;
+            width: 100%;
+            margin-bottom: -20px;
+        }
+
+        &:nth-child(2) {
+            width: 100%;
+            margin-bottom: 100px;
         }
     }
 }
@@ -227,30 +234,27 @@
     }
 }
 
-#ceo {
-    width: 300px;
-    text-align: left;
+#postBtn {
+    background-color: #001489;
+    position: absolute;
+    top: -200px;
+    right: -460px;
+    transform: translate(-50%, -50%);
+    z-index: 101;
+    color: #fff;
+    width: 80px;
+    height: 40px;
+    line-height: 2;
 
-    p {
-        &:first-child {
-            background-color: #001489;
-            color: #fff;
-            padding: 5px;
-        }
+    &:hover {
+        background-color: #001350;
     }
+}
 
-    ul {
-        display: flex;
-
-        li {
-            &:first-child {
-                width: 30%;
-                padding-left: 5px;
-            }
-
-            &:last-child {
-                width: 70%;
-            }
-        }
-    }
+#postCodeStyle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
 }

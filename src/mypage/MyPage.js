@@ -9,6 +9,7 @@ import MyCommet from './component/MyCommet';
 import Basket from './component/Basket';
 import EditCus from './component/EditCus';
 import List from './component/List';
+import Answer from './component/Answer';
 
 const MyPage = () => {
 
@@ -31,6 +32,12 @@ const MyPage = () => {
                     <Bottom email={email}/>
                     <MyCommet email={email}/>
                 </div>
+                {
+                    email === 'hyoyoung123@naver.com' &&
+                    <div>
+                        <Answer />
+                    </div>
+                }
             </div>
         </div>
     );
