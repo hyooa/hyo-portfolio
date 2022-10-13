@@ -80,7 +80,7 @@ const ContactUs = () => {
                 </div>
                 <div id='search'>
                     <form>
-                        <input placeholder='검색하기' value={search} onChange={onChange}></input>
+                        <input placeholder='검색하기 (제목과 내용으로 검색 가능)' value={search} onChange={onChange}></input>
                         <span><BsSearch size='20'></BsSearch></span>
                     </form>
                 </div>
