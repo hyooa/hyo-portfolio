@@ -4,8 +4,8 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { API_URL } from '../../config/contansts';
 import { getMyEdit, getMyPage } from '../../modules/mypage';
-import PopupDom from '../../login/PopupDom';
-import PopupPostCode from '../../login/PopupPostCode';
+import PopupDom from './PopupDom';
+import PopupPostCode from './PopupPostCode';
 
 const EditCus = ({ email }) => {
 

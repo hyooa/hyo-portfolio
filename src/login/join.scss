@@ -86,6 +86,22 @@
             margin-bottom: 100px;
         }
     }
+
+    #postBtn {
+        background-color: #001489;
+        position: absolute;
+        top: -140px;
+        right: -500px;
+        transform: translate(-50%, -50%);
+        z-index: 101;
+        color: #fff;
+        width: 80px;
+        height: 40px;
+
+        &:hover {
+            background-color: #001350;
+        }
+    }
 }
 
 #joinBox {
@@ -231,23 +247,6 @@
             left: 50%;
             transform: translate(-50%, -50%);
         }
-    }
-}
-
-#postBtn {
-    background-color: #001489;
-    position: absolute;
-    top: -200px;
-    right: -460px;
-    transform: translate(-50%, -50%);
-    z-index: 101;
-    color: #fff;
-    width: 80px;
-    height: 40px;
-    line-height: 2;
-
-    &:hover {
-        background-color: #001350;
     }
 }
 

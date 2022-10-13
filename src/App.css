@@ -129,9 +129,7 @@ header li {
     line-height: 1.3;
 }
 #toggle li:hover {
-    /* font-size: 100px; */
     text-decoration :  40px rgba(255, 255, 0, 0.637) line-through;
-    /* transition: 1s; */
 }
 /* 메뉴 닫기 */
 #menu_toggle #close {

@@ -450,16 +450,30 @@
                     padding-bottom: 70px;
                 }
 
-                span {
+                td > span {
                     background-color: #001350;
                     color: #fff;
                     padding: 4px 5px;
                     cursor: pointer;
-                    // margin-top: 20px;
                     position: absolute;
                     bottom: 0;
                     left: 50%;
                     transform: translate(-50%, -50%);
+                }
+                #postBtn {
+                    background-color: #001489;
+                    position: absolute;
+                    top: -220px;
+                    right: -110px;
+                    transform: translate(-50%, -50%);
+                    z-index: 101;
+                    color: #fff;
+                    width: 80px;
+                    height: 40px;
+                    line-height: 2.3;
+                    &:hover {
+                        background-color: #001350;
+                    }
                 }
             }
         }
