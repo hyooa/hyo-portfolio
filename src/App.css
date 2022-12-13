@@ -15,16 +15,19 @@
     height: 18px;
     background-color: #0123B4;
 }
+
 .App *::selection {
     background: #FCF594;
     color: #222;
-  }
+}
+
 * {
     padding: 0;
     margin: 0 auto;
     box-sizing: border-box;
     color: #222;
 }
+
 body {
     background-color: #e6e2dd;
     overflow-x: hidden;
@@ -48,12 +51,14 @@ body::-webkit-scrollbar-track {
 li {
     list-style: none;
 }
+
 a {
     text-decoration: none;
     color: inherit;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@800&display=swap');
+
 header li {
     font-family: 'Noto Sans', sans-serif;
 }
@@ -65,19 +70,22 @@ header li {
     top: 30px;
     left: 30px;
 }
-#menu span{
+
+#menu span {
     display: flex;
     background-color: #222;
     width: 40px;
     height: 4px;
     margin-bottom: 5px;
 }
+
 #menu p {
     font-size: 14px;
     text-align: center;
     opacity: 0;
     transition: 0.3s;
 }
+
 #menu p::after {
     content: "";
     display: block;
@@ -86,10 +94,12 @@ header li {
     background-color: #222;
     transition: 0.5s;
 }
+
 #menu:hover p {
     opacity: 1;
     transition: 0.3s;
 }
+
 #menu:hover p::after {
     width: 100%;
     transition: 0.8s;
@@ -102,23 +112,26 @@ header li {
     left: -200%;
     width: 100%;
     height: 100vh;
-    background-color: #001350 ;
+    background-color: #001350;
     /* background-color: #001489; */
     z-index: 20;
     transition: 1s;
 }
-#menu_toggle.popup{
+
+#menu_toggle.popup {
     transition: 1s;
     left: 0;
 }
+
 #toggle {
     position: absolute;
     padding: 5% 0;
     top: 50%;
     right: -10%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     z-index: 50;
 }
+
 #toggle li {
     color: #fff;
     font-size: 100px;
@@ -128,21 +141,25 @@ header li {
     position: relative;
     line-height: 1.3;
 }
+
 #toggle li:hover {
-    text-decoration :  40px rgba(255, 255, 0, 0.637) line-through;
+    text-decoration: 40px rgba(255, 255, 0, 0.637) line-through;
 }
+
 /* 메뉴 닫기 */
 #menu_toggle #close {
     position: absolute;
     top: 30px;
     left: 30px;
 }
+
 #menu_toggle p {
     font-size: 14px;
     text-align: center;
     color: #fff;
 }
-#menu_toggle span{
+
+#menu_toggle span {
     display: flex;
     background-color: #fff;
     width: 40px;
@@ -150,18 +167,22 @@ header li {
     margin-bottom: 5px;
     transition: 0.5s;
 }
+
 #menu_toggle div:hover span:nth-child(1) {
     transform: rotate(45deg) translate(6px, 7px);
     transition: 0.5s;
 }
+
 #menu_toggle div:hover span:nth-child(2) {
     opacity: 0;
     transition: 0.5s;
 }
+
 #menu_toggle div:hover span:nth-child(3) {
     transform: rotate(-45deg) translate(5px, -7px);
     transition: 0.5s;
 }
+
 /* 메뉴 로고 */
 #menu_logo {
     position: absolute;
@@ -169,10 +190,12 @@ header li {
     left: 0;
     transform: translate(100%, 25%);
 }
+
 #menu_logo img {
     width: 300%;
     opacity: 0.1;
 }
+
 /* 메뉴 왼쪾 */
 #menu_left {
     position: absolute;
@@ -180,10 +203,12 @@ header li {
     left: 20%;
     transform: translate(-50%, -50%);
 }
+
 #menu_left p {
     text-align: left;
     font-size: 12px;
 }
+
 #menu_left select {
     outline: none;
     border: none;
@@ -191,38 +216,43 @@ header li {
     background: none;
     border-bottom: 1px solid #fff;
 }
-#menu_left > div {
+
+#menu_left>div {
     display: flex;
     margin-bottom: 30px;
 }
-#menu_icon ul{
+
+#menu_icon ul {
     display: flex;
 }
+
 #menu_icon ul li {
     padding-right: 20px;
     color: #333;
     line-height: 0.5;
 }
+
 #menu_icon ul li:hover {
     color: #fff;
     transition: 0.3s;
 }
+
 /* 아이콘 색 넣기위해 */
-svg, path {
+svg,
+path {
     color: inherit;
 }
 
 #flex {
     display: flex;
 }
-#flex > p {
+
+#flex>p {
     font-size: 90px;
     font-weight: bold;
     padding: 0 20px;
 }
 
 @media screen and (max-width : 414px) {
-    body {
-        
-    }
+    body {}
 }
