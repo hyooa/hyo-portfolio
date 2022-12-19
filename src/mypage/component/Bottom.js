@@ -27,7 +27,8 @@ const Bottom = ({ email }) => {
     useEffect(() => {
         dispatch(getMyCon(email))
     }, [dispatch, email])
-    if (loading) return <div>로딩중</div>;
+    
+    if (loading) return;
     if (error) return <div>에러</div>;
     if (!data) return <div>값 없음</div>;
 

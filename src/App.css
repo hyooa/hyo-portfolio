@@ -109,18 +109,22 @@ header li {
 #menu_toggle {
     position: fixed;
     top: 0;
-    left: -200%;
+    left: -100%;
     width: 100%;
+    min-width: 1400px;
     height: 100vh;
     background-color: #001350;
-    /* background-color: #001489; */
     z-index: 20;
-    transition: 1s;
+    /* transition: 0.3s;
+    opacity: 0; */
+    display: none;
 }
 
 #menu_toggle.popup {
-    transition: 1s;
+    /* transition: 0.5s; */
     left: 0;
+    /* opacity: 1; */
+    display: block;
 }
 
 #toggle {

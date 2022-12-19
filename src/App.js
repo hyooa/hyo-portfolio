@@ -1,4 +1,4 @@
-import React, {useRef, useEffect} from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import './App.css';
 import Header from './include/Header';
@@ -18,19 +18,33 @@ import { setLogin } from './modules/logincookie';
 import Suhan from './suhan/Suhan';
 import Comment from './suhan/playerMore/Comment';
 import LeftToggle from './match/component/LeftToggle';
+import axios from 'axios';
+import Loading from './loading/Loading';
 
 function App() {
-// 마우스 커서 start
-const dot = useRef(null);
 
-const cursorVisible = useRef(true);
-const cursorEnlarged = useRef(false);
 
-const endX = useRef(window.innerWidth / 2);
-const endY = useRef(window.innerHeight / 2);
-const requestRef = useRef(null);
+  // 로딩 스피너
+  const [loading, setLoading] = useState(true);
 
-useEffect(() => {
+  useEffect(() => {
+    axios.get('https://hyoyoung-portfolio.vercel.app/')
+      .then(res => {
+        setLoading(false);
+      })
+  }, []);
+
+  // 마우스 커서 start
+  const dot = useRef(null);
+
+  const cursorVisible = useRef(true);
+  const cursorEnlarged = useRef(false);
+
+  const endX = useRef(window.innerWidth / 2);
+  const endY = useRef(window.innerHeight / 2);
+  const requestRef = useRef(null);
+
+  useEffect(() => {
     document.addEventListener('mousedown', mouseOutEvent);
     document.addEventListener('mouseup', mouseOutEvent);
     document.addEventListener('mousemove', mouseMoveEvent);
@@ -38,48 +52,48 @@ useEffect(() => {
     document.addEventListener('mouseleave', mouseLeaveEvent);
 
     return () => {
-        document.removeEventListener('mousedown', mouseOverEvent);
-        document.removeEventListener('mouseup', mouseOutEvent);
-        document.removeEventListener('mousemove', mouseMoveEvent);
-        document.removeEventListener('mouseenter', mouseEnterEvent);
-        document.removeEventListener('mouseleave', mouseLeaveEvent);
-        cancelAnimationFrame(requestRef.current);
-      }
-}, []);
-
-const toggleCursorVisiblility = () => { // 화면 밖으로 나가면 사라짐
-    if (cursorVisible.current) {
-        dot.current.style.opacity = 1;
-    } else {
-        dot.current.style.opacity = 0;
+      document.removeEventListener('mousedown', mouseOverEvent);
+      document.removeEventListener('mouseup', mouseOutEvent);
+      document.removeEventListener('mousemove', mouseMoveEvent);
+      document.removeEventListener('mouseenter', mouseEnterEvent);
+      document.removeEventListener('mouseleave', mouseLeaveEvent);
+      cancelAnimationFrame(requestRef.current);
     }
-}
-// const toggleCursorSize = () => { // 커서 사이즈
-//     if (cursorEnlarged.current) {
-//         dot.current.style.transform = 'scale(1)';
-//     } else {
-//         dot.current.style.transform = 'scale(1)';
-//     }
-// }
+  }, []);
 
-const mouseOverEvent = () => {
+  const toggleCursorVisiblility = () => { // 화면 밖으로 나가면 사라짐
+    if (cursorVisible.current) {
+      dot.current.style.opacity = 1;
+    } else {
+      dot.current.style.opacity = 0;
+    }
+  }
+  // const toggleCursorSize = () => { // 커서 사이즈
+  //     if (cursorEnlarged.current) {
+  //         dot.current.style.transform = 'scale(1)';
+  //     } else {
+  //         dot.current.style.transform = 'scale(1)';
+  //     }
+  // }
+
+  const mouseOverEvent = () => {
     cursorEnlarged.current = true;
     // toggleCursorSize();
-}
-const mouseOutEvent = () => {
+  }
+  const mouseOutEvent = () => {
     cursorEnlarged.current = false;
     // toggleCursorSize();
-}
-const mouseEnterEvent = () => {
+  }
+  const mouseEnterEvent = () => {
     cursorVisible.current = true;
     toggleCursorVisiblility();
-}
-const mouseLeaveEvent = () => {
+  }
+  const mouseLeaveEvent = () => {
     cursorVisible.current = false;
     toggleCursorVisiblility();
-}
+  }
 
-const mouseMoveEvent = (e) => { // MoveEvent
+  const mouseMoveEvent = (e) => { // MoveEvent
     cursorVisible.current = true;
     toggleCursorVisiblility();
 
@@ -88,21 +102,22 @@ const mouseMoveEvent = (e) => { // MoveEvent
 
     dot.current.style.left = endX.current + 'px';
     dot.current.style.top = endY.current + 'px';
-}
-
-// 마우스 커서 end
-
-// 페이지 전환시 로그아웃 되지 않도록
-const dispatch = useDispatch();
-const uname = getCookie('username');
-useEffect(() => {
-  if(uname) {
-    dispatch(setLogin())
   }
-}, [])
+
+  // 마우스 커서 end
+
+  // 페이지 전환시 로그아웃 되지 않도록
+  const dispatch = useDispatch();
+  const uname = getCookie('username');
+  useEffect(() => {
+    if (uname) {
+      dispatch(setLogin())
+    }
+  }, [])
 
   return (
     <div className="App">
+      {loading ? <Loading /> : null}
       <div ref={dot} className='cursor'></div>
       <Header></Header>
       <Routes>

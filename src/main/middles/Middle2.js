@@ -110,15 +110,10 @@ const Middle2 = () => {
                         <li className='item'>
                             <div className='link'>
                                 <div>
-                                    {/* <video>
-                                        <source width='100' height='100' src='https://www.youtube.com/embed/3kuwJC5H798' type='video/webm'></source>
-                                    </video> */}
                                     <embed
-                                        // width='100' height='100' 
                                         src='https://www.youtube.com/embed/3kuwJC5H798' 
                                         type='video/webm'>
                                     </embed>
-                                    {/* <img src='./image/logo.png' alt=''></img> */}
                                 </div>
                                 <h4>08. 02</h4>
                                 <p>

@@ -27,7 +27,7 @@ const FanText = ({ playerDate }) => {
     }, [dispatch, name])
     // console.log(data);
     // console.log(name);
-    if (loading) return <div>로딩중</div>;
+    if (loading) return;
     if (error) return <div>에러</div>;
     if (!data) return <div>값 없음</div>;
     // console.log(data);

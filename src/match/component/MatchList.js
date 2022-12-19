@@ -10,14 +10,6 @@ const MatchList = ({state}) => {
         document.querySelector('#leftToggle').classList.toggle('popup');
     }
 
-    // useEffect(()=>{
-    //     if(click){
-    //         document.querySelector('#leftToggle').classList.toggle('popup');
-    //     }
-    // },[click])
-
-    // console.log(click);
-
     const CK = state.filter(match => match.no);
     // console.log(CK.length);
 

@@ -6,28 +6,40 @@ import MatchList from './component/MatchList';
 
 const Match = () => {
 
-        const [list , setList] = useState("August");
-        const onClick = (e) => {
-            // console.log(e.target);
-            setList(e.target.className);
-        }
-        // console.log(list);
+    const [list, setList] = useState("August");
+    const onClick = (e) => {
+        // console.log(e.target);
+        setList(e.target.className);
+        
+        const color = document.querySelectorAll('#color')
+        color.forEach(function (re, i) {
+            if (e.currentTarget === re) {
+                re.classList.add('on')
+            } else {
+                re.classList.remove('on')
+            }
+        })
+    }
+    // console.log(list);
 
-    const { data, loading, error } = useSelector(state=>state.myTicket.ticket)
+    const onClick2 = (e) => {
+    }
+
+    const { data, loading, error } = useSelector(state => state.myTicket.ticket)
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(getTicket())
     }, [dispatch])
 
-    if(loading) return <div>로딩중</div>;
-    if(error) return <div>에러</div>;
-    if(!data) return <div>값 없음</div>;
+    if (loading) return;
+    if (error) return <div>에러</div>;
+    if (!data) return <div>값 없음</div>;
     // console.log(data);
 
     const month = [...new Set(data.map(match => match.month))]
     // console.log(month);
-    
-    const select = data.filter(month=>month.month===list)
+
+    const select = data.filter(month => month.month === list)
     // console.log(select);
     // console.log(data[select].awayname);
 
@@ -40,14 +52,13 @@ const Match = () => {
                     <ul>
                         {month.map((month) => (
                             <li>
-                                <p onClick={onClick} className={`${month}`}>{month}</p>
-                                <p></p>
+                                <p onClick={onClick} id='color' className={`${month}`}>{month}</p>
                             </li>
                         )
                         )}
                     </ul>
                 </div>
-                <MatchList state={select}/>
+                <MatchList state={select} />
             </div>
         </div>
     );

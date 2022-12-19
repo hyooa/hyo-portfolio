@@ -19,6 +19,7 @@
         width: 60%;
         text-align: center;
         height: 100%;
+        min-width: 800px;
         #one {
             content: "";
             display: block;
@@ -88,6 +89,7 @@
         top: 0;
         right: 0;
         width: 40%;
+        min-width: 600px;
     }
     ul {
         margin: 50px 0;
@@ -99,16 +101,16 @@
             font-weight: 900;
             transition: 0.3s;
             color: #fff;
+            cursor: pointer;
             &:hover {
+                font-size: 60px;
+                transition: 0.3s ease-in-out;
+            }
+            &.on {
                 font-size: 60px;
                 transition: 0.3s ease-in-out;
                 text-decoration: 30px rgba(255, 255, 0, 0.709) line-through;
             }
-            // &.color {
-            //     font-size: 60px;
-            //     transition: 0.3s ease-in-out;
-            //     text-decoration: 30px rgba(255, 255, 0, 0.709) line-through;
-            // }
         }
     }
 }

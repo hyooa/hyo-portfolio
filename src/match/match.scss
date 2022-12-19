@@ -1,6 +1,8 @@
 #fixtures {
     max-width: 1400px;
+    min-width: 1400px;
     margin-bottom: 200px;
+
     >img {
         opacity: 0.1;
         position: fixed;
@@ -8,16 +10,19 @@
         left: 0;
         width: 49%;
     }
+
     h1 {
         font-size: 140px;
         padding: 80px 0;
     }
-    > #center {
+
+    >#center {
         background-color: #eee;
         position: relative;
         border-radius: 16px;
         box-shadow: 5px 5px 4px #ccc;
     }
+
     #month {
         ul {
             background-color: #eee;
@@ -30,55 +35,30 @@
             top: 0;
             left: 50%;
             transform: translate(-50%, -50%);
+
             li {
-                padding: 15px 50px;
                 border-radius: 30px;
                 position: relative;
-                // &:hover{
-                //     background-color: #ccc;
-                //     box-shadow: 2px 2px 2px #999;
-                // }
-                &.bgcolor p:nth-child(2){
-                    z-index: 1;
-                    position: absolute;
-                    top: 13px;
-                    left: 10px;
-                    background-color: rgba(255, 255, 0, 0.678);
-                    width: 90%;
-                    height: 30px;
-                    transform: skewY(-5deg);
-                    transition: 0.3s;
+                cursor: pointer;
+
+                p {
+                    border-radius: 30px;
+                    line-height: 2;
+                    padding: 10px 50px;
                 }
-                // &:hover p:nth-child(2){
-                //     opacity: 1;
-                //     transition: 0.3s;
-                // }
-                p:nth-child(1) {
-                    position: relative;
-                    z-index: 10;
+
+                p.on {
+                    background-color: #ccc;
+                    box-shadow: 2px 2px 2px #999;
                 }
-                // p:nth-child(2) {
-                //     z-index: 1;
-                //     position: absolute;
-                //     top: 13px;
-                //     left: 10px;
-                //     // background-color: #0230c763;
-                //     background-color: rgba(255, 255, 0, 0.678);
-                //     width: 90%;
-                //     height: 30px;
-                //     transform: skewY(-5deg);
-                //     opacity: 0;
-                //     transition: 0.3s;
-                // }
-                // p:nth-child(2).color {
-                //     background-color: rgba(255, 255, 0, 0.678);
-                // }
             }
         }
     }
+
     #matchList {
         padding: 200px 0 100px;
         font-size: 24px;
+
         #matchTeam {
             position: relative;
             display: flex;
@@ -87,21 +67,27 @@
             width: 1000px;
             // height: 230px;
             margin-bottom: 50px;
+
             >div:nth-child(2) {
                 width: 30%;
             }
+
             >div:nth-child(3) {
                 width: 20%;
             }
+
             >div:nth-child(4) {
                 width: 30%;
             }
+
             img {
                 width: 110px;
                 height: 110px;
             }
+
             .time {
                 position: relative;
+
                 >div {
                     &:nth-child(1) {
                         width: 100px;
@@ -114,6 +100,7 @@
                         line-height: 1.8;
                         text-align: center;
                     }
+
                     &:nth-child(2) {
                         width: 100%;
                         position: absolute;
@@ -121,7 +108,8 @@
                         left: 50%;
                         transform: translate(-50%, -50%);
                         font-size: 14px;
-                        >div{
+
+                        >div {
                             color: #fff;
                             text-align: center;
                         }
@@ -129,10 +117,12 @@
                 }
 
             }
+
             .text {
                 display: flex;
                 align-items: center;
-                > div {
+
+                >div {
                     padding: 0 30px;
                     color: #fff;
                     font-weight: bold;
@@ -141,6 +131,7 @@
         }
     }
 }
+
 #ticket {
     position: absolute;
     top: 10px;
@@ -150,31 +141,37 @@
     padding: 5px 10px;
     font-size: 14px;
     font-weight: 900;
+
     &:hover {
         color: #222;
         background-color: yellow;
     }
 }
+
 #league {
-    img{
+    img {
         vertical-align: middle;
     }
+
     span {
         color: #3F1052;
     }
+
     position: absolute;
     top: 100px;
     left: 150px;
     font-weight: bold;
     font-size: 30px;
 }
-#center > #number {
+
+#center>#number {
     p {
         position: absolute;
         top: 120px;
         right: 200px;
         font-size: 12px;
         font-weight: normal;
+
         span {
             font-weight: bold;
             font-size: 16px;
@@ -192,86 +189,103 @@
     z-index: 100;
     transition: 1s;
     overflow-y: scroll;
+
     &::-webkit-scrollbar {
         width: 10px;
     }
-    
+
     &::-webkit-scrollbar-thumb {
         background: #001350;
         border-radius: 10px;
     }
-    
+
     &::-webkit-scrollbar-track {
         background: rgba(33, 122, 244, .1);
     }
+
     &.popup {
         right: 0;
         transition: 1s;
     }
-    > #toggleSpan {
+
+    >#toggleSpan {
         position: absolute;
         top: 25px;
         left: 20px;
         width: 50px;
         height: 30px;
         cursor: pointer;
+
         &:hover p {
-           opacity: 1;
-           transition: 0.3s;
-           margin-top: 15px;
+            opacity: 1;
+            transition: 0.3s;
+            margin-top: 15px;
         }
+
         p {
             margin-top: 10px;
             margin-left: 6px;
             opacity: 0;
             transition: 0.3s;
         }
+
         span {
             display: flex;
             width: 40px;
             height: 5px;
             border-radius: 30px;
             background-color: #222;
+
             &:nth-child(1) {
                 transform: rotate(45deg) translate(6px, 7px);
             }
+
             &:nth-child(2) {
                 transform: rotate(-45deg) translate(-4px, 2px);
             }
         }
     }
-    > #matchBox {
+
+    >#matchBox {
         width: 400px;
     }
+
     #topText {
         >h2 {
             font-size: 90px;
             text-align: center;
             margin: 50px auto 20px;
         }
+
         >div {
             border-bottom: 1px solid #ccc;
             margin: 30px auto;
             padding-bottom: 20px;
             line-height: 1.6;
+
             h3 {
                 font-size: 24px;
                 color: #001489;
             }
+
             p:nth-child(2) {
                 color: #3F1052;
                 font-weight: bold;
             }
+
             p:nth-child(3) {
                 font-size: 12px;
             }
         }
     }
+
     #info {
         margin-bottom: 70px;
+
         p {
             font-size: 12px;
             padding-bottom: 5px;
+
             span {
                 color: red;
                 vertical-align: middle;
@@ -279,9 +293,11 @@
                 padding-right: 5px;
             }
         }
+
         ul {
             margin-top: 10px;
         }
+
         li {
             line-height: 1.6;
             font-size: 18px;
@@ -289,6 +305,7 @@
             padding-left: 50px;
             position: relative;
         }
+
         li::after {
             content: "";
             display: block;
@@ -300,15 +317,19 @@
             left: 13px;
         }
     }
+
     #buy {
         text-align: right;
         margin-bottom: 50px;
+
         p {
             padding-right: 20px;
             line-height: 1.6;
+
             span {
                 padding-left: 10px;
             }
+
             select {
                 margin-left: 10px;
                 border: none;
@@ -318,6 +339,7 @@
                 text-align: right;
             }
         }
+
         p:nth-child(3) {
             margin-top: 10px;
             padding-top: 10px;
@@ -325,17 +347,20 @@
             font-size: 18px;
         }
     }
-    #matchBox > #btn {
+
+    #matchBox>#btn {
         text-align: center;
         display: flex;
         width: 300px;
         position: relative;
         margin-bottom: 100px;
+
         div {
             width: 100%;
             display: flex;
             flex-direction: column;
             position: relative;
+
             >span {
                 width: 100%;
                 position: absolute;
@@ -344,19 +369,22 @@
                 transform: translate(-50%, -50%);
                 color: #fff;
                 transition: 1s;
-                -webkit-user-select:none;
-                -moz-user-select:none;
-                -ms-user-select:none;
-                user-select:none
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none
             }
+
             &:hover span {
                 top: 24px;
                 transition: 1s;
             }
+
             &:hover button span {
                 top: 80px;
                 transition: 1s;
             }
+
             button {
                 background-color: #001489;
                 outline: none;
@@ -365,6 +393,7 @@
                 height: 50px;
                 font-size: 16px;
                 cursor: pointer;
+
                 span {
                     width: 100%;
                     position: absolute;
@@ -374,15 +403,17 @@
                     color: #fff;
                     transition: 1s;
                 }
-                &:hover {    
+
+                &:hover {
                     transition: 0.3s;
                     background-color: #001350;
                 }
             }
         }
-        
+
     }
 }
+
 #matchLogin {
     background-color: #001350;
     color: #fff;

@@ -11,6 +11,16 @@ const Suhan = () => {
     const onClick = (e)=>{
         // console.log(e.target.className);
         setPlayer(e.target.className) //클릭하면 선수이름을 player라는 변수에 담아줌
+
+        
+        const color = document.querySelectorAll('#color')
+        color.forEach(function (re, i) {
+            if (e.currentTarget === re) {
+                re.classList.add('on')
+            } else {
+                re.classList.remove('on')
+            }
+        })
     }
     // console.log(player);
 
@@ -21,9 +31,9 @@ const Suhan = () => {
         dispatch(getAa())
     }, [dispatch])
     
-    if(loading) return <div>로딩중</div>;
-    if(error) return <div>에러</div>;
-    if(!data) return <div>값 없음</div>;
+    if (loading) return;
+    if (error) return <div>에러</div>;
+    if (!data) return <div>값 없음</div>;
     
     // console.log(data);
 
@@ -37,7 +47,7 @@ const Suhan = () => {
             <div id='player_right'>
                 {name.map((name) => 
                     <ul id='name'>
-                        <li onClick={onClick} className={`${name}`}>{name}</li>
+                        <li id='color' onClick={onClick} className={`${name}`}>{name}</li>
                         <img src='' alt=''></img>
                     </ul>
                 )}
