@@ -28,7 +28,7 @@ const LeftToggle = ({ state }) => {
 
         // 주소-좌표 변환 객체를 생성합니다.
         const geocoder = new kakao.maps.services.Geocoder();
-        geocoder.addressSearch("서울특별시 중구 세종대로 110", function (result, status) {
+        geocoder.addressSearch("서울특별시 마포구 월드컵로 240", function (result, status) {
             // 정상적으로 검색이 완료됐으면 
             if (status === kakao.maps.services.Status.OK) {
 
