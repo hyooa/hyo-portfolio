@@ -129,64 +129,72 @@ const ContactUs = () => {
                             </div>
                     }
                     )}
-                    {data.filter((data) =>
-                        data.title.toLowerCase().includes(search) ||
-                        data.content.toLowerCase().includes(search)
-                    ).map((data, index) => {
-                            const originDate = data.date.slice(0, 10);
-                            const date2 = new Date(originDate);
-                            date2.setDate(date2.getDate() + 1);
-                            const settingDate = date2.toLocaleDateString();
 
-                            if (data.usermail !== 'hyoyoung123@naver.com')
-                                return <div id='tableDiv' key={index}>
-                                    <ul>
-                                        <li>{index}</li>
-                                        {(data.secret !== '비밀글' || userDate === data.usermail || userDate === 'hyoyoung123@naver.com') &&
-                                            <>
-                                                <li onClick={tableToggle} className={data.no}>{data.title}</li>
-                                                <li>{data.username}</li>
-                                            </>
-                                        }
-                                        {(data.secret === '비밀글' && userDate !== data.usermail && userDate !== 'hyoyoung123@naver.com') &&
-                                            <>
-                                                <li onClick={tableToggle} className={data.no}>비밀글입니다.</li>
-                                                <li>비공개</li>
-                                            </>
-                                        }
-                                        <li>{settingDate}</li>
-                                        <li></li>
-                                        <li>{data.secret}</li>
-                                        {data.answer === null ? <li>X</li> : <li>O</li>}
-                                        {
-                                            (userDate === data.usermail || userDate === 'hyoyoung123@naver.com') &&
-                                            <li className='remove'><button onClick={onDelete} className={`${data.no}`}>삭제</button></li>
-                                        }
-                                        {userDate !== data.usermail && userDate !== 'hyoyoung123@naver.com' && <li></li>}
-                                    </ul>
-                                    {data.no === isOpen && (data.secret !== '비밀글' || userDate === data.usermail || userDate === 'hyoyoung123@naver.com') &&
-                                        <div>
-                                            <ul id='question'>
-                                                <li>{data.content}</li>
-                                            </ul>
-                                            <ul id='answer'>
-                                                <li>관리자</li>
-                                                {
-                                                    userDate === 'hyoyoung123@naver.com' &&
-                                                    (data.answer === null ?
-                                                        <Answer data={data}></Answer>
-                                                        : <li>{data.answer}</li>)
-                                                }
-                                                {
-                                                    userDate !== 'hyoyoung123@naver.com' &&
-                                                    (data.answer === null ? <li>아직 답변이 등록되지 않았습니다.</li> : <li>{data.answer}</li>)
-                                                }
-                                            </ul>
-                                        </div>
+                    {data.filter((data) =>
+                            data.title.toLowerCase().includes(search) ||
+                            data.content.toLowerCase().includes(search)
+                    ).map((data, index) => {
+                        const originDate = data.date.slice(0, 10);
+                        const date2 = new Date(originDate);
+                        date2.setDate(date2.getDate() + 1);
+                        const settingDate = date2.toLocaleDateString();
+
+                        if (data.usermail !== 'hyoyoung123@naver.com')
+                            return <div id='tableDiv' key={index}>
+                                <ul>
+                                    <li>{index}</li>
+                                    {/* 관리자 O */}
+                                    {(data.secret !== '비밀글' || userDate === data.usermail || userDate === 'hyoyoung123@naver.com') &&
+                                        <>
+                                            <li onClick={tableToggle} className={data.no}>{data.title}</li>
+                                            <li>{data.username}</li>
+                                        </>
                                     }
-                                </div>
-                        }
-                        )}
+                                    {/* 관리자 X */}
+                                    {(data.secret === '비밀글' && userDate !== data.usermail && userDate !== 'hyoyoung123@naver.com') &&
+                                        <>
+                                            <li onClick={tableToggle} className={data.no}>비밀글입니다.</li>
+                                            <li>비공개</li>
+                                        </>
+                                    }
+                                    <li>{settingDate}</li>
+                                    <li></li>
+                                    <li>{data.secret}</li>
+                                    {data.answer === null ? <li>X</li> : <li>O</li>}
+                                    {/* 관리자일때 */}
+                                    {
+                                        (userDate === data.usermail || userDate === 'hyoyoung123@naver.com') &&
+                                        <li className='remove'><button onClick={onDelete} className={`${data.no}`}>삭제</button></li>
+                                    }
+
+                                    {/* 관리자 X */}
+                                    {userDate !== data.usermail && userDate !== 'hyoyoung123@naver.com' && <li></li>}
+                                </ul>
+
+                                {/* 공개글만 오픈 */}
+                                {data.no === isOpen && (data.secret !== '비밀글' || userDate === data.usermail || userDate === 'hyoyoung123@naver.com') &&
+                                    <div>
+                                        <ul id='question'>
+                                            <li>{data.content}</li>
+                                        </ul>
+                                        <ul id='answer'>
+                                            <li>관리자</li>
+                                            {
+                                                userDate === 'hyoyoung123@naver.com' &&
+                                                (data.answer === null ?
+                                                    <Answer data={data}></Answer>
+                                                    : <li>{data.answer}</li>)
+                                            }
+                                            {
+                                                userDate !== 'hyoyoung123@naver.com' &&
+                                                (data.answer === null ? <li>아직 답변이 등록되지 않았습니다.</li> : <li>{data.answer}</li>)
+                                            }
+                                        </ul>
+                                    </div>
+                                }
+                            </div>
+                    }
+                    )}
                 </div>
                 {(getCookie("usermail")) ?
                     <Input /> : <a href='/login'><div className='conLogin'>로그인</div></a>

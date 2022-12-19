@@ -86,6 +86,20 @@ const LoginBtn = styled.div`
     }
 `;
 
+const Test = styled.div`
+    padding: 10px 0;
+    width : 300px;
+    border : 1px solid #ccc;
+    position: absolute;
+    bottom: 20px;
+    right: 50px;
+    ul {
+        padding-top:5px;
+        text-align:left;
+        padding-left:30px;
+    }
+`;
+
 const Login = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -172,6 +186,13 @@ const Login = () => {
                     </LoginBtn>
                 </form>
             </div>
+            <Test>
+                <div>[ 관리자 계정 ]</div>
+                <ul>
+                    <li>Email : hyoyoung123@naver.com</li>
+                    <li>Password : 0000</li>
+                </ul>
+            </Test>
         </LoginStyled>
     );
 };

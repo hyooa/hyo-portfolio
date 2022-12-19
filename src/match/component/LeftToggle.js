@@ -108,6 +108,7 @@ const LeftToggle = ({ state }) => {
                         <Link to={'/mypage'}>
                             <div>
                                 <button><span>구매하기</span></button>
+                                {/* <button>구매하기</button> */}
                                 <span>구매하기</span>
                             </div></Link>
                     </div>
