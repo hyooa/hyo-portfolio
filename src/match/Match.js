@@ -22,9 +22,6 @@ const Match = () => {
     }
     // console.log(list);
 
-    const onClick2 = (e) => {
-    }
-
     const { data, loading, error } = useSelector(state => state.myTicket.ticket)
     const dispatch = useDispatch();
     useEffect(() => {
