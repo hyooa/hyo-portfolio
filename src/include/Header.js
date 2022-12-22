@@ -17,7 +17,6 @@ import { API_URL } from "../config/contansts";
 const Header = () => {
     const dispatch = useDispatch();
     const isLogin = useSelector(state => state.logincookie.isLogin)
-    const id = getCookie('username');
     const email = getCookie("usermail");
     const logoutClick = () => {
         removeCookie('username')
